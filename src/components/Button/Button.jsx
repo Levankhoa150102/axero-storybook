@@ -111,7 +111,6 @@ export const Button = ({
   const { onClick, disabled, style, 'aria-label': ariaLabel, ...otherProps } = props;
 
   return (
-    <>
     <button
       className={classes}
       onClick={handleClick}
@@ -122,9 +121,6 @@ export const Button = ({
       >
       {renderContent()}
     </button>
-      </>
-
-    
   );
 };
 
