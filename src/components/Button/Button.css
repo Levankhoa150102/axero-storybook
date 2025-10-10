@@ -1,0 +1,125 @@
+.btn {
+  font-family: var(--font-family, "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif);
+  font-size: 13.68px;
+  font-weight: 500;
+  letter-spacing: 0.076px;
+  line-height: 20px;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  display: inline-block;
+  color: var(--button-text-color, #1a1a1a);
+  background-color: var(--background-primary, #fff);
+  border: 1px solid var(--border-color-primary, #e0e0e0);
+  border-radius: var(--widget-border-radius, 4px);
+  padding: 4px 12px;
+  height: 30px;
+  box-sizing: border-box;
+  transition: none;
+  outline: none;
+}
+
+.btn:hover,.btn:focus {
+  text-decoration: none;
+  background-position: 0 0;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  background: var(--background-tertiary)
+}
+
+.btn:hover,.btn:focus,.btn:active,.btn.nice-select.open,.btn.active,.btn.disabled,.btn[disabled] {
+  background-color: var(--background-tertiary);
+  color: var(--button-text-color)
+}
+
+.btn--small {
+  font-size: 12px;
+  padding: 3px 10px;
+  height: 26px;
+}
+
+.btn--large {
+  font-size: 15px;
+  padding: 6px 16px;
+  height: 36px;
+}
+
+/* Icon styles */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-icon--prefix {
+  margin-right: 6px;
+}
+
+.btn-icon--suffix {
+  margin-left: 6px;
+}
+
+.btn--icon-only {
+  padding: 4px;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn--icon-only.btn--small {
+  width: 26px;
+  height: 26px;
+  padding: 3px;
+}
+
+.btn--icon-only.btn--large {
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+}
+
+/* Processing Button Styles */
+.btn.processing {
+  position: relative;
+  overflow: hidden;
+  background: #51A351 !important;
+  cursor: not-allowed;
+  color: #fff !important;
+  border-color: #51A351 !important;
+}
+
+.btn.processing:hover,
+.btn.processing:focus {
+  background: #51A351 !important;
+  border-color: #51A351 !important;
+}
+
+/* Animated transparent white diagonal stripes */
+.btn.processing::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 0,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%
+  );
+  background-size: 40px 40px;
+  animation: moveStripes 3s linear infinite;
+}
+
+/* Move top-right → bottom-left */
+@keyframes moveStripes {
+  from {
+    background-position: 100% 0%;
+  }
+  to {
+    background-position: 0% 100%;
+  }
+}

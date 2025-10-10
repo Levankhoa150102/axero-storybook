@@ -1,0 +1,81 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import * as CheckboxStories from './Checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+A checkbox is an interactive control that lets users select one or more options from a list. It's perfect for forms, filters, and settings where multiple selections are allowed.
+
+## Examples
+
+### Basic Checkbox with Label
+
+The most common checkbox usage with descriptive text.
+
+<Canvas of={CheckboxStories.Default} />
+
+**Key Props:**
+
+- `label="Check me"` - Text displayed next to the checkbox
+
+### Checkbox Without Label
+
+Use when the context makes the purpose clear (like in tables or compact layouts).
+
+<Canvas of={CheckboxStories.WithoutLabel} />
+
+**Key Props:**
+
+- No label prop - Renders just the checkbox without text
+
+### Disabled Checkbox
+
+Use when the option is temporarily unavailable or restricted.
+
+<Canvas of={CheckboxStories.Disabled} />
+
+**Key Props:**
+
+- `disabled={true}` - Prevents user interaction with the checkbox
+- `label="Disabled option"` - Text displayed next to the disabled checkbox
+
+
+## Styling Architecture
+
+### CSS Classes
+
+The component uses a systematic approach to CSS classes for flexible styling:
+
+#### Container Classes
+
+- `.checkbox-wrapper` - Main container for all checkbox variants
+- `.checkbox-label` - Label wrapper with flexbox layout
+- `.checkbox-label--disabled` - Disabled label styling (muted colors, no interaction)
+
+#### Input Element Classes
+
+- `.checkbox-native` - Hidden native checkbox input (visually hidden but accessible)
+- `.checkbox-input` - Custom checkbox visual container
+- `.checkbox-input--checked` - Checked state styling (blue background with checkmark)
+- `.checkbox-input--indeterminate` - Indeterminate state styling (blue background with dash)
+- `.checkbox-input--disabled` - Disabled checkbox styling (grayed out appearance)
+
+#### Visual Element Classes
+
+- `.checkbox-checkmark` - Container for checkmark or indeterminate mark
+- `.checkbox-check-icon` - SVG checkmark icon
+- `.checkbox-indeterminate-mark` - Horizontal dash for indeterminate state
+
+#### Text Classes
+
+- `.checkbox-text` - Label text styling
+
+### States and Interactions
+
+- **Default**: White background with gray border, no checkmark visible
+- **Checked**: Blue background (#007bff) with white checkmark icon
+- **Indeterminate**: Blue background (#007bff) with white horizontal dash
+- **Disabled**: Gray background (#f5f5f5) with muted border and text
+- **Focus**: Blue outline ring for keyboard navigation accessibility
+- **Hover**: Darker border on unchecked, darker blue on checked states

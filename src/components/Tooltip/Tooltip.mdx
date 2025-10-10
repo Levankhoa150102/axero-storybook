@@ -1,0 +1,36 @@
+import { Canvas, Meta, Story, ArgTypes, Source } from '@storybook/blocks';
+import { Tooltip } from './Tooltip';
+import * as TooltipStories from './Tooltip.stories';
+
+<Meta of={TooltipStories} />
+
+# Tooltip Component
+
+The Tooltip component provides contextual information that appears when users hover over or click on an element. It supports multiple positioning options and trigger methods, making it versatile for various UI scenarios.
+
+## Basic Usage (Hover Trigger)
+
+This is the standard tooltip interaction that appears on hover and disappears when the mouse leaves the trigger element.
+
+<Canvas of={TooltipStories.Default} />
+
+{/* HIDE
+## Component Props
+
+<ArgTypes of={TooltipStories} />
+
+*/}
+
+## CSS Classes
+
+The component uses the following CSS classes that match the original specification:
+
+- `.tooltip` - Main tooltip container with base styles
+- `.tooltip.fade` - Adds fade transition effects
+- `.tooltip.top` - Top position styling with appropriate padding and margin
+- `.tooltip.bottom` - Bottom position styling
+- `.tooltip.left` - Left position styling
+- `.tooltip.right` - Right position styling
+- `.tooltip.in` - Visible state with opacity animation
+- `.tooltip-arrow` - Arrow pointer element
+- `.tooltip-inner` - Inner content container with background and padding

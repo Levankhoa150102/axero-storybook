@@ -1,0 +1,23 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks';
+import { Icon } from './Icons';
+import * as IconStories from './Icons.stories';
+
+<Meta of={IconStories} />
+
+# Icons
+
+Icon component that renders various FontAwesome icons with consistent styling and sizing.
+
+## Basic Icon
+
+<Canvas of={IconStories.Default} />
+
+## Usage
+
+We're using FontAwesome version 5.15.4, including the premium version. You can go to the link below to find the appropriate icon and apply its class for your use case.
+
+- [FontAwesome5-Gallery](https://fontawesome.com/v5/search?s=light&o=r)
+
+## Props
+
+<ArgsTable of={Icon} />

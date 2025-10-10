@@ -1,0 +1,132 @@
+body[class*="span"] {
+    float: none
+}
+
+li {
+    line-height: 20px;
+}
+
+ul,
+ol {
+    padding: 0;
+    margin: 0 0 10px 25px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--hyperlink-color);
+    text-decoration: underline;
+}
+
+img {
+    width: auto\9;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+table {
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td {
+    display: table-cell;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+}
+
+th,
+td {
+    border-bottom: 0;
+}
+
+/* Fade transition effect */
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity 0.15s linear;
+    -moz-transition: opacity 0.15s linear;
+    -o-transition: opacity 0.15s linear;
+    transition: opacity 0.15s linear;
+}
+
+/* Tooltip Base Styles */
+.tooltip {
+    position: absolute;
+    z-index: 1030;
+    display: block;
+    font-size: 11px;
+    line-height: 1.4;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    visibility: visible;
+}
+
+.fade.in {
+    opacity: 1;
+}
+
+/* btn-group */
+.btn-group>.btn,.btn-group>.dropdown-menu,.btn-group>.popover {
+    font-size: 14px;
+}
+
+body.dark-header-font-color .navbar .btn {
+    color: var(--loading-spiner-box-shadow-color);
+}
+
+body.dark-header-font-color .navbar .caret {
+    border-bottom-color: var(--loading-spiner-box-shadow-color);
+    border-top-color: var(--loading-spiner-box-shadow-color);
+}
+
+.pull-right {
+    float: right;
+}
+
+.nav-header {
+    display: block;
+    padding: 3px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #999;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+}
+
+img {
+    width: auto\9;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+.divider {
+    height: 1px;
+    margin: 1em 10px 1em 0;
+    width: 100%;
+}
+
+.flex-center
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-between
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,0 +1,51 @@
+import { Canvas, Meta, Story, ArgTypes, Source } from '@storybook/blocks';
+import { Rating } from './Rating';
+import * as RatingStories from './Rating.stories';
+
+<Meta of={RatingStories} />
+
+# Rating Component
+
+The Rating component provides an interactive star rating system for user feedback and display purposes. It supports both interactive rating input and read-only display modes, with full and half-star precision.
+
+## Basic Usage (First-Time Vote)
+
+This is the standard rating interaction for when a user has not yet voted on an item. It uses the default `star-on.png` and `star-half.png` images for interaction.
+
+<Canvas of={RatingStories.Default} />
+
+## Self Rating Mode (Re-voting)
+
+This mode is used when a user has already submitted a rating and wishes to change it. It visually distinguishes the user's own rating by using the `star-self-on.png` and `star-self-half.png` images.
+
+<Canvas of={RatingStories.SelfRatingMode} />
+
+{/* HIDE
+## Component Props
+
+<ArgTypes of={RatingStories} />
+
+*/}
+
+## CSS Classes
+
+The component uses the following CSS classes that match the original Axero design:
+
+- `.axero-rating-control-container` - Main container
+- `.axero-rating-control-images` - Star images container
+- `.axero-rating-control-values` - Rating values display
+- `.axero-rating-control-average-total` - Average and vote count display
+
+## Required Assets
+
+Make sure to include the following star images in your folder:
+
+**Standard Rating Images:**
+- `star-off.png` - Empty star
+- `star-on.png` - Filled star  
+- `star-half.png` - Half-filled star
+
+**Self Rating Images (for ratingMode="self"):**
+- `star-self-on.png` - Self-rated filled star
+- `star-self-half.png` - Self-rated half-filled star
+

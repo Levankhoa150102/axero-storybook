@@ -1,0 +1,164 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks';
+import { Button } from './Button';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+A flexible button component designed for AlpineJS projects. Renders as HTML `<button>` element with clean, consistent styling.
+
+
+## Default Button
+
+<Canvas of={ButtonStories.Default} />
+
+**CSS Classes Used:** `.btn`
+
+{/* HIDE
+### Design Tokens Used
+
+The button uses several design tokens (CSS custom properties) for consistent theming:
+
+- **`--font-family`**: Primary font stack for the design system
+  - **Value**: `"SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif`
+  - **Fallback**: Complete font stack with system fonts
+  - **Purpose**: Ensures consistent typography across all buttons and components
+
+- **`--button-text-color`**: Button text color → `#1a1a1a`
+- **`--background-primary`**: Button background → `#fff` 
+- **`--border-color-primary`**: Button border → `#e0e0e0`
+- **`--widget-border-radius`**: Button corner radius → `4px`
+- **`--box-shadow-common`**: Button shadow → `0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15)`
+- **`--background-tertiary`**: Hover/focus background → `#f0f0f0`
+
+```css
+.btn {
+  font-family: var(--font-family, "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif);
+  font-size: 13.68px;
+  font-weight: 500;
+  letter-spacing: 0.076px;
+  line-height: 20px;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  display: inline-block;
+  color: var(--button-text-color, #1a1a1a);
+  background-color: var(--background-primary, #fff);
+  border: 1px solid var(--border-color-primary, #e0e0e0);
+  border-radius: var(--widget-border-radius, 4px);
+  padding: 4px 12px;
+  height: 30px;
+  box-sizing: border-box;
+  box-shadow: var(--box-shadow-common, 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15));
+  transition: none;
+  outline: none;
+}
+
+.btn:hover,
+.btn:focus {
+  text-decoration: none;
+  background: var(--background-tertiary, #f0f0f0);
+  transition: none;
+}
+```
+*/}
+
+## Button with Prefix Icon
+Button with an icon positioned before the text.
+
+<Canvas of={ButtonStories.WithPrefixIcon} />
+
+**CSS Classes Used:** `.btn`, `.btn-icon`, `.btn-icon--prefix`
+
+{/* HIDE
+```css
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-icon--prefix {
+  margin-right: 6px;
+}
+```
+*/}
+
+## Button with Suffix Icon
+Button with an icon positioned after the text.
+
+<Canvas of={ButtonStories.WithSuffixIcon} />
+
+**CSS Classes Used:** `.btn`, `.btn-icon`, `.btn-icon--suffix`
+
+{/* HIDE
+```css
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-icon--suffix {
+  margin-left: 6px;
+}
+```
+*/}
+
+## Icon Only Button
+Button displaying only an icon without text.
+
+<Canvas of={ButtonStories.IconOnly} />
+
+**CSS Classes Used:** `.btn`, `.btn--icon-only`
+
+{/* HIDE
+```css
+.btn--icon-only {
+  padding: 4px;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+```
+*/}
+
+## Processing Button
+
+Button with animated processing state that shows diagonal stripes when active.
+
+<Canvas of={ButtonStories.Processing} />
+
+**CSS Classes Used:** `.btn`, `.processing`
+
+{/* HIDE
+## Large Button
+<Canvas of={ButtonStories.Large} />
+
+**CSS Classes Used:** `.btn`, `.btn--large`
+
+```css
+.btn--large {
+  font-size: 15px;
+  padding: 6px 16px;
+  height: 36px;
+}
+```
+*/}
+
+{/* HIDE
+## Small Button  
+<Canvas of={ButtonStories.Small} />
+
+**CSS Classes Used:** `.btn`, `.btn--small`
+
+```css
+.btn--small {
+  font-size: 12px;
+  padding: 3px 10px;
+  height: 26px;
+}
+```
+*/}

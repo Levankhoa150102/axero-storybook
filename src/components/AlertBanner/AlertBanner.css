@@ -1,0 +1,113 @@
+#message-box-wrapper {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10000000;
+}
+
+#message-box-wrapper .message-box {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+#message-box-wrapper .message-box .message-content {
+    background: var(--alert-banner-yellow);
+    color: var(--body-text-primary);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 20px 10px;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    -moz-transition: all .218s;
+    -webkit-transition: all .218s;
+    transition: all .218s;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+/* Success variant */
+#message-box-wrapper .message-box .message-content.message-content--success {
+    background: var(--alert-banner-success, #81bc00);
+}
+
+/* Warning variant */
+#message-box-wrapper .message-box .message-content.message-content--warning {
+    background: var(--alert-banner-warning, #ffc107);
+}
+
+/* Error variant */
+#message-box-wrapper .message-box .message-content.message-content--error {
+    background: var(--alert-banner-error, #dc3545);
+}
+
+/* Info variant */
+#message-box-wrapper .message-box .message-content.message-content--info {
+    background: var(--alert-banner-info, #17a2b8);
+}
+
+/* Message content inner */
+.message-content-inner {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.message-content-options .close-link:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+
+/* Animation classes for show/hide */
+.toast-enter {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+.toast-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.toast-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-exit-active {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #message-box-wrapper .message-box .message-content {
+        padding: 15px 40px 15px 15px;
+        font-size: 14px;
+    }
+    
+    .message-content-options {
+        right: 10px;
+    }
+}
+
+#message-box-wrapper .message-box .message-content .message-content-options {
+    position: absolute;
+    right: 15px;
+    display: inline;
+    opacity: .5;
+    top: 13px;
+}
+
+#message-box-wrapper .message-box .message-content .message-content-options a i {
+    color: var(--body-text-primary);
+    font-size: 30px;
+}
+
+.icon-remove:before {
+    content: "\f00d";
+}

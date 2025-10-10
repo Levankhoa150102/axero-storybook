@@ -1,0 +1,64 @@
+import { Canvas, Meta, Story, ArgTypes, Source } from '@storybook/blocks';
+import { AlertBanner } from './AlertBanner';
+import * as AlertBannerStories from './AlertBanner.stories';
+
+<Meta of={AlertBannerStories} />
+
+# Alert Banner Component
+
+The Alert Banner component displays temporary notification messages to users. It supports different message types, auto-hide functionality, and generates raw HTML for AlpineJS integration.
+
+{/* HIDE
+## Component Props
+
+<ArgTypes of={AlertBannerStories} />
+*/}
+
+## HTML Output
+
+The Alert Banner component can generate raw HTML for use in AlpineJS applications:
+
+<Source
+  language="html"
+  code={`<div id="message-box-wrapper">
+  <table class="message-box" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td>
+          <div class="message-content message-content--success">
+            <span class="message-content-inner">Thank you for rating.</span>
+            <span class="message-content-options">
+              <a class="close-link" href="#"><i class="icon-remove"></i></a>
+            </span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>`}
+/>
+
+
+## AlertBanner Types
+
+The component supports four different AlertBanner types:
+
+- **Success** (`type="success"`) - Green background for positive feedback
+- **Warning** (`type="warning"`) - Yellow background for warnings
+- **Error** (`type="error"`) - Red background for errors
+- **Info** (`type="info"`) - Blue background for informational messages
+
+## CSS Classes
+
+The component uses the following CSS classes:
+
+- `#message-box-wrapper` - Fixed positioned container
+- `.message-box` - Table layout for centering
+- `.message-content` - Main content container
+- `.message-content--success` - Success variant styling
+- `.message-content--warning` - Warning variant styling
+- `.message-content--error` - Error variant styling
+- `.message-content--info` - Info variant styling
+- `.message-content-inner` - Message text container
+- `.message-content-options` - Close button container
+- `.close-link` - Close button styling

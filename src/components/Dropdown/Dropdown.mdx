@@ -1,0 +1,197 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks';
+import { Dropdown } from './Dropdown';
+import * as DropdownStories from './Dropdown.stories';
+import * as SpaceNavbarStories from './SpaceNavbarWithSearch.stories';
+
+<Meta of={DropdownStories} />
+
+# Dropdown
+
+A flexible dropdown component for navigation menus in Axero projects. The dropdown uses the design system's **Button component** for the toggle button, ensuring consistent styling and behavior across the application.
+
+## Features
+
+- **Button Component Integration**: Uses the existing Button component for consistent styling
+- **Click Outside Detection**: Automatically closes when clicking outside the dropdown
+- **Flexible Positioning**: Supports left and right alignment
+- **Icon Support**: Menu items can include FontAwesome icons
+- **Accessible**: Includes proper ARIA attributes for screen readers
+- **Customizable**: Accepts custom CSS classes and click handlers
+
+## Navbar Dropdown
+
+The Navbar dropdown displays a "Browse" button with a caret icon. Click the button to reveal the menu. This variant is designed for use in navigation bars with the `navbar` prop enabled.
+
+<Canvas of={DropdownStories.NavbarDropdown} />
+
+**CSS Classes Used:** `.navbar`, `.dropdown`, `.dropdown-toggle`, `.dropdown-menu`, `.caret`, `.open-left`
+
+**Props:** `navbar={true}`, `openLeft={true}`, `className="dropdown"`
+
+## Dropdown with Icon
+
+A dropdown button that displays an icon with a caret. Perfect for action menus and settings.
+
+<Canvas of={DropdownStories.WithIcon} />
+
+**CSS Classes Used:** `.btn-group`, `.dropdown-toggle`, `.dropdown-menu`, `.caret`
+
+**Props:** `buttonIcon="fas fa-cog"`, `className="btn-group"`
+
+## Icon Only Dropdown
+
+A compact dropdown that shows only an icon (no text, no caret). Ideal for space-constrained layouts like toolbars and action bars.
+
+<Canvas of={DropdownStories.IconOnly} />
+
+**CSS Classes Used:** `.btn-group`, `.dropdown-toggle`, `.dropdown-menu`
+
+**Props:** `buttonIcon="fas fa-ellipsis-v"`, `iconOnly={true}`, `className="btn-group"`
+
+## Space Navbar with Search
+
+A specialized dropdown for space navigation with built-in search functionality. Displays a list of spaces with thumbnails and allows users to filter by typing in the search box.
+
+<Canvas of={SpaceNavbarStories.SpaceNavbar} />
+
+**CSS Classes Used:** `.navbar`, `.dropdown`, `.ax-spaces-dropdown`, `.open-left`, `.ax-diamond-hover-box`, `.ax-space-menu-filter`
+
+**Props:** `buttonText="Spaces"`, `spaces={[...]}`, `viewAllUrl="/spaces"`
+
+### Features:
+- **Search Functionality**: Real-time filtering of spaces as you type
+- **Thumbnail Images**: Each space displays with an image
+- **View All Link**: Quick access to see all spaces
+- **Custom Styling**: Diamond hover box design with modern UI
+- **Reuses Dropdown Logic**: Built on top of the base Dropdown component's click-outside and toggle functionality
+
+{/* HIDE
+
+### className
+**Type:** `string`  
+**Description:** Additional CSS classes to apply to the dropdown container
+
+```jsx
+<Dropdown className="custom-dropdown" items={menuItems} />
+```
+
+## Styling
+
+### Dropdown Container
+```css
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+```
+
+### Dropdown Button
+The button uses the Button component with additional dropdown-specific styles:
+
+```css
+.dropdown .btn {
+  background-color: inherit;
+  background-image: none;
+  border: 0;
+  color: #fff;
+  font-weight: 500;
+  line-height: 18px;
+  padding-left: 0;
+  padding-right: 10px;
+  font-size: .95rem;
+}
+```
+
+### Caret Icon
+```css
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  margin-top: 8px;
+  margin-left: 2px;
+}
+```
+
+### Dropdown Menu
+```css
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1040;
+  display: none;
+  min-width: 240px;
+  padding: 10px 0;
+  background: var(--background-primary, #fff);
+  border-radius: 4px;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 
+              0 6px 30px 5px rgba(0, 0, 0, 0.12), 
+              0 8px 10px -5px rgba(0, 0, 0, 0.4);
+}
+
+.open > .dropdown-menu {
+  display: block;
+}
+```
+
+### Menu Items
+```css
+.dropdown-menu > li > a {
+  display: flex;
+  padding: 10px 30px 12px;
+  color: inherit;
+  cursor: pointer;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background-color: #f5f5f5;
+  color: #262626;
+  text-decoration: none;
+}
+```
+
+## Design Tokens
+
+The Dropdown component uses the following CSS variables:
+
+- **`--background-primary`**: Dropdown menu background color → `#fff`
+- **`--caret-color`**: Caret icon color → `currentColor`
+
+
+## AlpineJS Integration
+
+For AlpineJS projects, you can replicate this functionality using the following pattern:
+
+```html
+<div class="dropdown" x-data="{ open: false }" @click.away="open = false">
+  <button 
+    class="btn dropdown-toggle"
+    @click="open = !open"
+    :aria-expanded="open"
+  >
+    Browse <span class="caret"></span>
+  </button>
+  
+  <ul class="dropdown-menu" x-show="open" x-cloak>
+    <li>
+      <a href="/articles">
+        <i class="icon-file"></i>
+        Articles
+      </a>
+    </li>
+    <li>
+      <a href="/blogs">
+        <i class="icon-copy"></i>
+        Blogs
+      </a>
+    </li>
+  </ul>
+</div>
+```
+*/}

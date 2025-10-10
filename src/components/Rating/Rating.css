@@ -1,0 +1,67 @@
+.axero-rating-control-container .axero-rating-control-images {
+    display: inline-block;
+    line-height: 0;
+}
+
+.axero-rating-control-container .axero-rating-control-images img {
+    width: 16px;
+}
+
+.axero-rating-control-container .axero-rating-control-values {
+    display: none;
+    float: left;
+    margin: -3px 0 0 7px;
+    width: 40px;
+}
+
+.axero-rating-control-container .axero-rating-control-values .axero-rating-control-values-sum {
+    display: inline-block;
+}
+
+.axero-rating-control-container .axero-rating-control-values .axero-rating-control-values-total {
+    display: inline-block;
+}
+
+.axero-rating-control-container .axero-rating-control-average-total {
+    margin: 0 0 0 10px;
+    padding: 0;
+    font-size: .75em;
+    line-height: 1.3em;
+    opacity: .7;
+    display: inline-block;
+}
+
+.ax-en-dt-bar .ax-en-dt-bar-right .ax-entity-bar-opt .opt.opt-rating .axero-rating-control-container .axero-rating-control-average-total {
+    margin: 1px 0 0;
+    text-align: center;
+    display: block;
+}
+
+/* Show values when showValues prop is true */
+.axero-rating-control-container.show-values .axero-rating-control-values {
+    display: block;
+}
+
+/* Additional styling for interactive states */
+.axero-rating-control-container .axero-rating-control-images img:hover {
+    opacity: 0.8;
+}
+
+.axero-rating-control-container .axero-rating-control-images[data-readonly="true"] img:hover {
+    opacity: 1;
+}
+
+/* Ensure proper spacing and alignment */
+.axero-rating-control-container {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.axero-rating-control-container .axero-rating-control-images {
+    vertical-align: middle;
+}
+
+.axero-rating-control-container .axero-rating-control-values,
+.axero-rating-control-container .axero-rating-control-average-total {
+    vertical-align: middle;
+}

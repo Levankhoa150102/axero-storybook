@@ -1,0 +1,98 @@
+import { Meta, Canvas, Story, ArgsTable, Controls } from '@storybook/blocks';
+import * as LeftSidebarNavigationStories from './LeftSidebarNavigation.stories';
+import { LeftSidebarNavigation } from './LeftSidebarNavigation';
+
+<Meta title="Navigation/LeftSidebarNavigation/Docs" />
+
+# Left Sidebar Navigation
+
+A left sidebar navigation component designed for Axero spaces, providing intuitive navigation with customizable items, icons, and space management options. Perfect for organizing space content with a clean, professional interface.
+
+## Interactive Example
+
+<Canvas>
+  <Story of={LeftSidebarNavigationStories.Default} />
+</Canvas>
+
+## Customer Customization
+Each navigation item automatically includes a `data-custom-class` property that allows customer to add specific styling classes. This enables proactive customization for different item types.
+
+### Single Navigation Item Structure
+
+Here's how a single navigation item renders with the `data-custom-class` attribute for customer customization:
+
+```html
+<!-- 👆 This is where customers can add their custom styling -->
+<li id="id_-8" 
+    data-tab-type="1" 
+    data-entity-type="3" 
+    data-content-type="0" 
+    data-content-id="0" 
+    data-custom-class="ax-space-menu-articles" ← Customer's custom class goes here
+    data-sort-order="1" 
+    class="axero-space-navigation-item ax-space-menu-articles item-not-header">
+                                                    ↑ And automatically appears here too
+  <div>
+    <a href="" target="_self" title="Articles" class="axero-space-navigation-link">
+      <div class="axero-space-navigation-item-icon">
+        <span class="icon-file"></span>
+      </div>
+      <div class="axero-space-navigation-item-name" data-resourcekey="ArticleManageArticlesText">
+        Articles
+      </div>
+    </a>
+  </div>
+</li>
+```
+
+**Key Points for Customer Customization:**
+- Once they edit the Advanced Class field, the value will be added to the `data-custom-class` attribute
+- `data-custom-class="ax-space-menu-articles"` ← **This is where your custom class appears**
+- `class="...ax-space-menu-articles..."` ← **And it's automatically added to the class attribute**
+
+## Component Properties Guide
+
+### Props Overview
+
+<ArgsTable of={LeftSidebarNavigation} />
+
+### How to Add Values - Step by Step
+
+#### 1. **navigationItems** (Array)
+Main navigation items that appear at the top of the sidebar.
+
+**Structure for each item:**
+```javascript
+{
+  id: -1,                                    // Unique identifier (number)
+  name: 'Activity Stream',                   // Display text
+  href: '/activity',                         // Link URL (optional)
+  title: 'Activity Stream',                  // Tooltip text
+  icon: 'icon-list',                        // FontAwesome icon class
+  customClass: 'ax-space-menu-activitystream', // Custom CSS class
+  tabType: 1,                               // Tab type (1=content, 7=info, 8=search)
+  entityType: 10,                           // Entity type identifier
+  contentType: 0,                           // Content type (usually 0)
+  contentId: 0,                             // Content ID (usually 0)
+  sortOrder: 1,                             // Display order
+  resourceKey: 'GlobalActivityStreamText'    // Localization key
+}
+```
+
+**Example:**
+```javascript
+const navigationItems = [
+  {
+    id: -1,
+    name: 'Activity Stream',
+    icon: 'icon-list',
+    customClass: 'ax-space-menu-activitystream'
+  },
+  {
+    id: -2,
+    name: 'People',
+    icon: 'icon-group',
+    customClass: 'ax-space-menu-people'
+  }
+];
+```

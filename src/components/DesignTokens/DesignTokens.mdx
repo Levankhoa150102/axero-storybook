@@ -1,0 +1,542 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+<Meta title="Design Tokens" />
+
+# Design Tokens
+
+Design tokens are the visual design atoms of the Axero Design System. They are named entities that store visual design attributes like colors, typography, spacing, and effects. These tokens ensure consistency across all components and make theming and customization easier.
+
+## How to Use
+
+All design tokens are available as CSS custom properties (variables) and can be used in your CSS:
+
+```css
+.my-component {
+  background-color: var(--background-primary);
+  color: var(--body-text-primary);
+  border: 1px solid var(--border-color-primary);
+  border-radius: var(--widget-border-radius);
+  box-shadow: var(--box-shadow-common);
+}
+```
+
+## Color Tokens
+
+### Background Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Primary Background"
+    subtitle="--background-primary"
+    colors={{ "Primary": "#fff" }}
+  />
+  <ColorItem
+    title="Primary Darker"
+    subtitle="--background-primary-darker"
+    colors={{ "Primary Darker": "#f8f8f8" }}
+  />
+  <ColorItem
+    title="Secondary Background"
+    subtitle="--background-secondary"
+    colors={{ "Secondary": "#f4f4f4" }}
+  />
+  <ColorItem
+    title="Tertiary Background"
+    subtitle="--background-tertiary"
+    colors={{ "Tertiary": "#f0f0f0" }}
+  />
+  <ColorItem
+    title="Quaternary Background"
+    subtitle="--background-quaternary"
+    colors={{ "Quaternary": "#e0e0e0" }}
+  />
+</ColorPalette>
+
+### Text Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Primary Text"
+    subtitle="--body-text-primary"
+    colors={{ "Primary Text": "#161616" }}
+  />
+  <ColorItem
+    title="Secondary Text"
+    subtitle="--body-text-secondary"
+    colors={{ "Secondary Text": "#393939" }}
+  />
+  <ColorItem
+    title="Button Text"
+    subtitle="--button-text-color"
+    colors={{ "Button Text": "#1a1a1a" }}
+  />
+  <ColorItem
+    title="Hyperlink"
+    subtitle="--hyperlink-color"
+    colors={{ "Hyperlink": "#2975B0" }}
+  />
+</ColorPalette>
+
+### Border Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Primary Border"
+    subtitle="--border-color-primary"
+    colors={{ "Primary Border": "#e0e0e0" }}
+  />
+  <ColorItem
+    title="Secondary Border"
+    subtitle="--border-color-secondary"
+    colors={{ "Secondary Border": "#ebebeb" }}
+  />
+  <ColorItem
+    title="Input Border"
+    subtitle="--input-border-color"
+    colors={{ "Input Border": "#e0e0e0" }}
+  />
+</ColorPalette>
+
+## Alert Colors
+
+### Info Alerts
+
+<ColorPalette>
+  <ColorItem
+    title="Info Background"
+    subtitle="--alert-info-background"
+    colors={{ "Info Background": "#cce5ff" }}
+  />
+  <ColorItem
+    title="Info Text"
+    subtitle="--alert-info-color"
+    colors={{ "Info Text": "#004085" }}
+  />
+  <ColorItem
+    title="Info Border"
+    subtitle="--alert-info-border-color"
+    colors={{ "Info Border": "#b8daff" }}
+  />
+</ColorPalette>
+
+### Warning Alerts
+
+<ColorPalette>
+  <ColorItem
+    title="Warning Background"
+    subtitle="--alert-warning-background-color"
+    colors={{ "Warning Background": "#fff3cd" }}
+  />
+  <ColorItem
+    title="Warning Text"
+    subtitle="--alert-warning-text-color"
+    colors={{ "Warning Text": "#856404" }}
+  />
+</ColorPalette>
+
+### Success Alerts
+
+<ColorPalette>
+  <ColorItem
+    title="Success Background"
+    subtitle="--alert-success-background-color"
+    colors={{ "Success Background": "#dff0d8" }}
+  />
+  <ColorItem
+    title="Success Text"
+    subtitle="--alert-success-text-color"
+    colors={{ "Success Text": "#468847" }}
+  />
+</ColorPalette>
+
+### Error Alerts
+
+<ColorPalette>
+  <ColorItem
+    title="Error Background"
+    subtitle="--alert-error-background-color"
+    colors={{ "Error Background": "#f8d7da" }}
+  />
+  <ColorItem
+    title="Error Text"
+    subtitle="--alert-error-text-color"
+    colors={{ "Error Text": "#b94a48" }}
+  />
+</ColorPalette>
+
+## Calendar Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Calendar Blue"
+    subtitle="--calendar-blue"
+    colors={{ "Blue": "#0043ce" }}
+  />
+  <ColorItem
+    title="Calendar Light Blue"
+    subtitle="--calendar-lightblue"
+    colors={{ "Light Blue": "#4589ff" }}
+  />
+  <ColorItem
+    title="Calendar Green"
+    subtitle="--calendar-green"
+    colors={{ "Green": "#198038" }}
+  />
+  <ColorItem
+    title="Calendar Yellow"
+    subtitle="--calendar-yellow"
+    colors={{ "Yellow": "#ffdf5d" }}
+  />
+  <ColorItem
+    title="Calendar Orange"
+    subtitle="--calendar-orange"
+    colors={{ "Orange": "#fb8532" }}
+  />
+  <ColorItem
+    title="Calendar Red"
+    subtitle="--calendar-red"
+    colors={{ "Red": "#da1e28" }}
+  />
+  <ColorItem
+    title="Calendar Purple"
+    subtitle="--calendar-purple"
+    colors={{ "Purple": "#8a3ffc" }}
+  />
+</ColorPalette>
+
+## Case Status Colors
+
+<ColorPalette>
+  <ColorItem
+    title="New Case"
+    subtitle="--case-new"
+    colors={{ "New": "#ffbd0c" }}
+  />
+  <ColorItem
+    title="In Progress"
+    subtitle="--case-inprogress"
+    colors={{ "In Progress": "#459d3e" }}
+  />
+  <ColorItem
+    title="Fixed"
+    subtitle="--case-fixed"
+    colors={{ "Fixed": "#0076c0" }}
+  />
+  <ColorItem
+    title="Closed"
+    subtitle="--case-closed"
+    colors={{ "Closed": "#333333" }}
+  />
+  <ColorItem
+    title="Reopened"
+    subtitle="--case-reopened"
+    colors={{ "Reopened": "#d90b01" }}
+  />
+</ColorPalette>
+
+## File Type Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Word Document"
+    subtitle="--file-word"
+    colors={{ "Word": "#0731DA" }}
+  />
+  <ColorItem
+    title="Excel Document"
+    subtitle="--file-excel"
+    colors={{ "Excel": "#207245" }}
+  />
+  <ColorItem
+    title="PowerPoint Document"
+    subtitle="--file-powerpoint"
+    colors={{ "PowerPoint": "#ff6600" }}
+  />
+  <ColorItem
+    title="PDF Document"
+    subtitle="--file-pdf"
+    colors={{ "PDF": "#BB0000" }}
+  />
+</ColorPalette>
+
+## Typography Tokens
+
+### Font Families
+
+<div style={{ fontFamily: 'var(--font-family)', padding: '1rem', background: 'var(--background-secondary)', borderRadius: 'var(--widget-border-radius)', marginBottom: '1rem' }}>
+  <strong>Primary Font Family</strong><br />
+  <code>--font-family</code><br />
+  <div style={{ fontSize: '1.5rem', marginTop: '0.5rem' }}>
+    The quick brown fox jumps over the lazy dog
+  </div>
+  <div style={{ fontSize: '1rem', color: 'var(--body-text-secondary)' }}>
+    ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 1234567890
+  </div>
+</div>
+
+## Spacing & Layout Tokens
+
+### Widget Spacing
+
+<div style={{ 
+  background: 'var(--background-secondary)', 
+  borderRadius: 'var(--widget-border-radius)', 
+  border: '1px solid var(--border-color-primary)',
+  marginBottom: '1rem',
+  overflow: 'hidden'
+}}>
+  <div style={{
+    padding: 'var(--widget-header-padding)',
+    background: 'var(--background-tertiary)',
+    borderBottom: '1px solid var(--border-color-primary)'
+  }}>
+    <strong>Widget Header</strong><br />
+    <code>--widget-header-padding: 15px 20px 0</code>
+  </div>
+  <div style={{ padding: 'var(--widget-content-padded-padding)' }}>
+    <strong>Widget Content</strong><br />
+    <code>--widget-content-padded-padding: 15px 20px 20px</code><br />
+    This demonstrates the spacing tokens in action.
+  </div>
+  <div style={{
+    padding: 'var(--widget-footer-padding)',
+    background: 'var(--background-tertiary)',
+    borderTop: '1px solid var(--border-color-primary)'
+  }}>
+    <strong>Widget Footer</strong><br />
+    <code>--widget-footer-padding: 0px 20px 15px</code>
+  </div>
+</div>
+
+### Border Radius Examples
+
+<div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+  <div style={{
+    width: '80px',
+    height: '80px',
+    background: 'var(--hyperlink-color)',
+    borderRadius: 'var(--widget-border-radius)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'white',
+    fontSize: '0.75rem',
+    textAlign: 'center'
+  }}>
+    Widget<br />Radius<br />4px
+  </div>
+</div>
+
+## Complete Token Reference
+
+<div style={{ overflowX: 'auto' }}>
+  <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid var(--border-color-primary, #e0e0e0)' }}>
+    <thead>
+      <tr style={{ backgroundColor: 'var(--background-secondary, #f4f4f4)' }}>
+        <th style={{ padding: '12px', textAlign: 'left', borderBottom: '2px solid var(--border-color-primary, #e0e0e0)', fontWeight: '600' }}>Token Name</th>
+        <th style={{ padding: '12px', textAlign: 'left', borderBottom: '2px solid var(--border-color-primary, #e0e0e0)', fontWeight: '600' }}>Value</th>
+        <th style={{ padding: '12px', textAlign: 'left', borderBottom: '2px solid var(--border-color-primary, #e0e0e0)', fontWeight: '600' }}>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style={{ backgroundColor: 'var(--background-tertiary, #f0f0f0)' }}>
+        <td colSpan="3" style={{ padding: '8px 12px', fontWeight: '600', fontSize: '0.9rem', borderBottom: '1px solid var(--border-color-primary, #e0e0e0)' }}>🎨 Background Colors</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ backgroundColor: 'var(--background-quaternary, #e0e0e0)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.85rem' }}>--background-primary</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '20px', height: '20px', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '3px', flexShrink: 0 }}></div>
+            <code style={{ fontSize: '0.85rem' }}>#fff</code>
+          </div>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)', fontSize: '0.9rem' }}>Primary background color</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ backgroundColor: 'var(--background-quaternary, #e0e0e0)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.85rem' }}>--background-secondary</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '20px', height: '20px', backgroundColor: '#f4f4f4', border: '1px solid #ccc', borderRadius: '3px', flexShrink: 0 }}></div>
+            <code style={{ fontSize: '0.85rem' }}>#f4f4f4</code>
+          </div>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)', fontSize: '0.9rem' }}>Secondary background</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ backgroundColor: 'var(--background-quaternary, #e0e0e0)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.85rem' }}>--background-tertiary</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '20px', height: '20px', backgroundColor: '#f0f0f0', border: '1px solid #ccc', borderRadius: '3px', flexShrink: 0 }}></div>
+            <code style={{ fontSize: '0.85rem' }}>#f0f0f0</code>
+          </div>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)', fontSize: '0.9rem' }}>Tertiary background</td>
+      </tr>
+      
+      <tr style={{ backgroundColor: 'var(--background-tertiary, #f0f0f0)' }}>
+        <td colSpan="3" style={{ padding: '8px 12px', fontWeight: '600', fontSize: '0.9rem', borderBottom: '1px solid var(--border-color-primary, #e0e0e0)' }}>📝 Text Colors</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ backgroundColor: 'var(--background-quaternary, #e0e0e0)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.85rem' }}>--body-text-primary</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '20px', height: '20px', backgroundColor: '#161616', border: '1px solid #ccc', borderRadius: '3px', flexShrink: 0 }}></div>
+            <code style={{ fontSize: '0.85rem' }}>#161616</code>
+          </div>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)', fontSize: '0.9rem' }}>Primary text color</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ backgroundColor: 'var(--background-quaternary, #e0e0e0)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.85rem' }}>--hyperlink-color</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '20px', height: '20px', backgroundColor: '#2975B0', border: '1px solid #ccc', borderRadius: '3px', flexShrink: 0 }}></div>
+            <code style={{ fontSize: '0.85rem' }}>#2975B0</code>
+          </div>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)', fontSize: '0.9rem' }}>Hyperlink color</td>
+      </tr>
+      
+      <tr style={{ backgroundColor: 'var(--background-tertiary, #f0f0f0)' }}>
+        <td colSpan="3" style={{ padding: '8px 12px', fontWeight: '600', fontSize: '0.9rem', borderBottom: '1px solid var(--border-color-primary, #e0e0e0)' }}>⚠️ Alert Colors</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ backgroundColor: 'var(--background-quaternary, #e0e0e0)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.85rem' }}>--alert-info-background</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '20px', height: '20px', backgroundColor: '#cce5ff', border: '1px solid #ccc', borderRadius: '3px', flexShrink: 0 }}></div>
+            <code style={{ fontSize: '0.85rem' }}>#cce5ff</code>
+          </div>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)', fontSize: '0.9rem' }}>Info alert background</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ backgroundColor: 'var(--background-quaternary, #e0e0e0)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.85rem' }}>--alert-success-background-color</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '20px', height: '20px', backgroundColor: '#dff0d8', border: '1px solid #ccc', borderRadius: '3px', flexShrink: 0 }}></div>
+            <code style={{ fontSize: '0.85rem' }}>#dff0d8</code>
+          </div>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)', fontSize: '0.9rem' }}>Success alert background</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ backgroundColor: 'var(--background-quaternary, #e0e0e0)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.85rem' }}>--alert-error-background-color</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '20px', height: '20px', backgroundColor: '#f8d7da', border: '1px solid #ccc', borderRadius: '3px', flexShrink: 0 }}></div>
+            <code style={{ fontSize: '0.85rem' }}>#f8d7da</code>
+          </div>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)', fontSize: '0.9rem' }}>Error alert background</td>
+      </tr>
+      
+      <tr style={{ backgroundColor: 'var(--background-tertiary, #f0f0f0)' }}>
+        <td colSpan="3" style={{ padding: '8px 12px', fontWeight: '600', fontSize: '0.9rem', borderBottom: '1px solid var(--border-color-primary, #e0e0e0)' }}>📅 Calendar Colors</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ backgroundColor: 'var(--background-quaternary, #e0e0e0)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.85rem' }}>--calendar-blue</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '20px', height: '20px', backgroundColor: '#0043ce', border: '1px solid #ccc', borderRadius: '3px', flexShrink: 0 }}></div>
+            <code style={{ fontSize: '0.85rem' }}>#0043ce</code>
+          </div>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)', fontSize: '0.9rem' }}>Calendar blue</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ backgroundColor: 'var(--background-quaternary, #e0e0e0)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.85rem' }}>--calendar-green</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '20px', height: '20px', backgroundColor: '#198038', border: '1px solid #ccc', borderRadius: '3px', flexShrink: 0 }}></div>
+            <code style={{ fontSize: '0.85rem' }}>#198038</code>
+          </div>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)', fontSize: '0.9rem' }}>Calendar green</td>
+      </tr>
+      
+      <tr style={{ backgroundColor: 'var(--background-tertiary, #f0f0f0)' }}>
+        <td colSpan="3" style={{ padding: '8px 12px', fontWeight: '600', fontSize: '0.9rem', borderBottom: '1px solid var(--border-color-primary, #e0e0e0)' }}>📋 Case Status Colors</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ backgroundColor: 'var(--background-quaternary, #e0e0e0)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.85rem' }}>--case-new</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '20px', height: '20px', backgroundColor: '#ffbd0c', border: '1px solid #ccc', borderRadius: '3px', flexShrink: 0 }}></div>
+            <code style={{ fontSize: '0.85rem' }}>#ffbd0c</code>
+          </div>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)', fontSize: '0.9rem' }}>New case status</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ backgroundColor: 'var(--background-quaternary, #e0e0e0)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.85rem' }}>--case-inprogress</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '20px', height: '20px', backgroundColor: '#459d3e', border: '1px solid #ccc', borderRadius: '3px', flexShrink: 0 }}></div>
+            <code style={{ fontSize: '0.85rem' }}>#459d3e</code>
+          </div>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)', fontSize: '0.9rem' }}>In progress case status</td>
+      </tr>
+      
+      <tr style={{ backgroundColor: 'var(--background-tertiary, #f0f0f0)' }}>
+        <td colSpan="3" style={{ padding: '8px 12px', fontWeight: '600', fontSize: '0.9rem', borderBottom: '1px solid var(--border-color-primary, #e0e0e0)' }}>🔧 Layout & Spacing</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ backgroundColor: 'var(--background-quaternary, #e0e0e0)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.85rem' }}>--widget-border-radius</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ fontSize: '0.85rem' }}>4px</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)', fontSize: '0.9rem' }}>Widget border radius</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ backgroundColor: 'var(--background-quaternary, #e0e0e0)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.85rem' }}>--header-offset</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ fontSize: '0.85rem' }}>90px</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)', fontSize: '0.9rem' }}>Header offset height</td>
+      </tr>
+      
+      <tr style={{ backgroundColor: 'var(--background-tertiary, #f0f0f0)' }}>
+        <td colSpan="3" style={{ padding: '8px 12px', fontWeight: '600', fontSize: '0.9rem', borderBottom: '1px solid var(--border-color-primary, #e0e0e0)' }}>✨ Typography</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ backgroundColor: 'var(--background-quaternary, #e0e0e0)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.85rem' }}>--font-family</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)' }}>
+          <code style={{ fontSize: '0.75rem' }}>"SF Pro Text", -apple-system...</code>
+        </td>
+        <td style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-color-secondary, #ebebeb)', fontSize: '0.9rem' }}>Primary font family</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

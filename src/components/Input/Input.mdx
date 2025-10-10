@@ -1,0 +1,104 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import * as InputStories from './Input.stories';
+
+<Meta of={InputStories} />
+
+# Input Component
+
+A versatile and accessible form control component that adapts to different use cases. It can render as a single-line input, multi-line textarea, or input with an integrated button. The component includes built-in validation states, real-time character counting, and follows accessibility best practices.
+
+## Examples
+
+### Basic Input
+
+The simplest form of the Input component with just a label and placeholder.
+
+<Canvas of={InputStories.Default} />
+
+### Required Field
+
+Input with required field validation and visual indicator (red asterisk).
+
+<Canvas of={InputStories.Required} />
+
+**Key Props:** `required={true}` - Adds required field validation and visual indicator
+
+### Error State
+
+Input with validation error state and custom error message.
+
+<Canvas of={InputStories.WithError} />
+
+**Key Props:** 
+- `error={true}` - Enables error state styling
+- `errorMessage="Custom error text"` - Displays custom error message below input
+
+### Textarea Mode
+
+Multi-line text input with description text and character counting.
+
+<Canvas of={InputStories.AsTextarea} />
+
+**Key Props:**
+- `as="textarea"` - Renders as textarea instead of input
+- `rows={4}` - Number of visible text lines
+- `description="Helper text"` - Descriptive text below label
+- `showCharacterCount={true}` - Displays real-time character count
+
+### Input with Character Count
+
+Single-line input with real-time character counting display.
+
+<Canvas of={InputStories.WithCharacterCount} />
+
+**Key Props:** `showCharacterCount={true}` - Enables character count display in top-right corner
+
+### Input with Button
+
+Input field combined with an action button in a layout.
+
+<Canvas of={InputStories.WithButton} />
+
+**Key Props:**
+- `withButton={true}` - Enables button integration mode
+- `buttonText="Action"` - Text displayed on button
+- `onButtonClick={function}` - Click handler for button
+- `buttonType="button|submit"` - Button type attribute
+
+## Styling Architecture
+
+### CSS Classes
+
+The component uses a systematic approach to CSS classes for flexible styling:
+
+#### Container Classes
+- `.input-wrapper` - Main container for all input variants
+- `.input-button-container` - Flex container for input+button layout 
+- `.input-field-container` - Input field container 
+- `.button-container` - Button container 
+- `.flex-between` - Flexbox container for label and auxiliary content
+
+#### Input Element Classes
+- `.input` - Base input/textarea styling
+- `.input--error` - Error state styling (red border and focus states)
+- `.input--disabled` - Disabled state styling (muted colors, no interaction)
+
+#### Label and Text Classes
+- `.input-label` - Primary label text styling
+- `.input-label--required` - Required field label styling
+- `.input-label--disabled` - Disabled label styling
+- `.input-required` - Red asterisk indicator for required fields
+- `.input-description` - Helper/description text styling
+- `.input-error` - Error message text styling
+- `.input-character-count` - Character counter display styling
+
+#### Button Integration Classes
+- `.btn-with-input` - Special button styling for input integration mode
+
+### Customization
+
+The component supports customization through:
+
+1. **CSS Custom Properties**: Defined in `src/shared/variables.css`
+2. **Modifier Classes**: Add custom classes via the `className` prop
+3. **Style Overrides**: Target specific CSS classes for custom styling

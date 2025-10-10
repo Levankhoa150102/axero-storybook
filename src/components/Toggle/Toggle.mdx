@@ -1,0 +1,67 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import * as ToggleStories from './Toggle.stories';
+
+<Meta of={ToggleStories} />
+
+# Toggle
+
+A toggle switch is an interactive control that lets users choose between two states (on/off, enabled/disabled). It's perfect for settings, preferences, and boolean options.
+
+## Examples
+
+### Basic Toggle with Label
+
+The most common toggle usage with descriptive text.
+
+<Canvas of={ToggleStories.Default} />
+
+**Key Props:**
+
+- `label="Toggle me"` - Text displayed next to the toggle
+
+### Toggle Without Label
+
+Use when the context makes the purpose clear (like in a settings row with description text).
+
+<Canvas of={ToggleStories.WithoutLabel} />
+
+**Key Props:**
+
+- No label prop - Renders just the toggle switch without text
+
+### Disabled Toggle
+
+Use when the option is temporarily unavailable or restricted.
+
+<Canvas of={ToggleStories.Disabled} />
+
+**Key Props:**
+
+- `disabled={true}` - Prevents user interaction with the toggle
+- `label="Disabled toggle"` - Text displayed next to the disabled toggle
+
+
+## Styling Architecture
+
+### CSS Classes
+
+The component uses a systematic approach to CSS classes for flexible styling:
+
+#### Container Classes
+
+- `.toggle-wrapper` - Main container for all toggle variants
+- `.toggle-label` - Label wrapper with flexbox layout
+- `.toggle-label--disabled` - Disabled label styling (muted colors, no interaction)
+
+- `.input-label` - Primary label text styling
+
+#### Switch Element Classes
+
+- `.toggle-input` - Hidden checkbox input (visually hidden but accessible)
+- `.toggle-switch` - Visual switch background container
+- `.toggle-switch--disabled` - Disabled switch styling (reduced opacity)
+- `.toggle-slider` - Animated slider element that moves left/right
+
+#### Text Classes
+
+- `.toggle-text` - Label text styling

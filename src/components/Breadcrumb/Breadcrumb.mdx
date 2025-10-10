@@ -1,0 +1,98 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import * as BreadcrumbStories from './Breadcrumb.stories';
+
+<Meta of={BreadcrumbStories} />
+
+# Breadcrumb
+In the system, this is called header title and title info for each space content type view  
+
+## Examples
+
+### Basic Breadcrumb
+
+<Canvas of={BreadcrumbStories.Default} />
+
+### Mixed Items (Links and Plain Text)
+
+<Canvas of={BreadcrumbStories.WithMixedItems} />
+
+### Non-Link Items Only
+
+<Canvas of={BreadcrumbStories.WithNonLinkItems} />
+
+## Props
+
+### 1. **titleNameItems** (Array)
+Breadcrumb navigation path items.
+
+**Structure for each item:**
+```javascript
+{
+  id: 1,                  // Unique identifier (string | number)
+  name: 'Home',           // Display text (required)
+  href: '/home',          // Link URL (optional)
+  title: 'Go to Home'     // Tooltip text
+}
+```
+
+**Example:**
+```javascript
+const titleNameItems = [
+  {
+    id: 1,
+    name: 'Home',
+    href: '/home',
+    title: 'Go to Home'
+  },
+  {
+    id: 2,
+    name: 'Projects',
+    href: '/projects',
+    title: 'Go to Projects'
+  },
+  {
+    id: 3,
+    name: 'Design System'
+    // No href: renders as plain text
+  }
+];
+```
+
+### 2. **spaceInfo** (Object)
+Space information and optional manage link.
+
+**Structure:**
+```javascript
+{
+  type: 'Private Space',            // Space type (required)
+  manageLink: {                     // Management link (optional)
+    name: 'Manage Space',           // Display text (optional, default: 'Manage Space')
+    href: '/manage-space'           // Link URL
+  }
+}
+```
+
+**Example:**
+```javascript
+const spaceInfo = {
+  type: 'Private Space',
+  manageLink: {
+    name: 'Manage Space',
+    href: '/manage-space'
+  }
+};
+```
+
+## CSS Classes
+
+The component uses the following CSS classes that match the original HTML structure:
+
+- `.axero-space-header-title` - Title container
+- `.axero-space-header-main` - Main container
+- `.axero-space-header-title-name` - Breadcrumb navigation container
+- `.axero-space-header-title-info` - Space information container
+- `.axero-breadcrumb-link` - Individual breadcrumb links
+- `.manage-space` - Manage space link container
+- `.dot` - Separator dot between space type and manage link
+- `.icon-caret-right` - Right arrow separator between breadcrumb items
+

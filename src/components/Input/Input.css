@@ -1,0 +1,115 @@
+.input-wrapper {
+  display: block;
+  font-family: inherit;
+  width: auto;
+  max-width: 400px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+textarea.input {
+  height: auto;
+  min-height: 71px;
+  resize: vertical;
+}
+
+.input-label {
+  font-size: 0.9em;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--input-text-color, #161616);
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.input-required {
+  color: var(--alert-app-red, firebrick);
+}
+
+.input-description {
+  color: var(--input-text-color, #161616);
+  font-weight: normal;
+}
+
+.input-label--disabled {
+  color: var(--color-text-disabled, #a0aec0);
+}
+
+.input {
+  padding: 7px 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  height: 36px;
+  color: var(--input-text-color, #161616);
+  background-color: var(--input-background-color, #f4f4f4);
+  border: 1px solid var(--input-border-color, #e2e8f0);
+  border-radius: 4px;
+  box-shadow: 0 0 0 transparent;
+  width: 100%;
+  min-width: 250px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: rgba(82, 168, 236, 0.8);
+  box-shadow: none;
+}
+
+
+.input--disabled {
+  background-color: var(--color-bg-disabled, #f7fafc);
+  color: var(--color-text-disabled, #a0aec0);
+  border-color: var(--color-border-disabled, #e2e8f0);
+  cursor: not-allowed;
+}
+
+.input--disabled::placeholder {
+  color: var(--color-text-disabled, #a0aec0);
+}
+
+.input-error {
+  font-size: 12px;
+  color: var(--alert-app-red, firebrick);
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.input-character-count {
+  font-size: 0.9em;
+  color: var(--input-text-color, #161616);
+  text-align: right;
+  opacity: 0.7;
+  margin-bottom: 5px;
+}
+
+.input-button-container {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.btn-with-input{
+  height: 34px!important;
+  padding: 6px 12px;
+  font-size: 0.9em;
+}
+
+.input-field-container {
+  flex: 0 0 70%;
+}
+
+.input-field-container .input {
+  margin-bottom: 0;
+}
+
+.button-container {
+  flex: 0 0 30%;
+}
+
+.input-error-message {
+  font-size: 15.2px;
+  color: rgb(255, 0, 0);
+}

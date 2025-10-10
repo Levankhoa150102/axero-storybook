@@ -1,0 +1,235 @@
+/* Left Sidebar Navigation Container */
+.axero-space-menu {
+  min-width: 280px;
+  width: 280px;
+  box-sizing: border-box;
+}
+
+ul.axero-space-tab-options {
+  list-style: none outside none;
+  padding: 5px 0 5px 10px;
+  margin: 10px 0 0 0;
+  border-top: 1px solid var(--border-color-primary);
+}
+
+.axero-space-menu .axero-space-navigation {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.axero-space-menu .axero-space-navigation ul,
+.axero-space-page-options {
+  margin: 0;
+  list-style: none;
+}
+
+.axero-space-menu:not(.sortable-mode) .axero-space-navigation ul li.sortable.item-not-header, .axero-space-menu:not(.sortable-mode) .axero-space-navigation ul li.sortable:not(.item-expanded) {
+  padding: 8px 0 8px 10px;
+}
+
+.axero-space-menu .axero-space-navigation ul li.axero-space-navigation-item.item-not-header {
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  clear: both;
+  cursor: pointer;
+  margin-bottom: 2px;
+  overflow: hidden;
+}
+
+.axero-space-navigation-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.axero-space-navigation-item-icon {
+  float: left;
+  margin: 0;
+  width: 16px;
+  font-size: 15px;
+  text-align: center;
+  opacity: .7;
+}
+
+.axero-space-navigation-item-icon span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+}
+
+.axero-space-menu .axero-space-navigation ul li.axero-space-navigation-item .axero-space-navigation-item-name {
+  margin: 0 0 0 30px;
+}
+
+.axero-space-navigation ul:not(.dropdown-menu)>.axero-space-navigation-item.item-not-header:hover,
+.axero-space-menu:not(.sortable-mode) .axero-space-navigation ul:not(.dropdown-menu)>.active {
+  background: var(--background-primary);
+  border-radius: 4px;
+  text-decoration: none;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
+}
+
+a [class^="icon-"], a [class*=" icon-"] {
+  display: inline;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  display: inline;
+  width: auto;
+  height: auto;
+  line-height: normal;
+  vertical-align: baseline;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  margin-top: 0;
+}
+[class^="icon-"], [class*=" icon-"] {
+  font-family: "Font Awesome 5 Free", "Font Awesome 5 Pro", FontAwesome;
+  font-weight: 900;
+  font-style: normal;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+}
+
+/* Icon mappings for FontAwesome */
+.icon-list:before {
+  content: "\f03a";
+  font-family: "Font Awesome 5 Free", "Font Awesome 5 Pro", FontAwesome;
+  font-weight: 900;
+}
+
+.icon-info-sign:before {
+  content: "\f05a";
+}
+
+.icon-group:before {
+  content: "\f0c0";
+}
+
+.icon-search:before {
+  content: "\f002";
+}
+
+.icon-file:before {
+  content: "\f15b";
+}
+
+.icon-copy:before {
+  content: "\f0c5";
+}
+
+.icon-calendar:before {
+  content: "\f073";
+}
+
+.icon-briefcase:before {
+  content: "\f0b1";
+}
+
+.icon-comments:before {
+  content: "\f086";
+}
+
+.icon-folder-open:before {
+  content: "\f07c";
+}
+
+.icon-lightbulb:before {
+  content: "\f0eb";
+}
+
+.icon-picture:before {
+  content: "\f03e";
+}
+
+.icon-bar-chart:before {
+  content: "\f080";
+}
+
+.icon-check:before {
+  content: "\f00c";
+}
+
+.icon-facetime-video:before {
+  content: "\f03d";
+}
+
+.icon-book:before {
+  content: "\f02d";
+}
+
+.icon-envelope:before {
+  content: "\f0e0";
+}
+
+.icon-remove-sign:before {
+  content: "\f057";
+}
+
+.icon-sitemap:before {
+  content: "\f0e8";
+}
+
+.icon-cogs:before {
+  content: "\f085";
+}
+
+ul.axero-space-tab-options li a {
+  font-size: 11px;
+  color: inherit;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.axero-space-page-options {
+  margin: 0;
+  border-top: 1px solid var(--border-color-primary);
+  padding: 10px 0 0 0;
+}
+
+.axero-space-page-options li {
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  clear: both;
+  cursor: pointer;
+  margin-bottom: 2px;
+  overflow: hidden;
+  padding: 8px 0 8px 10px;
+}
+
+.axero-space-page-options li:hover {
+  background: var(--background-primary);
+  border-radius: 4px;
+  text-decoration: none;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
+}
+
+.axero-space-navigation-link:hover, .axero-space-navigation-link:active, .axero-space-navigation-link.nice-select.open {
+  color: inherit;
+  text-decoration: none;
+}
+
+.axero-space-page-options li a:hover {
+  text-decoration: none;
+}
+
+.axero-space-page-options li a {
+  color: inherit;
+}
+
+.axero-space-page-options li a span {
+  opacity: .7;
+  float: left;
+  font-size: 15px;
+  margin: 0 14px 0 0;
+  text-align: center;
+  width: 16px;
+}
+
+.axero-space-menu .axero-space-navigation ul li.axero-space-navigation-item.item-header>div {
+  padding: 8px 0 0 10px;
+}

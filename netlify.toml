@@ -1,0 +1,52 @@
+[build]
+  # Build command - we'll use the storybook build for documentation
+  command = "npm run build-storybook"
+  # Directory to publish - storybook builds to storybook-static by default
+  publish = "storybook-static"
+
+# Node.js version for the build environment
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_FLAGS = "--production=false"
+
+# Build settings for automatic deployments
+[context.production]
+  command = "npm ci && npm run build-storybook"
+  
+[context.deploy-preview]
+  command = "npm ci && npm run build-storybook"
+  
+[context.branch-deploy]
+  command = "npm ci && npm run build-storybook"
+
+# Headers for better caching and security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache JS and CSS files
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Alternative build configuration for the toolkit itself
+# Uncomment these lines if you want to deploy the toolkit instead of storybook
+# [build]
+#   command = "npm run build:clean"
+#   publish = "dist"
