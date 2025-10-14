@@ -191,116 +191,145 @@ export const ProcessingDefault = {
 };
 
 // Filter Button Stories
-export const FilterButtonGroup = {
+export const FilterButton = {
   args: {
-    filterButtons: [
-      { id: 'open', label: 'Open', icon: 'fas fa-circle', count: 0 },
-      { id: 'due-today', label: 'Due today', icon: 'fas fa-calendar', count: 0 },
-      { id: 'late', label: 'Late', icon: 'fas fa-exclamation', count: 0 },
-      { id: 'all', label: 'All', icon: 'fas fa-list', count: 0 },
-      { id: 'assigned', label: 'Assigned to me', icon: 'fas fa-user', count: 0 }
-    ],
-    defaultSelected: 'due-today',
-    iconOnly: false,
-    onFilterClick: fn()
+    label: 'Open',
+    variant: 'filter',
+    count: 0,
+    iconClassName: 'fas fa-circle',
+    iconSize: 12,
+    iconPosition: 'prefix',
   },
   argTypes: {
-    filterButtons: {
-      control: { type: 'object' },
-      description: 'Array of filter button objects with id, label, icon, and count properties',
+    variant: { 
+      control: { type: 'select' },
+      options: ['', 'filter'],
+      description: 'Button variant style'
     },
-    defaultSelected: {
-      control: { type: 'text' },
-      description: 'ID of the button that should be selected by default',
-    },
-    iconOnly: {
+    selected: { 
       control: { type: 'boolean' },
-      description: 'Show only icons without text labels',
+      description: 'Whether the button is in selected state'
     },
-    onFilterClick: {
-      action: 'filter-clicked',
-      description: 'Callback function when a filter button is clicked',
+    count: { 
+      control: { type: 'number' },
+      description: 'Count to display in parentheses'
     },
-  },
-  render: function(args) {
-    const [selectedFilter, setSelectedFilter] = React.useState(args.defaultSelected || 'due-today');
-    
-    const handleFilterClick = (filterId) => {
-      setSelectedFilter(filterId);
-      if (args.onFilterClick) {
-        args.onFilterClick(filterId);
-      }
-    };
-
-    return React.createElement(
-      'div',
-      { style: { display: 'flex', gap: '4px', flexWrap: 'wrap' } },
-      ...(args.filterButtons || []).map(button => 
-        React.createElement(Button, {
-          key: button.id,
-          label: args.iconOnly ? undefined : button.label,
-          variant: "filter",
-          selected: selectedFilter === button.id,
-          count: args.iconOnly ? undefined : button.count,
-          iconClassName: button.icon,
-          iconSize: 12,
-          iconPosition: "prefix",
-          iconOnly: args.iconOnly,
-          onClick: () => handleFilterClick(button.id)
-        })
-      )
-    );
   },
   parameters: {
     docs: {
       description: {
-        story: 'Interactive filter buttons with customizable list via JSON controls. Click buttons to see selection state and check Actions panel for click events.',
+        story: 'Filter button with icon, text, and count. Perfect for filter interfaces with status indicators.',
       },
       source: {
-        code: `<!-- Filter Buttons with Text and Icons -->
-<div style="display: flex; gap: 4px; flex-wrap: wrap;">
-  <button class="btn btn--filter">
-    <span class="btn-icon btn-icon--prefix">
-      <i class="icon fas fa-circle" style="font-size: 12px; width: 12px; height: 12px;"></i>
-    </span>
-    <span class="btn-label">
-      Open
-      <span class="btn-count">(0)</span>
-    </span>
-  </button>
+        code: `<button class="btn btn--filter">
+  <span class="btn-icon btn-icon--prefix">
+    <i class="icon fas fa-circle"></i>
+  </span>
+  <span class="btn-label">
+    Open
+    <span class="btn-count">(0)</span>
+  </span>
+</button>`
+      }
+    }
+  }
+};
 
-  <button class="btn btn--filter btn--selected">
-    <span class="btn-icon btn-icon--prefix">
-      <i class="icon fas fa-calendar" style="font-size: 12px; width: 12px; height: 12px;"></i>
-    </span>
-    <span class="btn-label">
-      Due today
-      <span class="btn-count">(0)</span>
-    </span>
-  </button>
-</div>
+export const FilterButtonSelected = {
+  args: {
+    label: 'Due today',
+    variant: 'filter',
+    selected: true,
+    count: 0,
+    iconClassName: 'fas fa-calendar',
+    iconSize: 12,
+    iconPosition: 'prefix',
+  },
+  argTypes: {
+    variant: { 
+      control: { type: 'select' },
+      options: ['', 'filter'],
+      description: 'Button variant style'
+    },
+    selected: { 
+      control: { type: 'boolean' },
+      description: 'Whether the button is in selected state'
+    },
+    count: { 
+      control: { type: 'number' },
+      description: 'Count to display in parentheses'
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Filter button in selected state with darker background and inset shadow.',
+      },
+      source: {
+        code: `<button class="btn btn--filter btn--selected">
+  <span class="btn-icon btn-icon--prefix">
+    <i class="icon fas fa-calendar"></i>
+  </span>
+  <span class="btn-label">
+    Due today
+    <span class="btn-count">(0)</span>
+  </span>
+</button>`
+      }
+    }
+  }
+};
 
-<!-- Icon-Only Filter Buttons -->
-<div style="display: flex; gap: 4px; flex-wrap: wrap; margin-top: 8px;">
-  <button class="btn btn--filter btn--icon-only" title="Open">
-    <span class="btn-icon">
-      <i class="icon fas fa-circle" style="font-size: 12px; width: 12px; height: 12px;"></i>
-    </span>
-  </button>
-
-  <button class="btn btn--filter btn--icon-only btn--selected" title="Due today">
-    <span class="btn-icon">
-      <i class="icon fas fa-calendar" style="font-size: 12px; width: 12px; height: 12px;"></i>
-    </span>
-  </button>
-
-  <button class="btn btn--filter btn--icon-only" title="Late">
-    <span class="btn-icon">
-      <i class="icon fas fa-exclamation" style="font-size: 12px; width: 12px; height: 12px;"></i>
-    </span>
-  </button>
-</div>
-`
+export const FilterButtonGroup = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
+      <Button
+        label="Open"
+        variant="filter"
+        count={0}
+        iconClassName="fas fa-circle"
+        iconSize={12}
+        iconPosition="prefix"
+      />
+      <Button
+        label="Due today"
+        variant="filter"
+        selected={true}
+        count={0}
+        iconClassName="fas fa-calendar"
+        iconSize={12}
+        iconPosition="prefix"
+      />
+      <Button
+        label="Late"
+        variant="filter"
+        count={0}
+        iconClassName="fas fa-exclamation"
+        iconSize={12}
+        iconPosition="prefix"
+      />
+      <Button
+        label="All"
+        variant="filter"
+        count={0}
+        iconClassName="fas fa-list"
+        iconSize={12}
+        iconPosition="prefix"
+      />
+      <Button
+        label="Assigned to me"
+        variant="filter"
+        count={0}
+        iconClassName="fas fa-user"
+        iconSize={12}
+        iconPosition="prefix"
+      />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Example of multiple filter buttons used together, showing different states and icons matching the task filter interface.',
       }
     }
   }

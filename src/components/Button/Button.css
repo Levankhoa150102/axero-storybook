@@ -27,7 +27,11 @@
   -moz-transition: none;
   -o-transition: none;
   transition: none;
-  background: var(--background-tertiary)
+  background: var(--background-tertiary);
+}
+
+.btn:focus {
+  outline: 5px auto -webkit-focus-ring-color;
 }
 
 .btn:hover,.btn:focus,.btn:active,.btn.nice-select.open,.btn.active,.btn.disabled,.btn[disabled] {
@@ -80,4 +84,53 @@
   width: 36px;
   height: 36px;
   padding: 6px;
+}
+
+/* Filter Button Styles */
+.btn--filter {
+  border-radius: 6px;
+  margin: 0 5px 0 0;
+  padding: 3px 10px 4px;
+  min-width: 45px;
+  text-align: center;
+  display: inline-block;
+  background: var(--background-tertiary, #f0f0f0);
+  font-size: 0.875em;
+  border: solid 1px var(--border-color-primary-alt);
+  font-weight: 400;
+}
+
+.btn--filter:focus {
+  outline: none;
+}
+
+.btn--filter:hover {
+background: var(--background-quaternary);
+
+}
+
+.btn--filter.btn--selected {
+  background: #459d3e;
+  border-color: #459d3e;
+  color: #fff;
+  cursor: default;
+}
+
+.btn--filter.btn--selected:focus {
+  background: #459d3e;
+  border-color: #459d3e;
+  color: #fff;
+  cursor: default;
+}
+
+/* Count styling */
+.btn-count {
+  margin-left: 4px;
+  font-weight: normal;
+  opacity: 0.9;
+}
+
+.btn-label {
+  display: inline-flex;
+  align-items: center;
 }

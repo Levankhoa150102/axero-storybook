@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { fn } from '@storybook/test';
-import { Input, InputWithTags } from './Input.jsx';
-import { Tags } from '../Tags/Tags.jsx';
+import { Input } from './Input.jsx';
+import { InputWithTags } from './InputWithTags/InputWithTag.jsx';
 
 export default {
   title: 'UI Components/Input',
@@ -41,6 +41,111 @@ export const Default = {
   }
 };
 
+export const NoLabel = {
+  render: function(args) {
+    const [content, setContent] = useState('');
+    const [showPlaceholder, setShowPlaceholder] = useState(true);
+
+    const handleInput = (e) => {
+      const value = e.target.textContent || '';
+      const trimmedValue = value.trim();
+      setContent(value);
+      setShowPlaceholder(trimmedValue.length === 0);
+      
+      if (args.onChange) {
+        // Create a mock event for compatibility
+        args.onChange({ target: { value } });
+      }
+    };
+
+    const handleFocus = () => {
+      const value = content.trim();
+      if (value.length === 0) {
+        setShowPlaceholder(false);
+      }
+    };
+
+    const handleBlur = (e) => {
+      const value = e.target.textContent || '';
+      const trimmedValue = value.trim();
+      setShowPlaceholder(trimmedValue.length === 0);
+      
+      // Clean up empty content
+      if (trimmedValue.length === 0) {
+        e.target.textContent = '';
+        setContent('');
+      }
+    };
+
+    return React.createElement('div', { className: 'input-wrapper' }, [
+      React.createElement('div', { 
+        key: 'hidden-input',
+        style: { display: 'none' }
+      }, [
+        React.createElement('input', {
+          key: 'input',
+          type: 'hidden',
+          value: content
+        })
+      ]),
+      React.createElement('div', {
+        key: 'editable-div',
+        className: `input input--no-label input--expandable ${showPlaceholder ? 'input--placeholder' : ''}`,
+        contentEditable: true,
+        onInput: handleInput,
+        onFocus: handleFocus,
+        onBlur: handleBlur,
+        'data-placeholder': "What's on your mind?",
+        suppressContentEditableWarning: true,
+        style: {
+          minHeight: '20px',
+          whiteSpace: 'pre-wrap',
+          wordWrap: 'break-word'
+        }
+      })
+    ]);
+  },
+  args: {
+    onChange: fn(),
+  },
+  argTypes: {
+    placeholder: { control: false, table: { disable: true } },
+    as: { control: false, table: { disable: true } },
+    rows: { control: false, table: { disable: true } },
+    showCharacterCount: { control: false, table: { disable: true } },
+    withButton: { control: false, table: { disable: true } },
+    buttonText: { control: false, table: { disable: true } },
+    buttonType: { control: false, table: { disable: true } },
+    onButtonClick: { control: false, table: { disable: true } },
+    inputButtonError: { control: false, table: { disable: true } },
+    inputButtonErrorMessage: { control: false, table: { disable: true } },
+    withTags: { control: false, table: { disable: true } },
+    isChecking: { control: false, table: { disable: true } },
+    checkingMessage: { control: false, table: { disable: true } },
+    isSuccess: { control: false, table: { disable: true } },
+    successMessage: { control: false, table: { disable: true } },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Expandable input field without a label that grows as you type. Uses contenteditable div to automatically expand to multiple lines.',
+      },
+      source: {
+        code: `<div class="input-wrapper">
+  <div style="display: none;">
+    <input type="hidden" value="" />
+  </div>
+  <div 
+    class="input input--no-label input--expandable"
+    contenteditable="true"
+    data-placeholder="What's on your mind?"
+    style="min-height: 20px; white-space: pre-wrap; word-wrap: break-word;"
+  ></div>
+</div>`
+      }
+    }
+  }
+};
 
 export const Required = {
   args: {
@@ -254,6 +359,105 @@ export const WithButton = {
   },
 };
 
+export const InlineButton = {
+  render: function(args) {
+    const [inputValue, setInputValue] = useState('');
+
+    const handleInputChange = (e) => {
+      setInputValue(e.target.value);
+      if (args.onChange) {
+        args.onChange(e);
+      }
+    };
+
+    const handleButtonClick = (e) => {
+      e.preventDefault();
+      if (args.onButtonClick) {
+        args.onButtonClick(e);
+      }
+    };
+
+    return React.createElement('div', { className: 'input-wrapper' }, [
+      React.createElement('label', { 
+        key: 'label',
+        htmlFor: 'inline-input',
+        className: 'input-label'
+      }, args.label),
+      React.createElement('div', {
+        key: 'outer-container',
+        className: 'input-inline-outer'
+      }, [
+        React.createElement('input', {
+          key: 'submit-button',
+          type: 'submit',
+          className: 'input-submit-button',
+          value: args.buttonText,
+          onClick: handleButtonClick
+        }),
+        React.createElement('div', {
+          key: 'input-container',
+          className: 'input-text-container'
+        }, [
+          React.createElement('input', {
+            key: 'text-input',
+            id: 'inline-input',
+            type: 'text',
+            className: 'input input--with-submit',
+            placeholder: args.placeholder,
+            value: inputValue,
+            onChange: handleInputChange
+          })
+        ])
+      ])
+    ]);
+  },
+  args: {
+    label: 'Email Address',
+    placeholder: 'Enter email address...',
+    buttonText: 'Invite',
+    onChange: fn(),
+    onButtonClick: fn(),
+  },
+  argTypes: {
+    description: { control: false, table: { disable: true } },
+    as: { control: false, table: { disable: true } },
+    rows: { control: false, table: { disable: true } },
+    showCharacterCount: { control: false, table: { disable: true } },
+    withButton: { control: false, table: { disable: true } },
+    buttonType: { control: false, table: { disable: true } },
+    inputButtonError: { control: false, table: { disable: true } },
+    inputButtonErrorMessage: { control: false, table: { disable: true } },
+    withTags: { control: false, table: { disable: true } },
+    isChecking: { control: false, table: { disable: true } },
+    checkingMessage: { control: false, table: { disable: true } },
+    isSuccess: { control: false, table: { disable: true } },
+    successMessage: { control: false, table: { disable: true } },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Input field with an inline button integrated inside the input area, perfect for actions like "Invite", "Send", or "Submit".',
+      },
+      source: {
+        code: `<div class="input-wrapper">
+  <label for="inline-input" class="input-label">Email Address</label>
+  <div class="input-inline-outer">
+    <input type="submit" class="input-submit-button" value="Invite" />
+    <div class="input-text-container">
+      <input 
+        id="inline-input" 
+        type="text" 
+        class="input input--with-submit" 
+        placeholder="Enter email address..." 
+      />
+    </div>
+  </div>
+</div>`
+      }
+    }
+  }
+};
+
 export const WithTags = {
   render: function (args) {
     const [tags, setTags] = React.useState(['rocket', 'sale']);
@@ -343,4 +547,120 @@ export const WithTags = {
       }
     },
   },
+};
+
+export const AvailabilityCheck = {
+  render: function(args) {
+    const [inputValue, setInputValue] = useState('');
+    const [isChecking, setIsChecking] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [checkingMessage, setCheckingMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
+
+    // List of available space names for comparison
+    const availableNames = ['public', 'community', 'workspace', 'meeting', 'lounge', 'office'];
+
+    const handleChange = (e) => {
+      const value = e.target.value;
+      setInputValue(value);
+      
+      // Reset states
+      setIsChecking(false);
+      setIsSuccess(false);
+      setCheckingMessage('');
+      setSuccessMessage('');
+
+      // Start checking when user enters at least 1 character
+      if (value.length >= 1) {
+        setIsChecking(true);
+        setCheckingMessage('checking availability...');
+
+        // Simulate API call with timeout
+        setTimeout(() => {
+          setIsChecking(false);
+          
+          // Check if name is available (not in the list)
+          const isAvailable = !availableNames.includes(value.toLowerCase());
+          
+          if (isAvailable) {
+            setIsSuccess(true);
+            setSuccessMessage('space name is available');
+          } else {
+            setSuccessMessage('');
+            // Don't show error, just stop showing success
+          }
+        }, 1000); // 1 second delay to simulate checking
+      }
+
+      // Call the original onChange if provided
+      if (args.onChange) {
+        args.onChange(e);
+      }
+    };
+
+    return React.createElement(Input, {
+      ...args,
+      value: inputValue,
+      onChange: handleChange,
+      isChecking: isChecking,
+      checkingMessage: checkingMessage,
+      isSuccess: isSuccess,
+      successMessage: successMessage,
+    });
+  },
+  args: {
+    label: 'Space Name',
+    placeholder: 'Enter space name...',
+    required: true,
+  },
+  argTypes: {
+    as: { control: false, table: { disable: true } },
+    rows: { control: false, table: { disable: true } },
+    showCharacterCount: { control: false, table: { disable: true } },
+    withButton: { control: false, table: { disable: true } },
+    buttonText: { control: false, table: { disable: true } },
+    buttonType: { control: false, table: { disable: true } },
+    onButtonClick: { control: false, table: { disable: true } },
+    inputButtonError: { control: false, table: { disable: true } },
+    inputButtonErrorMessage: { control: false, table: { disable: true } },
+    withTags: { control: false, table: { disable: true } },
+    isChecking: { control: false, table: { disable: true } },
+    checkingMessage: { control: false, table: { disable: true } },
+    isSuccess: { control: false, table: { disable: true } },
+    successMessage: { control: false, table: { disable: true } },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Input with real-time availability checking. When typing, it shows "checking availability..." and then displays success message if the space name is available. Try names like "public", "community" (unavailable) vs "myspace", "newspace" (available).',
+      },
+      source: {
+        code: `<div class="input-wrapper">
+  <div class="flex-between">
+    <label for="space-name-input" class="input-label">
+      Space Name
+      <span class="input-required"> *</span>
+    </label>
+    
+    <div id="space-name-input-checking" class="input-checking" role="status">
+      checking availability...
+    </div>
+    
+    <div id="space-name-input-success" class="input-success" role="status">
+      space name is available
+    </div>
+  </div>
+  
+  <input 
+    id="space-name-input" 
+    type="text" 
+    class="input" 
+    placeholder="Enter space name..." 
+    required
+    aria-invalid="false"
+  />
+</div>`
+      }
+    }
+  }
 };

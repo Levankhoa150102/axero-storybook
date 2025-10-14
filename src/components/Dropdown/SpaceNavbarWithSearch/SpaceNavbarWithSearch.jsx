@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import "../../shared/variables.css";
-import "./Dropdown.css";
+import "../../../shared/variables.css";
+import "../Dropdown.css";
 import "./SpaceNavbarWithSearch.css";
-import "../Button/Button.css";
+import "../../Button/Button.css";
 
 /**
  * SpaceNavbarWithSearch component for Axero space navigation

@@ -1,0 +1,55 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks';
+import { Radio } from './Radio';
+import * as RadioStories from './Radio.stories.js';
+
+<Meta of={RadioStories} />
+
+# Radio
+
+A clean and accessible Radio component for single-selection scenarios. Built with semantic HTML using fieldset, legend, and list elements for optimal accessibility and form integration.
+
+## Features
+
+- **Semantic HTML Structure**: Uses `fieldset`, `legend`, and `ul`/`li` for proper form semantics
+- **Rich Options**: Supports labels with optional descriptions for each radio option
+- **Clean Styling**: Card-like appearance with rounded corners that match the design system
+- **Accessibility**: Full keyboard navigation, screen reader support, and proper ARIA attributes
+- **Form Integration**: Works seamlessly with forms and validation
+- **Required Fields**: Built-in required field indicator
+
+## Default Radio
+
+Basic Radio component with label and description for each option, perfect for the "Type of space" use case.
+
+<Canvas of={RadioStories.Default} />
+
+**CSS Classes Used:** `.radio-wrapper`, `.radio-label`, `.radio-list`, `.radio-item`, `.radio-option`, `.radio-text`
+
+**Props:** `label="Type of space"`, `required={true}`, `options={spaceTypeOptions}`
+
+### Key Features:
+- **Required Field**: Red asterisk indicator for required selection
+- **Rich Options**: Each option has a label and descriptive text
+- **Card-like Design**: Each option styled as a clickable card with rounded corners
+- **Accessibility**: Proper fieldset/legend structure with ARIA attributes
+
+**Use Cases:**
+- Contact method preferences
+- Simple category selections
+- Yes/No type questions
+- Basic configuration options
+
+## Design Patterns
+
+### Option Structure
+Each option in the `options` array should include:
+- **`value`** (required): Unique identifier for the option
+- **`label`** (required): Display text for the option
+- **`description`** (optional): Additional descriptive text
+
+### Form Integration
+The Radio component works seamlessly with HTML forms:
+- Uses proper `name` attributes for form submission
+- Supports `required` validation
+- Compatible with form libraries like Formik, React Hook Form
+- Provides controlled and uncontrolled component patterns

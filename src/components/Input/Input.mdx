@@ -15,6 +15,18 @@ The simplest form of the Input component with just a label and placeholder.
 
 <Canvas of={InputStories.Default} />
 
+### No Label Input (Expandable)
+
+An expandable input field without a label that automatically grows as you type, perfect for inline forms, social media posts, or comment boxes.
+
+<Canvas of={InputStories.NoLabel} />
+
+**Key Features:**
+- **Auto-expanding**: Automatically expands to multiple lines as content grows
+- **Contenteditable**: Uses `contenteditable="true"` div instead of traditional input
+- **Smart placeholder**: Shows/hides placeholder based on actual content
+- **Form compatibility**: Includes hidden input for form submission
+
 ### Required Field
 
 Input with required field validation and visual indicator (red asterisk).
@@ -51,7 +63,8 @@ Single-line input with real-time character counting display.
 
 <Canvas of={InputStories.WithCharacterCount} />
 
-**Key Props:** `showCharacterCount={true}` - Enables character count display in top-right corner
+**Key Props:** 
+- `showCharacterCount={true}` - Enables character count display in top-right corner
 
 ### Input with Button
 
@@ -64,6 +77,40 @@ Input field combined with an action button in a layout.
 - `buttonText="Action"` - Text displayed on button
 - `onButtonClick={function}` - Click handler for button
 - `buttonType="button|submit"` - Button type attribute
+
+### Input with Inline Button
+
+Input field with a submit button positioned inside the input area, perfect for actions like "Invite", "Send", or "Submit".
+
+<Canvas of={InputStories.InlineButton} />
+
+**Key Props:**
+- `buttonText="Invite"` - Text displayed on the inline submit button
+- `onButtonClick={function}` - Click handler for the submit button
+- `placeholder="Enter email address..."` - Input placeholder text
+
+**HTML Structure:**
+```html
+<div class="input-wrapper">
+  <input type="submit" class="input-submit-button" value="Invite" />
+  <div class="input-text-container">
+    <input type="text" class="input input--with-submit" />
+  </div>
+</div>
+```
+
+**Key Features:**
+- **Visual Integration**: Submit button appears inside the text input field
+- **Semantic Structure**: Uses `<input type="submit">` for proper form semantics
+- **Responsive Design**: Text input adjusts with right padding for button space
+- **Hover States**: Button includes proper hover and active state styling
+
+**Use Cases:**
+- Email invitation forms
+- Newsletter signup forms
+- Quick action inputs
+- Search with submit functionality
+- Contact forms with immediate actions
 
 ### Input with Tags
 
@@ -81,56 +128,17 @@ Interactive input field with integrated tags functionality. Users can add tags b
 - `error={false}` - Whether the input has an error state
 - `required={false}` - Whether the field is required
 
-**Features:**
-- **Keyboard Input**: Type and press Enter to add new tags
-- **Dropdown Selection**: Click the + button to select from available tags
-- **Tag Removal**: Click × on tags to remove them (edit mode only)
-- **State Management**: Automatically handles tag state and validation
-- **Accessibility**: Full keyboard navigation and screen reader support
+### Availability Check
 
-## Styling Architecture
+Interactive input field with real-time availability checking. Perfect for validating space names, usernames, or any unique identifiers against existing data.
 
-### CSS Classes
+<Canvas of={InputStories.AvailabilityCheck} />
 
-The component uses a systematic approach to CSS classes for flexible styling:
-
-#### Container Classes
-- `.input-wrapper` - Main container for all input variants
-- `.input-button-container` - Flex container for input+button layout 
-- `.input-field-container` - Input field container 
-- `.button-container` - Button container 
-- `.flex-between` - Flexbox container for label and auxiliary content
-
-#### Input Element Classes
-- `.input` - Base input/textarea styling
-- `.input--error` - Error state styling (red border and focus states)
-- `.input--disabled` - Disabled state styling (muted colors, no interaction)
-
-#### Label and Text Classes
-- `.input-label` - Primary label text styling
-- `.input-label--required` - Required field label styling
-- `.input-label--disabled` - Disabled label styling
-- `.input-required` - Red asterisk indicator for required fields
-- `.input-description` - Helper/description text styling
-- `.input-error` - Error message text styling
-- `.input-character-count` - Character counter display styling
-
-#### Button Integration Classes
-- `.btn-with-input` - Special button styling for input integration mode
-
-#### Tags Input Classes (InputWithTags)
-- `.input-tags-container` - Main container for tags input with border and padding
-- `.input-tags-container--disabled` - Disabled state styling for tags container
-- `.input-tags-wrapper` - Flex container for displaying existing tags
-- `.input-tags-field` - Container for input field and add button
-- `.input-tags-input` - Text input field within tags container (transparent background)
-- `.input-tags-button` - Add/toggle button with plus icon and circular styling
-- `.input-tags-button--active` - Active state when dropdown is open (rotated plus becomes X)
-- `.input-tags-dropdown` - Positioned dropdown container for available tags
-- `.input-tags-dropdown-header` - "Popular Tags" header section in dropdown
-- `.input-tags-dropdown-content` - Scrollable content area for tag options
-- `.input-tags-dropdown-item` - Individual tag option buttons in dropdown
-- `.input-tags-dropdown-item--selected` - Selected/already-added tag styling
+**Key Props:**
+- `isChecking={true}` - Shows checking status message
+- `checkingMessage="checking availability..."` - Message displayed during validation
+- `isSuccess={true}` - Shows success status when available
+- `successMessage="space name is available"` - Success message for available names
 
 ### Customization
 
@@ -139,3 +147,36 @@ The component supports customization through:
 1. **CSS Custom Properties**: Defined in `src/shared/variables.css`
 2. **Modifier Classes**: Add custom classes via the `className` prop
 3. **Style Overrides**: Target specific CSS classes for custom styling
+
+## CSS Classes Reference
+
+### Base Classes
+- `.input-wrapper` - Main container for all input variants
+- `.input` - Base input/textarea styling
+- `.input-label` - Primary label text styling
+
+### Modifier Classes
+- `.input--error` - Error state styling (red border and focus states)
+- `.input--disabled` - Disabled state styling (muted colors, no interaction)
+- `.input--no-label` - Special styling for inputs without labels
+- `.input--expandable` - Auto-expanding contenteditable input styling
+- `.input--placeholder` - Placeholder state for expandable inputs
+- `.input--with-submit` - Text input with right padding for inline submit button
+
+### Message Classes
+- `.input-error` - Error message text styling (red)
+- `.input-checking` - Checking status message styling (gray)
+- `.input-success` - Success message text styling (green)
+- `.input-character-count` - Character counter display styling
+
+### Layout Classes
+- `.input-button-container` - Flex container for input+button layout
+- `.input-field-container` - Input field container (70% width)
+- `.button-container` - Button container (30% width)
+- `.input-inline-outer` - Container for inline submit button layout
+- `.input-text-container` - Text input container for inline button structure
+- `.input-submit-button` - Inline submit button positioned inside input field
+
+### Special Features
+- `.input-required` - Red asterisk indicator for required fields
+- `.input-description` - Helper/description text styling

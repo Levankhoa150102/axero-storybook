@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks';
 import { Dropdown } from './Dropdown';
-import * as DropdownStories from './Dropdown.stories.js';
-import * as SpaceNavbarStories from './SpaceNavbarWithSearch.stories';
+import * as DropdownStories from './Dropdown.stories';
+import * as SpaceNavbarStories from './SpaceNavbarWithSearch/SpaceNavbarWithSearch.stories';
 
 <Meta of={DropdownStories} />
 
@@ -48,32 +48,6 @@ A compact dropdown that shows only an icon (no text, no caret). Ideal for space-
 
 **Props:** `buttonIcon="fas fa-ellipsis-v"`, `iconOnly={true}`, `className="btn-group"`
 
-## Input-Style Selection Dropdown
-
-A dropdown that looks and behaves like an input field, perfect for form selections like categories, locations, or any predefined options. Built using the **DropdownSelect component** with native HTML select elements for better accessibility and mobile experience.
-
-<Canvas of={DropdownStories.WithSelection} />
-
-**CSS Classes Used:** `.input-wrapper`, `.input-label`, `.input`, `.dropdown-select-input`, `.input-error`, `.input-required`
-
-**Props:** `label="Parent category"`, `placeholder="Select category..."`, `items={selectionMenuItems}`, `required={true}`
-
-### Features:
-- **Input Field Appearance**: Uses the same styling as Input components for consistency
-- **Native Select Elements**: Built with HTML `<select>` and `<option>` for better accessibility
-- **Form Validation**: Includes required field validation with error messages
-- **Real-time Feedback**: Shows validation status as users make selections
-- **Keyboard Navigation**: Full keyboard support with native select behavior
-- **Mobile Optimized**: Native mobile dropdown experience on touch devices
-- **Screen Reader Friendly**: Proper ARIA attributes and semantic HTML structure
-
-### Use Cases:
-- Category selection in forms
-- Location dropdowns
-- Status selection
-- Any form field requiring predefined options
-- Replacement for custom dropdowns in forms
-
 ## Space Navbar with Search
 
 A specialized dropdown for space navigation with built-in search functionality. Displays a list of spaces with thumbnails and allows users to filter by typing in the search box.
@@ -90,6 +64,28 @@ A specialized dropdown for space navigation with built-in search functionality. 
 - **View All Link**: Quick access to see all spaces
 - **Custom Styling**: Diamond hover box design with modern UI
 - **Reuses Dropdown Logic**: Built on top of the base Dropdown component's click-outside and toggle functionality
+
+## Filter With Search
+
+A searchable dropdown specifically designed for space filtering. Features a label, select trigger that shows the current selection, and when clicked reveals a dropdown menu with a search bar for filtering options in real-time.
+
+<Canvas of={DropdownStories.FilterWithSearch} />
+
+**CSS Classes Used:** `.dropdown-with-search`, `.dropdown-with-search__trigger`, `.dropdown-with-search__menu`, `.dropdown-with-search__search-input`
+
+**Props:** `label="Filter by space"`, `options={[...]}`, `value="all"`
+
+### Features:
+- **Label Support**: Clear labeling with optional required indicator (*)
+- **Select Interface**: Button-style trigger showing current selection with CSS triangle caret
+- **Search Bar**: Integrated search input with magnifying glass icon
+- **Real-time Filtering**: Options filter as you type in the search box
+- **Persistent Selection**: Selected option remains highlighted when dropdown reopens
+- **Visual Selection State**: Selected options show with light gray background (`#f0f0f0`)
+- **Dynamic Border Radius**: Trigger button adjusts border radius when open (top corners only)
+- **Keyboard Support**: Focus management and navigation
+- **Click Outside**: Closes when clicking outside the dropdown
+- **Responsive Design**: Adapts to different screen sizes
 
 {/* HIDE
 

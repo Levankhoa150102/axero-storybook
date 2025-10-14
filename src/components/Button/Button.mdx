@@ -164,6 +164,21 @@ Button with animated processing state that shows diagonal stripes when active.
 ```
 */}
 
+## Filter Buttons
+
+Filter buttons are specialized buttons designed for filtering interfaces. They support selection states, counts, icons, and maintain their selected appearance when clicked.
+
+<Canvas of={ButtonStories.FilterButtonGroup} />
+
+**CSS Classes Used:** `.btn`, `.btn--filter`, `.btn--selected`, `.btn-icon`, `.btn-label`, `.btn-count`
+
+### Filter Button Features:
+- **Selection State**: Visual feedback when selected with `.btn--selected` class
+- **Count Display**: Optional numeric count with `.btn-count` styling
+- **Icon Support**: FontAwesome icons with proper alignment
+- **Persistent Selection**: Maintains selected state until another button is clicked
+
+
 ## ProcessingButton
 
 A specialized button component with animated processing state using `.btn.processing` class. Features diagonal animated stripes when processing is active.

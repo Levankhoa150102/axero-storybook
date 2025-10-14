@@ -16,6 +16,9 @@ export const Button = ({
   iconPosition = 'prefix', 
   iconOnly = false,
   className = '',
+  variant = '',
+  selected = false,
+  count = null,
   ...props 
 }) => {
 
@@ -24,6 +27,8 @@ export const Button = ({
     'btn',
     size ? `btn--${size}`: '',
     iconOnly ? 'btn--icon-only' : '',
+    variant ? `btn--${variant}` : '',
+    selected ? 'btn--selected' : '',
     className ? className : ''
   ].filter(Boolean).join(' ');
   
@@ -49,17 +54,26 @@ export const Button = ({
       return renderIcon();
     }
     
+    const labelContent = (
+      <span className="btn-label">
+        {label}
+        {count !== null && (
+          <span className="btn-count">({count})</span>
+        )}
+      </span>
+    );
+    
     if (iconPosition === 'prefix') {
       return (
         <>
           {renderIcon()}
-          {label}
+          {labelContent}
         </>
       );
     } else {
       return (
         <>
-          {label}
+          {labelContent}
           {renderIcon()}
         </>
       );
@@ -123,5 +137,17 @@ Button.propTypes = {
    * Additional CSS classes
    */
   className: PropTypes.string,
+  /**
+   * Button variant (e.g., 'filter')
+   */
+  variant: PropTypes.string,
+  /**
+   * Whether the button is in selected state
+   */
+  selected: PropTypes.bool,
+  /**
+   * Count to display next to the label
+   */
+  count: PropTypes.number,
 };
 
