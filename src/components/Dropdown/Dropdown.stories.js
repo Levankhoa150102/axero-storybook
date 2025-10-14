@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown } from './Dropdown';
+import { Dropdown, DropdownSelect } from './Dropdown';
 import { SpaceNavbarWithSearch } from './SpaceNavbarWithSearch';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -345,6 +345,109 @@ export const IconOnly = {
       </a>
     </li>
   </ul>
+</div>`
+      }
+    },
+  },
+};
+
+// Selection menu items for category dropdown
+const selectionMenuItems = [
+  {
+    id: 'placeholder',
+    text: 'Select category',
+    href: '#',
+  },
+  {
+    id: 'news',
+    text: 'News',
+    href: '#',
+  },
+  {
+    id: 'press-release',
+    text: 'Press Release',
+    href: '#',
+  },
+  {
+    id: 'blog',
+    text: 'Blog',
+    href: '#',
+  },
+  {
+    id: 'announcement',
+    text: 'Announcement',
+    href: '#',
+  },
+];
+
+export const WithSelection = {
+  component: DropdownSelect,
+  render: function(args) {
+    return React.createElement(DropdownSelect, {
+      ...args,
+      onSelectionChange: (selectedItem) => {
+        console.log('Selected:', selectedItem);
+        if (args.onSelectionChange) {
+          args.onSelectionChange(selectedItem);
+        }
+      }
+    });
+  },
+  args: {
+    label: 'Parent category',
+    placeholder: 'Select category...',
+    items: selectionMenuItems,
+    required: false,
+  },
+  argTypes: {
+    // Disable dropdown-specific controls that don't apply to DropdownSelect
+    buttonText: { control: false, table: { disable: true } },
+    buttonIcon: { control: false, table: { disable: true } },
+    iconOnly: { control: false, table: { disable: true } },
+    position: { control: false, table: { disable: true } },
+    openLeft: { control: false, table: { disable: true } },
+    navbar: { control: false, table: { disable: true } },
+    onItemClick: { control: false, table: { disable: true } },
+    
+    // Enable DropdownSelect-specific controls
+    label: { control: 'text' },
+    placeholder: { control: 'text' },
+    required: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    error: { control: 'boolean' },
+    errorMessage: { control: 'text' },
+    onSelectionChange: { action: 'selection changed' },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Dropdown with Input-style appearance. Looks like a regular input field with a dropdown arrow. Click the input or arrow to show selection options. Perfect for form fields like category selection.',
+      },
+      source: {
+        code: `<div class="input-wrapper">
+  <label class="input-label" for="dropdown-select-abc123">
+    Parent category
+    <span class="input-required"> *</span>
+  </label>
+  
+  <div class="dropdown-select-container">
+    <select 
+      id="dropdown-select-abc123"
+      name="dropdown-select-parent-category"
+      class="input dropdown-select-input"
+      required
+    >
+      <option value="" disabled>Select category...</option>
+      <option value="news">News</option>
+      <option value="press-release" selected>Press Release</option>
+      <option value="blog">Blog</option>
+      <option value="announcement">Announcement</option>
+    </select>
+    
+    <div class="input-error" role="alert">
+      Please select a category
+    </div>
+  </div>
 </div>`
       }
     },

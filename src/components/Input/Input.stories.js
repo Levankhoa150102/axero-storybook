@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { fn } from '@storybook/test';
-import { Input } from './Input.jsx';
+import { Input, InputWithTags } from './Input.jsx';
+import { Tags } from '../Tags/Tags.jsx';
 
 export default {
   title: 'UI Components/Input',
@@ -15,6 +16,18 @@ export const Default = {
     label: 'Label',
     placeholder: 'Enter text...',
     onChange: fn(),
+  },
+  argTypes: {
+    as: { control: false, table: { disable: true } },
+    rows: { control: false, table: { disable: true } },
+    showCharacterCount: { control: false, table: { disable: true } },
+    withButton: { control: false, table: { disable: true } },
+    buttonText: { control: false, table: { disable: true } },
+    buttonType: { control: false, table: { disable: true } },
+    onButtonClick: { control: false, table: { disable: true } },
+    inputButtonError: { control: false, table: { disable: true } },
+    inputButtonErrorMessage: { control: false, table: { disable: true } },
+    withTags: { control: false, table: { disable: true } },
   },
   parameters: {
     docs: {
@@ -35,6 +48,18 @@ export const Required = {
     placeholder: 'This field is required...',
     required: true,
     onChange: fn(),
+  },
+  argTypes: {
+    as: { control: false, table: { disable: true } },
+    rows: { control: false, table: { disable: true } },
+    showCharacterCount: { control: false, table: { disable: true } },
+    withButton: { control: false, table: { disable: true } },
+    buttonText: { control: false, table: { disable: true } },
+    buttonType: { control: false, table: { disable: true } },
+    onButtonClick: { control: false, table: { disable: true } },
+    inputButtonError: { control: false, table: { disable: true } },
+    inputButtonErrorMessage: { control: false, table: { disable: true } },
+    withTags: { control: false, table: { disable: true } },
   },
   parameters: {
     docs: {
@@ -63,6 +88,18 @@ export const WithError = {
     error: true,
     errorMessage: 'Please enter a email',
     onChange: fn(),
+  },
+  argTypes: {
+    as: { control: false, table: { disable: true } },
+    rows: { control: false, table: { disable: true } },
+    showCharacterCount: { control: false, table: { disable: true } },
+    withButton: { control: false, table: { disable: true } },
+    buttonText: { control: false, table: { disable: true } },
+    buttonType: { control: false, table: { disable: true } },
+    onButtonClick: { control: false, table: { disable: true } },
+    inputButtonError: { control: false, table: { disable: true } },
+    inputButtonErrorMessage: { control: false, table: { disable: true } },
+    withTags: { control: false, table: { disable: true } },
   },
   parameters: {
     docs: {
@@ -107,6 +144,17 @@ export const AsTextarea = {
     rows: 3,
     onChange: fn(),
   },
+  argTypes: {
+    type: { control: false, table: { disable: true } },
+    showCharacterCount: { control: false, table: { disable: true } },
+    withButton: { control: false, table: { disable: true } },
+    buttonText: { control: false, table: { disable: true } },
+    buttonType: { control: false, table: { disable: true } },
+    onButtonClick: { control: false, table: { disable: true } },
+    inputButtonError: { control: false, table: { disable: true } },
+    inputButtonErrorMessage: { control: false, table: { disable: true } },
+    withTags: { control: false, table: { disable: true } },
+  },
   parameters: {
     docs: {
       description: {
@@ -127,11 +175,23 @@ export const AsTextarea = {
   },
 };
 
-export const WithCharacterCount = {    
+export const WithCharacterCount = {
   args: {
     label: 'Title',
     placeholder: 'Enter title...',
     showCharacterCount: true,
+  },
+  argTypes: {
+    description: { control: false, table: { disable: true } },
+    as: { control: false, table: { disable: true } },
+    rows: { control: false, table: { disable: true } },
+    withButton: { control: false, table: { disable: true } },
+    buttonText: { control: false, table: { disable: true } },
+    buttonType: { control: false, table: { disable: true } },
+    onButtonClick: { control: false, table: { disable: true } },
+    inputButtonError: { control: false, table: { disable: true } },
+    inputButtonErrorMessage: { control: false, table: { disable: true } },
+    withTags: { control: false, table: { disable: true } },
   },
   parameters: {
     docs: {
@@ -152,24 +212,31 @@ export const WithCharacterCount = {
 };
 
 export const WithButton = {
-    args: {
-        label: 'Search',
-        placeholder: 'Enter search term...',
-        withButton: true,
-        buttonText: 'Search',
-        buttonType: 'button',
-        inputButtonError: false,
-        inputButtonErrorMessage: 'There was an error with your search',
-        onChange: fn(),
-        onButtonClick: fn(),
-    },
-    parameters: {
-        docs: {
-            description: {
-                story: 'Input field with an attached button for actions like search or submit.',
-            },
-            source: {
-                code: `<div class="input-wrapper">
+  args: {
+    label: 'Search',
+    placeholder: 'Enter search term...',
+    withButton: true,
+    buttonText: 'Search',
+    buttonType: 'button',
+    inputButtonError: false,
+    inputButtonErrorMessage: 'There was an error with your search',
+    onChange: fn(),
+    onButtonClick: fn(),
+  },
+  argTypes: {
+    description: { control: false, table: { disable: true } },
+    as: { control: false, table: { disable: true } },
+    rows: { control: false, table: { disable: true } },
+    showCharacterCount: { control: false, table: { disable: true } },
+    withTags: { control: false, table: { disable: true } },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Input field with an attached button for actions like search or submit.',
+      },
+      source: {
+        code: `<div class="input-wrapper">
     <div class="flex-between">
         <label for="search" class="input-label">Search</label>
     </div>
@@ -182,7 +249,98 @@ export const WithButton = {
         </div>
     </div>
 </div>`
-            }
-        },
+      }
     },
+  },
+};
+
+export const WithTags = {
+  render: function (args) {
+    const [tags, setTags] = React.useState(['rocket', 'sale']);
+
+    const handleTagsChange = (newTags) => {
+      setTags(newTags);
+      if (args.onTagsChange) args.onTagsChange(newTags);
+    };
+
+    return React.createElement(InputWithTags, {
+      ...args,
+      tags,
+      onTagsChange: handleTagsChange,
+    });
+  },
+  args: {
+    label: 'Add Tags',
+    placeholder: 'Enter tags...',
+    showDropdown: true,
+    onTagsChange: fn(),
+  },
+  argTypes: {
+    description: { control: false, table: { disable: true } },
+    value: { control: false, table: { disable: true } },
+    type: { control: false, table: { disable: true } },
+    as: { control: false, table: { disable: true } },
+    rows: { control: false, table: { disable: true } },
+    showCharacterCount: { control: false, table: { disable: true } },
+    required: { control: false, table: { disable: true } },
+    disabled: { control: false, table: { disable: true } },
+    error: { control: false, table: { disable: true } },
+    errorMessage: { control: false, table: { disable: true } },
+    withButton: { control: false, table: { disable: true } },
+    buttonText: { control: false, table: { disable: true } },
+    buttonType: { control: false, table: { disable: true } },
+    inputButtonError: { control: false, table: { disable: true } },
+    inputButtonErrorMessage: { control: false, table: { disable: true } },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Input field with integrated tags functionality using the InputWithTags component. Type and press Enter to add tags, or click the + button to show dropdown. Tags can be removed by clicking the × button in edit mode.',
+      },
+      source: {
+        code: `<div class="input-wrapper">
+  <label for="tags-input" class="input-label">Add Tags</label>
+  <div class="input-tags-container">
+    <!-- Existing tags -->
+    <div class="input-tags-wrapper">
+      <div class="tags-cp-container edit-mode">
+  <span class="tag-cp label">
+    <span class="tag-cp-text">rocket</span>
+    <span class="tag-cp-remove" title="Remove tag" aria-label="Remove rocket tag">
+      <i class="fas fa-times"></i>
+    </span>
+  </span>
+  <span class="tag-cp label">
+    <span class="tag-cp-text">sale</span>
+    <span class="tag-cp-remove" title="Remove tag" aria-label="Remove sale tag">
+      <i class="fas fa-times"></i>
+    </span>
+  </span>
+</div>
+    </div>
+    
+    <!-- Input field with + button -->
+    <div class="input-tags-field">
+      <input 
+        id="tags-input" 
+        type="text" 
+        class="input-tags-input" 
+        placeholder="Enter tags..." 
+      />
+      <button type="button" class="input-tags-button" aria-label="Show available tags">
+        <i class="fas fa-plus-square fa-lg"></i>
+      </button>
+    </div>
+    
+    <!-- Dropdown (shows when button clicked) -->
+    <div class="input-tags-dropdown">
+      <div class="input-tags-dropdown-content">
+        <!-- Dropdown content will be added here -->
+      </div>
+    </div>
+  </div>
+</div>`
+      }
+    },
+  },
 };

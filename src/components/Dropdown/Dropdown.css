@@ -221,3 +221,46 @@
 .navbar .dropdown {
     display: inline-block;
 }
+
+/* DropdownSelect Component - Native select styling */
+.dropdown-select-container {
+    cursor: pointer;
+    position: relative;
+    display: block;
+}
+.dropdown-select-input {
+    cursor: pointer;
+    margin-top: 5px;
+}
+select.input.dropdown-select-input:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    border-color: var(--input-border-color);
+}
+
+.dropdown-select-input:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    background-color: var(--background-disabled, #f7fafc);
+}
+
+/* Error state styling */
+.dropdown-select-input.input--error {
+    border-color: var(--border-error, #e53e3e);
+}
+
+.dropdown-select-input.input--error:focus {
+    border-color: var(--border-error, #e53e3e);
+    box-shadow: 0 0 0 1px var(--border-error, #e53e3e);
+}
+
+/* Custom option styling (limited support) */
+.dropdown-select-input option {
+    padding: 8px 12px;
+    color: var(--text-primary, #161616);
+    background-color: var(--background-primary, white);
+}
+
+.dropdown-select-input option:disabled {
+    color: var(--text-disabled, #a0aec0);
+    background-color: var(--background-secondary, #f7fafc);
+}

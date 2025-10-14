@@ -1,8 +1,8 @@
 import React from 'react';
 import { fn } from '@storybook/test';
 import { Button } from './Button.jsx';
+import { ProcessingButton } from './ProcessingButton.jsx';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
   title: 'UI Components/Button',
   component: Button,
@@ -11,7 +11,6 @@ export default {
   },
 };
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default = {
   args: {
     label: 'Button',
@@ -100,7 +99,6 @@ export const IconOnly = {
   },
 };
 
-// export const Large = {
 //   args: {
 //     size: 'large',
 //     label: 'Button',
@@ -132,52 +130,62 @@ export const IconOnly = {
 //   }
 // };
 
-// Processing Button Examples
-export const Processing = {
+// Processing Button Stories
+export const ProcessingDefault = {
+  render: function(args) {
+    return React.createElement(ProcessingButton, args);
+  },
   args: {
-    label: 'Submit Form',
-    enableProcessing: true,
+    label: 'Save and Publish',
     processingLabel: 'Processing...',
     processingDuration: 3000,
+    backgroundColor: '#459d3e',
+    textColor: '#fff',
+  },
+  argTypes: {
+    onProcessingComplete: {
+      control: false,
+      table: { disable: true }
+    },
+    disabled: {
+      control: false,
+      table: { disable: true }
+    },
+    style: {
+      control: false,
+      table: { disable: true }
+    },
+    size: { 
+      control: false,
+      table: { disable: true } 
+    },
+    iconClassName: { 
+      control: false,
+      table: { disable: true } 
+    },
+    iconSize: { 
+      control: false,
+      table: { disable: true } 
+    },
+    iconPosition: { 
+      control: false,
+      table: { disable: true } 
+    },
+    iconOnly: { 
+      control: false,
+      table: { disable: true } 
+    },
   },
   parameters: {
     docs: {
       description: {
-        story: 'Click the button to see the processing animation. Button automatically changes to processing state with animated stripes.',
+        story: 'Click the button to see the processing animation with diagonal stripes. The button uses .btn.processing class.',
       },
       source: {
-        code: `<button 
-  class="btn" 
-  onclick="handleProcessing(this)"
-  style="
-    padding: 12px 28px;
-    height: 48px;
-    font-size: 15.2px;
-    color: #fff;
-    background: #459d3e;
-    border: 0;
-    border-radius: 8px;
-    transition: .2s ease-out;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-  "
->
-  Submit Form
-</button>
+      code: `<button class="btn processing processing-active">
+  Processing...
+</button>`,}
 
-<script>
-function handleProcessing(button) {
-  button.classList.add('processing');
-  button.disabled = true;
-  button.textContent = 'Processing...';
-  
-  setTimeout(() => {
-    button.classList.remove('processing');
-    button.disabled = false;
-    button.textContent = 'Submit Form';
-  }, 3000);
-}
-</script>`
-      }
     }
   }
 };

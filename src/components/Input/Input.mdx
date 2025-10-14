@@ -65,6 +65,29 @@ Input field combined with an action button in a layout.
 - `onButtonClick={function}` - Click handler for button
 - `buttonType="button|submit"` - Button type attribute
 
+### Input with Tags
+
+Interactive input field with integrated tags functionality. Users can add tags by typing and pressing Enter, or by selecting from a dropdown of available tags. Tags can be removed individually in edit mode.
+
+<Canvas of={InputStories.WithTags} />
+
+**Key Props:**
+- `tags={[]}` - Array of current tags
+- `onTagsChange={function}` - Callback when tags array changes
+- `availableTags={[]}` - Array of tags available in dropdown
+- `showDropdown={true}` - Whether to show the dropdown button
+- `placeholder="Enter tags..."` - Input placeholder text
+- `disabled={false}` - Whether the input is disabled
+- `error={false}` - Whether the input has an error state
+- `required={false}` - Whether the field is required
+
+**Features:**
+- **Keyboard Input**: Type and press Enter to add new tags
+- **Dropdown Selection**: Click the + button to select from available tags
+- **Tag Removal**: Click × on tags to remove them (edit mode only)
+- **State Management**: Automatically handles tag state and validation
+- **Accessibility**: Full keyboard navigation and screen reader support
+
 ## Styling Architecture
 
 ### CSS Classes
@@ -94,6 +117,20 @@ The component uses a systematic approach to CSS classes for flexible styling:
 
 #### Button Integration Classes
 - `.btn-with-input` - Special button styling for input integration mode
+
+#### Tags Input Classes (InputWithTags)
+- `.input-tags-container` - Main container for tags input with border and padding
+- `.input-tags-container--disabled` - Disabled state styling for tags container
+- `.input-tags-wrapper` - Flex container for displaying existing tags
+- `.input-tags-field` - Container for input field and add button
+- `.input-tags-input` - Text input field within tags container (transparent background)
+- `.input-tags-button` - Add/toggle button with plus icon and circular styling
+- `.input-tags-button--active` - Active state when dropdown is open (rotated plus becomes X)
+- `.input-tags-dropdown` - Positioned dropdown container for available tags
+- `.input-tags-dropdown-header` - "Popular Tags" header section in dropdown
+- `.input-tags-dropdown-content` - Scrollable content area for tag options
+- `.input-tags-dropdown-item` - Individual tag option buttons in dropdown
+- `.input-tags-dropdown-item--selected` - Selected/already-added tag styling
 
 ### Customization
 

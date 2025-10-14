@@ -3,6 +3,7 @@
 // ========================================
 // Import and export all React components for React/Storybook usage
 export { Button } from './components/Button/Button.jsx';
+export { ProcessingButton } from './components/Button/ProcessingButton.jsx';
 export { Icon } from './components/Icons/Icons.jsx';
 export { Rating } from './components/Rating/Rating.jsx';
 export { AlertBanner } from './components/AlertBanner/AlertBanner.jsx';
@@ -11,6 +12,7 @@ export { Dropdown } from './components/Dropdown/Dropdown.jsx';
 export { Input } from './components/Input/Input.jsx';
 export { Toggle } from './components/Toggle/Toggle.jsx';
 export { Checkbox } from './components/Checkbox/Checkbox.jsx';
+export { Tags } from './components/Tags/Tags.jsx';
 // export { IconGallery } from './components/Icons/Icons.jsx';
 
 // ========================================
@@ -29,6 +31,7 @@ import './components/Dropdown/Dropdown.css';
 import './components/Input/Input.css';
 import './components/Toggle/Toggle.css';
 import './components/Checkbox/Checkbox.css';
+import './components/Tags/Tags.css';
 
 // ========================================
 // WEB COMPONENTS FOR ALPINEJS SUPPORT
@@ -56,6 +59,7 @@ import { Dropdown } from './components/Dropdown/Dropdown.jsx';
 import { Input } from './components/Input/Input.jsx';
 import { Toggle } from './components/Toggle/Toggle.jsx';
 import { Checkbox } from './components/Checkbox/Checkbox.jsx';
+import { Tags } from './components/Tags/Tags.jsx';
 
 // Create a namespace object for easier access in React applications
 const SystemDesignToolkit = {
@@ -68,6 +72,7 @@ const SystemDesignToolkit = {
   Dropdown,
   Toggle,
   Checkbox,
+  Tags,
   // IconGallery,
   // TODO: Add future components here when created
   // Example: CustomButton, Modal, etc.

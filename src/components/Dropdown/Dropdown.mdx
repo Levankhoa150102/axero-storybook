@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks';
 import { Dropdown } from './Dropdown';
-import * as DropdownStories from './Dropdown.stories';
+import * as DropdownStories from './Dropdown.stories.js';
 import * as SpaceNavbarStories from './SpaceNavbarWithSearch.stories';
 
 <Meta of={DropdownStories} />
@@ -47,6 +47,32 @@ A compact dropdown that shows only an icon (no text, no caret). Ideal for space-
 **CSS Classes Used:** `.btn-group`, `.dropdown-toggle`, `.dropdown-menu`
 
 **Props:** `buttonIcon="fas fa-ellipsis-v"`, `iconOnly={true}`, `className="btn-group"`
+
+## Input-Style Selection Dropdown
+
+A dropdown that looks and behaves like an input field, perfect for form selections like categories, locations, or any predefined options. Built using the **DropdownSelect component** with native HTML select elements for better accessibility and mobile experience.
+
+<Canvas of={DropdownStories.WithSelection} />
+
+**CSS Classes Used:** `.input-wrapper`, `.input-label`, `.input`, `.dropdown-select-input`, `.input-error`, `.input-required`
+
+**Props:** `label="Parent category"`, `placeholder="Select category..."`, `items={selectionMenuItems}`, `required={true}`
+
+### Features:
+- **Input Field Appearance**: Uses the same styling as Input components for consistency
+- **Native Select Elements**: Built with HTML `<select>` and `<option>` for better accessibility
+- **Form Validation**: Includes required field validation with error messages
+- **Real-time Feedback**: Shows validation status as users make selections
+- **Keyboard Navigation**: Full keyboard support with native select behavior
+- **Mobile Optimized**: Native mobile dropdown experience on touch devices
+- **Screen Reader Friendly**: Proper ARIA attributes and semantic HTML structure
+
+### Use Cases:
+- Category selection in forms
+- Location dropdowns
+- Status selection
+- Any form field requiring predefined options
+- Replacement for custom dropdowns in forms
 
 ## Space Navbar with Search
 

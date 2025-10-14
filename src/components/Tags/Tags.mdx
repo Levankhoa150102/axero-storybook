@@ -1,0 +1,26 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import * as TagsStories from './Tags.stories';
+
+<Meta of={TagsStories} />
+
+# Tags
+
+The Tags component displays a collection of tags with optional edit functionality. In edit mode, users can remove tags by clicking the × button.
+
+## Examples
+
+### Default Tags
+<Canvas of={TagsStories.Default} />
+
+### Edit Mode
+When `editMode` is true, tags display a remove button (×) that calls the `onRemove` callback.
+
+<Canvas of={TagsStories.EditMode} />
+
+## Features
+
+- **Edit Mode Toggle**: Show/hide remove buttons based on `editMode` prop
+- **Flexible Layout**: Tags wrap automatically to fit container
+- **Accessibility**: Proper ARIA labels and keyboard navigation
+- **Customizable**: Support for custom CSS classes and styling
+- **Event Handling**: `onRemove` callback provides both index and tag value

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import '../../shared/variables.css';
 import './Button.css';
@@ -15,56 +15,15 @@ export const Button = ({
   iconSize,
   iconPosition = 'prefix', 
   iconOnly = false,
-  processing = false,
-  enableProcessing = false,
-  processingLabel = 'Processing...',
-  processingDuration = 3000,
-  onProcessingComplete,
   className = '',
   ...props 
 }) => {
-  const [isInternalProcessing, setIsInternalProcessing] = useState(false);
-
-  // Determine if processing (external or internal)
-  const isProcessing = processing || isInternalProcessing;
-
-  // Handle click with processing logic
-  const handleClick = async (e) => {
-    if (isProcessing) return;
-
-    // If enableProcessing is true, start internal processing
-    if (enableProcessing) {
-      setIsInternalProcessing(true);
-
-      // Call original onClick if provided
-      if (onClick) {
-        await onClick(e);
-      }
-
-      // Simulate processing time
-      setTimeout(() => {
-        setIsInternalProcessing(false);
-        if (onProcessingComplete) {
-          onProcessingComplete();
-        }
-      }, processingDuration);
-    } else {
-      // Normal button behavior
-      if (onClick) {
-        onClick(e);
-      }
-    }
-  };
-
-  // Determine button label
-  const buttonLabel = isProcessing && enableProcessing ? processingLabel : label;
 
   // Build CSS classes - single button style
   const classes = [
     'btn',
     size ? `btn--${size}`: '',
     iconOnly ? 'btn--icon-only' : '',
-    isProcessing ? 'processing' : '',
     className ? className : ''
   ].filter(Boolean).join(' ');
   
@@ -94,13 +53,13 @@ export const Button = ({
       return (
         <>
           {renderIcon()}
-          {buttonLabel}
+          {label}
         </>
       );
     } else {
       return (
         <>
-          {buttonLabel}
+          {label}
           {renderIcon()}
         </>
       );
@@ -111,16 +70,19 @@ export const Button = ({
   const { onClick, disabled, style, 'aria-label': ariaLabel, ...otherProps } = props;
 
   return (
+
+    <>
     <button
       className={classes}
-      onClick={handleClick}
-      disabled={disabled || isProcessing}
-      aria-label={ariaLabel || (iconOnly ? buttonLabel : undefined)}
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={ariaLabel || (iconOnly ? label : undefined)}
       style={backgroundColor ? { backgroundColor, ...style } : style}
       {...otherProps}
       >
       {renderContent()}
     </button>
+        </>
   );
 };
 
@@ -157,26 +119,6 @@ Button.propTypes = {
    * Optional click handler
    */
   onClick: PropTypes.func,
-  /**
-   * Show processing state with animated stripes (external control)
-   */
-  processing: PropTypes.bool,
-  /**
-   * Enable automatic processing on click
-   */
-  enableProcessing: PropTypes.bool,
-  /**
-   * Label to show during processing
-   */
-  processingLabel: PropTypes.string,
-  /**
-   * Duration of processing animation in milliseconds
-   */
-  processingDuration: PropTypes.number,
-  /**
-   * Callback when processing completes
-   */
-  onProcessingComplete: PropTypes.func,
   /**
    * Additional CSS classes
    */

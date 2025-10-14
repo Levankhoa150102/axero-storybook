@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks';
 import { Button } from './Button';
+import { ProcessingButton } from './ProcessingButton';
 import * as ButtonStories from './Button.stories';
 
 <Meta of={ButtonStories} />
@@ -129,7 +130,7 @@ Button displaying only an icon without text.
 
 Button with animated processing state that shows diagonal stripes when active.
 
-<Canvas of={ButtonStories.Processing} />
+{/* <Canvas of={ButtonStories.WithProcessing} /> */}
 
 **CSS Classes Used:** `.btn`, `.processing`
 
@@ -162,3 +163,42 @@ Button with animated processing state that shows diagonal stripes when active.
 }
 ```
 */}
+
+## ProcessingButton
+
+A specialized button component with animated processing state using `.btn.processing` class. Features diagonal animated stripes when processing is active.
+
+<Canvas of={ButtonStories.ProcessingDefault} />
+
+**CSS Classes Used:** `.btn`, `.processing`, `.processing-active`
+
+### Key Props:
+- **`label`**: String - Default button text
+- **`processingLabel`**: String - Text to show during processing (default: "Processing...")
+- **`processingDuration`**: Number - Animation duration in milliseconds (default: 3000)
+- **`onProcessingComplete`**: Function - Callback when processing finishes
+- **`onClick`**: Function - Click handler (called before processing starts)
+
+### Styling Architecture
+
+```css
+.btn.processing.processing-active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 0,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%
+  );
+  background-size: 40px 40px;
+  animation: moveStripes 3s linear infinite;
+}
+
+@keyframes moveStripes {
+  from { background-position: 100% 0%; }
+  to { background-position: 0% 100%; }
+}
+```
