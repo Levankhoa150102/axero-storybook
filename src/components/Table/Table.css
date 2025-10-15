@@ -1,0 +1,237 @@
+/* Table Component Styles */
+
+.table-container {
+  width: 100%;
+  background: var(--background-primary, #fff);
+  border-radius: var(--border-radius, 4px);
+}
+
+/* Table Toolbar */
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  height: auto;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border-color-primary);
+  border-top: 1px solid var(--border-color-primary);
+}
+
+.table-info {
+  display: flex;
+  align-items: center;
+}
+
+.table-record-count {
+  font-size: 85%;
+}
+
+.table-actions-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.table-container .table {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm, 14px);
+  line-height: 1.5;
+}
+
+/* Table Header */
+.table-header {
+  border-bottom: 1px solid var(--border-color-primary);
+}
+
+.table-cell--header {
+  font-weight: 500;
+  font-size: 0.9em;
+  color: #161616;
+  padding: 7px 5px!important;
+  text-align: left;
+}
+
+.table-cell--header.table-cell--select {
+  width: 20px;
+  padding: 7px 5px!important;
+}
+
+.table-cell--select {
+  width: 20px;
+  padding: 7px 5px;
+}
+
+.table-cell--sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.table-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.table-header-label {
+  flex: 1;
+}
+
+.table-sort-icon {
+  font-size: 12px;
+  color: var(--text-secondary, #6c757d);
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.table-sort-icon--asc::before {
+  content: '▲';
+  color: var(--primary-color, #007bff);
+  opacity: 1;
+}
+
+.table-sort-icon--desc::before {
+  content: '▼';
+  color: var(--primary-color, #007bff);
+  opacity: 1;
+}
+
+/* Table Body */
+.table-body .table-row {
+  transition: background-color 0.2s ease;
+}
+/* Table Cells */
+.table-cell {
+  padding: 15px 5px;
+  border-bottom: 1px solid var(--border-color-primary);
+  vertical-align: middle;
+}
+
+.table-cell--select {
+  width: 20px;
+  text-align: center;
+  padding: 7px 5px;
+}
+
+.table-body .table-cell--select {
+  padding: 7px 5px;
+}
+
+.table-cell--left {
+  text-align: left;
+}
+
+.table-cell--center {
+  text-align: center;
+}
+
+.table-cell--right {
+  text-align: right;
+}
+
+/* Table Variants */
+
+.table--bordered {
+  border: 1px solid var(--border-color-primary, #e0e0e0);
+}
+
+.table--bordered .table-cell {
+  border-right: 1px solid var(--border-color-light, #f0f0f0);
+}
+
+.table--bordered .table-cell:last-child {
+  border-right: none;
+}
+
+/* Table Actions */
+.table-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+
+
+
+
+/* Accessibility */
+.table-cell--sortable:focus {
+  outline: 2px solid var(--primary-color, #007bff);
+  outline-offset: -2px;
+}
+
+/* Loading State (if needed) */
+.table--loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.table--loading .table-cell {
+  position: relative;
+}
+
+/* Selection Styles */
+.table-cell--select .checkbox-input {
+  margin: 0;
+}
+
+/* Hover Effects */
+.table-cell--sortable .table-sort-icon {
+  opacity: 0.3;
+}
+
+.table-cell--sortable:hover .table-sort-icon {
+  opacity: 0.7;
+}
+
+/* Table Pagination */
+.table-pagination {
+  color: var(--body-text-primary, #161616);
+}
+
+.table-pagination-info {
+  display: flex;
+  font-size: 0.9em;
+  margin: 15px 0 0;
+  align-items: center;
+  opacity: 0.7;
+  
+}
+
+
+.table-pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  
+}
+
+.table-pagination-size {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.table-pagination-label {
+  color: var(--body-text-primary, #161616);
+  font-size: 85%;
+  margin: 0;
+}
+
+.table-pagination-select {
+  padding: 2px 0 2px 9px;
+  border: 1px solid var(--border-color-primary, #e0e0e0);
+  border-radius: var(--border-radius, 4px);
+  background: var(--input-background-color, #f4f4f4);
+  color: var(--input-text-color);
+  font-size: 12px;
+  width: auto;
+}

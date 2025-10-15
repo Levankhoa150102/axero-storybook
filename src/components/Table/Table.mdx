@@ -1,0 +1,135 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks';
+import { Table } from './Table';
+import * as TableStories from './Table.stories';
+
+<Meta of={TableStories} />
+
+# Table
+
+A comprehensive table component for displaying tabular data with built-in support for sorting, selection, actions, and various styling options. Integrates seamlessly with Button and Checkbox components.
+
+## Default Table
+
+<Canvas of={TableStories.Default} />
+
+**CSS Classes Used:** `.table-container`, `.table`, `.table-header`, `.table-body`, `.table-cell`, `.table-row`
+
+## Table Features
+
+### Row Selection
+Enable multi-row selection with checkboxes using the integrated Checkbox component.
+
+<Canvas of={TableStories.WithSelection} />
+
+### Pagination
+Table with pagination controls including page navigation and items per page selection. Supports both client-side and server-side pagination.
+
+<Canvas of={TableStories.WithPagination} />
+
+**Key Features:**
+- Page information display (Page X of Y with total items)
+- Configurable items per page with dropdown selector
+- Previous/Next navigation with disabled states
+- Responsive design for mobile devices
+
+## Key CSS Classes
+
+### Container Classes
+- **`.table-container`**: Main wrapper with scroll handling
+- **`.table`**: Base table element
+
+### Style Variants
+- **`.table--striped`**: Alternating row colors
+- **`.table--hoverable`**: Row hover effects
+- **`.table--bordered`**: Table and cell borders
+
+### Header Classes
+- **`.table-header`**: Table header section
+- **`.table-cell--header`**: Header cell styling
+- **`.table-cell--sortable`**: Clickable sortable headers
+- **`.table-header-content`**: Header content layout
+- **`.table-sort-icon`**: Sort direction indicator
+
+### Body Classes
+- **`.table-body`**: Table body section
+- **`.table-row`**: Individual table row
+- **`.table-row--selected`**: Selected row highlighting
+- **`.table-cell`**: Individual table cell
+
+### Alignment Classes
+- **`.table-cell--left`**: Left-aligned cell content
+- **`.table-cell--center`**: Center-aligned cell content
+- **`.table-cell--right`**: Right-aligned cell content
+
+### Special Classes
+- **`.table-cell--select`**: Checkbox selection column
+- **`.table-actions`**: Action buttons container
+
+### Pagination Classes
+- **`.table-pagination`**: Main pagination container
+- **`.table-pagination-info`**: Page information section
+- **`.table-pagination-summary`**: Page summary text
+- **`.table-pagination-controls`**: Pagination controls container
+- **`.table-pagination-size`**: Items per page selector
+- **`.table-pagination-select`**: Per page dropdown
+- **`.table-pagination-nav`**: Navigation buttons container
+
+## Column Configuration
+
+### Basic Column
+```javascript
+{
+  key: 'name',           // Data property key
+  title: 'Name',         // Column header text
+  sortable: true,        // Enable sorting
+  align: 'left',         // Text alignment: 'left' | 'center' | 'right'
+  width: '200px'         // Column width
+}
+```
+
+### Alignment Examples
+```javascript
+// Left-aligned text (default)
+{ key: 'name', title: 'Name', align: 'left' }
+
+// Center-aligned content (great for badges, icons, numbers)
+{ key: 'status', title: 'Status', align: 'center' }
+
+// Right-aligned content (great for monetary values, dates)
+{ key: 'amount', title: 'Amount', align: 'right' }
+```
+
+### Action Column
+```javascript
+{
+  key: 'actions',
+  title: 'Actions',
+  type: 'action',
+  sortable: false,
+  actions: [
+    {
+      key: 'edit',
+      label: 'Edit',
+      variant: 'primary'
+    },
+    {
+      key: 'delete',
+      label: 'Delete',
+      variant: 'danger'
+    }
+  ]
+}
+```
+
+### Custom Render Column
+```javascript
+{
+  key: 'status',
+  title: 'Status',
+  render: (value, row, index) => (
+    <span className={`badge badge--${value.toLowerCase()}`}>
+      {value}
+    </span>
+  )
+}
+```

@@ -1,0 +1,46 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks';
+import { Tab } from './Tab';
+import * as TabStories from './Tab.stories';
+
+<Meta of={TabStories} />
+
+# Tab
+
+A flexible tab component for organizing content into multiple panels with navigation. Supports badges and accessibility features.
+
+## Default Tabs
+
+<Canvas of={TabStories.Default} />
+
+**CSS Classes Used:** `.tab-container`, `.tab-nav`, `.tab-nav__item`, `.tab-nav__item--active`, `.tab-content`, `.tab-panel`, `.tab-panel--active`
+
+## Key CSS Classes
+
+### Container Classes
+- **`.tab-container`**: Main container for the entire tab component
+
+### Navigation Classes
+- **`.tab-nav`**: Container for tab navigation buttons
+- **`.tab-nav__item`**: Individual tab button
+- **`.tab-nav__item--active`**: Active/selected tab button
+- **`.tab-nav__label`**: Text label within tab button
+- **`.tab-nav__badge`**: Badge/notification indicator
+
+### Content Classes
+- **`.tab-content`**: Container for all tab panels
+- **`.tab-panel`**: Individual tab content panel
+- **`.tab-panel--active`**: Visible/active tab panel
+
+## Usage Guidelines
+
+### When to Use Tabs
+- Organizing related content into logical sections
+- Reducing page clutter by showing one section at a time
+- Creating dashboard-style interfaces
+- Building settings or preference panels
+
+### Best Practices
+- Keep tab labels concise and descriptive
+- Limit the number of tabs to avoid overcrowding
+- Ensure content within tabs is substantial enough to warrant separation
+- Use badges sparingly for important notifications only

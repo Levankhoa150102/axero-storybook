@@ -13,6 +13,8 @@ export { Input } from './components/Input/Input.jsx';
 export { Toggle } from './components/Toggle/Toggle.jsx';
 export { Checkbox } from './components/Checkbox/Checkbox.jsx';
 export { Tags } from './components/Tags/Tags.jsx';
+export { Tab } from './components/Tab/Tab.jsx';
+export { Table } from './components/Table/Table.jsx';
 // export { IconGallery } from './components/Icons/Icons.jsx';
 
 // ========================================
@@ -32,7 +34,7 @@ import './components/Input/Input.css';
 import './components/Toggle/Toggle.css';
 import './components/Checkbox/Checkbox.css';
 import './components/Tags/Tags.css';
-
+import './components/Tab/Tab.css';
 // ========================================
 // WEB COMPONENTS FOR ALPINEJS SUPPORT
 // ========================================
@@ -60,6 +62,7 @@ import { Input } from './components/Input/Input.jsx';
 import { Toggle } from './components/Toggle/Toggle.jsx';
 import { Checkbox } from './components/Checkbox/Checkbox.jsx';
 import { Tags } from './components/Tags/Tags.jsx';
+import { Tab } from './components/Tab/Tab.jsx';
 
 // Create a namespace object for easier access in React applications
 const SystemDesignToolkit = {
@@ -73,6 +76,7 @@ const SystemDesignToolkit = {
   Toggle,
   Checkbox,
   Tags,
+  Tab,
   // IconGallery,
   // TODO: Add future components here when created
   // Example: CustomButton, Modal, etc.
