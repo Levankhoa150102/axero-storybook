@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { fn } from '@storybook/test';
 import { Input } from './Input.jsx';
 import { InputWithTags } from './InputWithTags/InputWithTag.jsx';
+import { InputWithFilter } from './InputWithFilter/InputWithFilter.jsx';
 
 export default {
   title: 'UI Components/Input',
@@ -42,7 +43,7 @@ export const Default = {
 };
 
 export const NoLabel = {
-  render: function(args) {
+  render: function (args) {
     const [content, setContent] = useState('');
     const [showPlaceholder, setShowPlaceholder] = useState(true);
 
@@ -51,7 +52,7 @@ export const NoLabel = {
       const trimmedValue = value.trim();
       setContent(value);
       setShowPlaceholder(trimmedValue.length === 0);
-      
+
       if (args.onChange) {
         // Create a mock event for compatibility
         args.onChange({ target: { value } });
@@ -69,7 +70,7 @@ export const NoLabel = {
       const value = e.target.textContent || '';
       const trimmedValue = value.trim();
       setShowPlaceholder(trimmedValue.length === 0);
-      
+
       // Clean up empty content
       if (trimmedValue.length === 0) {
         e.target.textContent = '';
@@ -78,7 +79,7 @@ export const NoLabel = {
     };
 
     return React.createElement('div', { className: 'input-wrapper' }, [
-      React.createElement('div', { 
+      React.createElement('div', {
         key: 'hidden-input',
         style: { display: 'none' }
       }, [
@@ -360,7 +361,7 @@ export const WithButton = {
 };
 
 export const InlineButton = {
-  render: function(args) {
+  render: function (args) {
     const [inputValue, setInputValue] = useState('');
 
     const handleInputChange = (e) => {
@@ -378,7 +379,7 @@ export const InlineButton = {
     };
 
     return React.createElement('div', { className: 'input-wrapper' }, [
-      React.createElement('label', { 
+      React.createElement('label', {
         key: 'label',
         htmlFor: 'inline-input',
         className: 'input-label'
@@ -550,7 +551,7 @@ export const WithTags = {
 };
 
 export const AvailabilityCheck = {
-  render: function(args) {
+  render: function (args) {
     const [inputValue, setInputValue] = useState('');
     const [isChecking, setIsChecking] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
@@ -563,7 +564,7 @@ export const AvailabilityCheck = {
     const handleChange = (e) => {
       const value = e.target.value;
       setInputValue(value);
-      
+
       // Reset states
       setIsChecking(false);
       setIsSuccess(false);
@@ -578,10 +579,10 @@ export const AvailabilityCheck = {
         // Simulate API call with timeout
         setTimeout(() => {
           setIsChecking(false);
-          
+
           // Check if name is available (not in the list)
           const isAvailable = !availableNames.includes(value.toLowerCase());
-          
+
           if (isAvailable) {
             setIsSuccess(true);
             setSuccessMessage('space name is available');
@@ -663,4 +664,212 @@ export const AvailabilityCheck = {
       }
     }
   }
+};
+
+export const WithAdornments = {
+  render: function (args) {
+    const [value, setValue] = React.useState('');
+    const handleChange = (e) => {
+      setValue(e.target.value);
+      args.onChange?.(e);
+    };
+
+    return React.createElement(Input, {
+      ...args,
+      value: value,
+      onChange: handleChange
+    });
+  },
+  args: {
+    label: 'Search',
+    placeholder: 'search...',
+    iconClassName: 'fas fa-search ',
+    iconSize: 14,
+    iconPosition: 'suffix',
+    onChange: fn(),
+    onPrefixClick: fn(),
+    onSuffixClick: fn(),
+  },
+  argTypes: {
+    iconClassName: {
+      control: 'text',
+      description: 'Font Awesome icon class name (e.g., fas fa-cog)'
+    },
+    iconSize: {
+      control: { type: 'number', min: 12, max: 24, step: 1 },
+      description: 'Icon size in pixels'
+    },
+    iconPosition: {
+      control: { type: 'radio' },
+      options: ['prefix', 'suffix'],
+      description: 'Icon position - prefix or suffix'
+    },
+    backgroundColor: {
+      control: 'color',
+      description: 'Background color for the input'
+    },
+    prefix: {
+      control: 'text',
+      description: 'Additional prefix content (text or symbol)'
+    },
+    suffix: {
+      control: 'text',
+      description: 'Additional suffix content (text or symbol)'
+    },
+    onPrefixClick: { action: 'prefix-clicked' },
+    onSuffixClick: { action: 'suffix-clicked' },
+
+    as: { control: false, table: { disable: true } },
+    rows: { control: false, table: { disable: true } },
+    showCharacterCount: { control: false, table: { disable: true } },
+    withButton: { control: false, table: { disable: true } },
+    buttonText: { control: false, table: { disable: true } },
+    buttonType: { control: false, table: { disable: true } },
+    onButtonClick: { control: false, table: { disable: true } },
+    inputButtonError: { control: false, table: { disable: true } },
+    inputButtonErrorMessage: { control: false, table: { disable: true } },
+    withTags: { control: false, table: { disable: true } },
+    isChecking: { control: false, table: { disable: true } },
+    checkingMessage: { control: false, table: { disable: true } },
+    isSuccess: { control: false, table: { disable: true } },
+    successMessage: { control: false, table: { disable: true } },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Input with prefix and/or suffix adornments. You can add either a prefix, suffix, or both. Perfect for currency symbols, units, domains, or context indicators. Use the controls to customize the prefix and suffix values.',
+      },
+      source: {
+        code: `<div class="input-wrapper">
+  <label for="currency-input" class="input-label">Currency Converter</label>
+  <div class="input-adornments-wrapper">
+    <span class="input-prefix">$</span>
+    <input id="currency-input" type="text" class="input input-with-adornments" placeholder="0.00" />
+    <span class="input-suffix">USD</span>
+  </div>
+</div>
+
+<!-- With just prefix -->
+<div class="input-wrapper">
+  <label for="price-input" class="input-label">Price</label>
+  <div class="input-adornments-wrapper">
+    <span class="input-prefix">$</span>
+    <input id="price-input" type="text" class="input input-with-adornments" placeholder="Enter amount..." />
+  </div>
+</div>
+
+<!-- With just suffix -->
+<div class="input-wrapper">
+  <label for="website-input" class="input-label">Website</label>
+  <div class="input-adornments-wrapper">
+    <input id="website-input" type="text" class="input input-with-adornments" placeholder="Enter website..." />
+    <span class="input-suffix">.com</span>
+  </div>
+</div>
+
+<!-- With icon as suffix -->
+<div class="input-wrapper">
+  <label for="search-input" class="input-label">Search</label>
+  <div class="input-adornments-wrapper">
+    <input id="search-input" type="text" class="input input-with-adornments" placeholder="Search..." />
+    <span class="input-suffix"><i class="fas fa-search"></i></span>
+  </div>
+</div>
+
+<!-- With clickable prefix and suffix -->
+<div class="input-wrapper">
+  <label for="action-input" class="input-label">With Actions</label>
+  <div class="input-adornments-wrapper">
+    <span class="input-prefix" tabindex="0" role="button" aria-label="Prefix action">@</span>
+    <input id="action-input" type="text" class="input input-with-adornments" placeholder="Username" />
+    <span class="input-suffix" tabindex="0" role="button" aria-label="Suffix action"><i class="fas fa-times"></i></span>
+  </div>
+</div>`
+      }
+    }
+  }
+};
+
+export const WithFilter = {
+  render: function (args) {
+    const [filter, setFilter] = React.useState('');
+    return React.createElement(
+      InputWithFilter,
+      {
+        ...args,
+        filter,
+        onFilterChange: setFilter
+      }
+    );
+  },
+  args: {
+    label: 'Filter Items',
+  },
+  argTypes: {
+    description: { control: false, table: { disable: true } },
+    value: { control: false, table: { disable: true } },
+    filter: { control: false, table: { disable: true } },
+    onFilterChange: { control: false, table: { disable: true } },
+    items: {
+      control: 'object',
+      description: 'List of selectable items for the filter (array of objects with id, name, avatar, checked).'
+    },
+    required: { control: false, table: { disable: true } },
+    error: { control: false, table: { disable: true } },
+    errorMessage: { control: false, table: { disable: true } },
+    iconClassName: { control: false, table: { disable: true } },
+    iconSize: { control: false, table: { disable: true } },
+    iconPosition: { control: false, table: { disable: true } },
+    prefix: { control: false, table: { disable: true } },
+    suffix: { control: false, table: { disable: true } },
+    onPrefixClick: { control: false, table: { disable: true } },
+    onSuffixClick: { control: false, table: { disable: true } },
+    as: { control: false, table: { disable: true } },
+    rows: { control: false, table: { disable: true } },
+    showCharacterCount: { control: false, table: { disable: true } },
+    withButton: { control: false, table: { disable: true } },
+    buttonText: { control: false, table: { disable: true } },
+    buttonType: { control: false, table: { disable: true } },
+    onButtonClick: { control: false, table: { disable: true } },
+    inputButtonError: { control: false, table: { disable: true } },
+    inputButtonErrorMessage: { control: false, table: { disable: true } },
+    withTags: { control: false, table: { disable: true } },
+    isChecking: { control: false, table: { disable: true } },
+    checkingMessage: { control: false, table: { disable: true } },
+    isSuccess: { control: false, table: { disable: true } },
+    successMessage: { control: false, table: { disable: true } },
+    type: { control: false, table: { disable: true } },
+    disabled: { control: false, table: { disable: true } },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Input with filter functionality and select all checkbox.'
+      },
+      source: {
+        code: `
+<div class="input-with-filter-root">
+  <div class="input-with-filter-label">Filter Items</div>
+  <div class="input-with-filter-box">
+    <div class="input-with-filter-input-row">
+      <div class="input-with-filter-checkbox--all">
+        <input type="checkbox" class="input-with-filter-checkbox" title="Select all filtered" />
+      </div>
+      <input class="input-with-filter-input" placeholder="filter" />
+    </div>
+    <div class="input-with-filter-list">
+      <label class="input-with-filter-row input-with-filter-row--checked">
+        <input type="checkbox" class="input-with-filter-checkbox" checked />
+        <span class="input-with-filter-avatar input-with-filter-avatar--default">
+          <i class="fas fa-user"></i>
+        </span>
+        <span class="input-with-filter-name">Aana Subspace</span>
+      </label>
+    </div>
+  </div>
+</div>
+`
+      }
+    }
+  },
 };

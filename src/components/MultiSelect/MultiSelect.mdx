@@ -1,0 +1,31 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import * as MultiSelectStories from './MultiSelect.stories';
+
+<Meta of={MultiSelectStories} />
+
+# MultiSelect Component
+
+A multi-select input that lets users filter and select multiple options, displaying each selection as a tag inside the input box. Useful for inviting members, assigning roles, or selecting categories.
+
+## Examples
+
+### Basic MultiSelect
+<Canvas of={MultiSelectStories.Default} />
+
+
+## Features
+- Filter options as you type
+- Select multiple options, shown as tags
+- Remove tags by clicking the × button
+- Dropdown shows only matching, unselected options
+- Keyboard and mouse friendly
+
+## CSS Classes
+- `.multi-select-root` — Main container
+- `.multi-select-input-box` — Input and tags area
+- `.multi-select-tag` — Tag styling
+- `.multi-select-tag-remove` — Remove button for tag
+- `.multi-select-input` — Input field
+- `.multi-select-dropdown` — Dropdown for options
+- `.multi-select-option` — Option row in dropdown
+- `.multi-select-empty` — Empty state in dropdown

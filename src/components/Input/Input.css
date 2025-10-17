@@ -202,3 +202,77 @@ textarea.input {
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
+
+/* Input with Prefix and Suffix Styles */
+.input-adornments-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--input-background-color, #f4f4f4);
+  border: 1px solid var(--input-border-color, #e2e8f0);
+  border-radius: 19px;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  transition: border-color 0.2s ease;
+}
+
+.input-adornments-wrapper:focus-within {
+  border-color: rgba(82, 168, 236, 0.8);
+  box-shadow: 0 0 0 2px rgba(82, 168, 236, 0.2);
+} 
+
+.input.input-with-adornments {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  min-width: 0;
+}
+
+.input.input-with-adornments:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.input-prefix,
+.input-suffix {
+  display: flex;
+  align-items: center;
+  color: var(--input-text-color, #161616);
+  background-color: transparent;
+  font-size: 14px;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+}
+.input-prefix {
+  padding-left: 15px;
+}
+.input-suffix {
+  padding: 6px 15px 6px 0px;
+}
+
+
+.input-adornments-wrapper .input.input-with-adornments {
+  padding-left: 15px;
+  padding-right: 10px;
+}
+
+/* Icon support within prefix/suffix */
+.input-prefix svg,
+.input-suffix svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Focus states for better accessibility */
+.input-adornments-wrapper:focus-within .input-prefix,
+.input-adornments-wrapper:focus-within .input-suffix {
+  color: var(--input-text-color, #333);
+}

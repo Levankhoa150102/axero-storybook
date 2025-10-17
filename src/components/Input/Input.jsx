@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import '../../shared/variables.css';
 import './Input.css';
 import { Button } from '../Button/Button.jsx';
+import { Icon } from '../Icons/Icons.jsx';
 
 // Helper functions
 const generateId = (id) => id || `input-${Math.random().toString(36).substr(2, 9)}`;
@@ -96,20 +97,53 @@ const TextareaField = ({ inputId, value, handleChange, placeholder, disabled, ro
     />
 );
 
-const InputField = ({ inputId, type, value, handleChange, placeholder, disabled, inputClasses, error, errorMessage, props }) => (
-    <input
-        id={inputId}
-        type={type}
-        value={value}
-        onChange={handleChange}
-        placeholder={placeholder}
-        disabled={disabled}
-        className={inputClasses}
-        aria-invalid={error}
-        aria-describedby={error && errorMessage ? `${inputId}-error` : undefined}
-        {...props}
-    />
-);
+const InputField = ({ inputId, type, value, handleChange, placeholder, disabled, inputClasses, error, errorMessage, prefix, suffix, onPrefixClick, onSuffixClick, props }) => {
+    const hasAdornments = prefix || suffix;
+    
+    if (hasAdornments) {
+        const wrapperClasses = [
+            'input-adornments-wrapper',
+            error ? 'input-adornments-wrapper--error' : '',
+            disabled ? 'input-adornments-wrapper--disabled' : ''
+        ].filter(Boolean).join(' ');
+        
+        const adornmentInputClasses = inputClasses.replace('input', 'input input-with-adornments');
+        
+        return (
+            <div className={wrapperClasses}>
+                <PrefixElement prefix={prefix} onPrefixClick={onPrefixClick} />
+                <input
+                    id={inputId}
+                    type={type}
+                    value={value}
+                    onChange={handleChange}
+                    placeholder={placeholder}
+                    disabled={disabled}
+                    className={adornmentInputClasses}
+                    aria-invalid={error}
+                    aria-describedby={error && errorMessage ? `${inputId}-error` : undefined}
+                    {...props}
+                />
+                <SuffixElement suffix={suffix} onSuffixClick={onSuffixClick} />
+            </div>
+        );
+    }
+    
+    return (
+        <input
+            id={inputId}
+            type={type}
+            value={value}
+            onChange={handleChange}
+            placeholder={placeholder}
+            disabled={disabled}
+            className={inputClasses}
+            aria-invalid={error}
+            aria-describedby={error && errorMessage ? `${inputId}-error` : undefined}
+            {...props}
+        />
+    );
+};
 
 const ButtonElement = ({ buttonType, onButtonClick, disabled, buttonText }) => (
     <Button
@@ -120,6 +154,34 @@ const ButtonElement = ({ buttonType, onButtonClick, disabled, buttonText }) => (
         className="btn-with-input"
     />
 );
+
+const PrefixElement = ({ prefix, onPrefixClick }) => {
+    if (!prefix) return null;
+    
+    return (
+        <span 
+            className="input-prefix"
+            onClick={onPrefixClick}
+            style={{ cursor: onPrefixClick ? 'pointer' : 'default' }}
+        >
+            {prefix}
+        </span>
+    );
+};
+
+const SuffixElement = ({ suffix, onSuffixClick }) => {
+    if (!suffix) return null;
+    
+    return (
+        <span 
+            className="input-suffix"
+            onClick={onSuffixClick}
+            style={{ cursor: onSuffixClick ? 'pointer' : 'default' }}
+        >
+            {suffix}
+        </span>
+    );
+};
 
 
 /**
@@ -149,6 +211,14 @@ export const Input = ({
     successMessage = '',
     inputButtonError = false,
     inputButtonErrorMessage,
+    prefix,
+    suffix,
+    onPrefixClick,
+    onSuffixClick,
+    iconClassName,
+    iconSize = 16,
+    iconPosition = 'prefix',
+    backgroundColor,
     className = '',
     id,
     ...props
@@ -164,6 +234,26 @@ export const Input = ({
         }
     }, [value]);
 
+    // Convert icon properties to prefix/suffix elements
+    let finalPrefix = prefix;
+    let finalSuffix = suffix;
+    
+    if (iconClassName) {
+        const iconElement = (
+            <Icon 
+                className={iconClassName}
+                size={iconSize}
+                style={backgroundColor ? { backgroundColor } : undefined}
+            />
+        );
+        
+        if (iconPosition === 'prefix') {
+            finalPrefix = iconElement;
+        } else if (iconPosition === 'suffix') {
+            finalSuffix = iconElement;
+        }
+    }
+
     const inputClasses = buildInputClasses(error, disabled, className);
     const labelClasses = buildLabelClasses(required, disabled);
     const handleChange = createChangeHandler(onChange, setCountCharacters);
@@ -177,6 +267,10 @@ export const Input = ({
         inputClasses,
         error,
         errorMessage,
+        prefix: finalPrefix,
+        suffix: finalSuffix,
+        onPrefixClick,
+        onSuffixClick,
         props
     };
 
@@ -377,6 +471,30 @@ Input.propTypes = {
      * Input ID for accessibility
      */
     id: PropTypes.string,
+    /**
+     * Prefix content (text, icon, or React element)
+     */
+    prefix: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    /**
+     * Suffix content (text, icon, or React element)
+     */
+    suffix: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    /**
+     * FontAwesome icon class name (e.g., 'fas fa-search')
+     */
+    iconClassName: PropTypes.string,
+    /**
+     * Size of the icon in pixels
+     */
+    iconSize: PropTypes.number,
+    /**
+     * Position of the icon (prefix or suffix)
+     */
+    iconPosition: PropTypes.oneOf(['prefix', 'suffix']),
+    /**
+     * Background color for the icon
+     */
+    backgroundColor: PropTypes.string,
     
     withTags: PropTypes.bool,
     

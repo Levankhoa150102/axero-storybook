@@ -140,13 +140,39 @@ Interactive input field with real-time availability checking. Perfect for valida
 - `isSuccess={true}` - Shows success status when available
 - `successMessage="space name is available"` - Success message for available names
 
-### Customization
+### Input with Adornments
 
-The component supports customization through:
+Enhanced input field with prefix and/or suffix elements, including FontAwesome icon support and click handlers. Perfect for search inputs, currency fields, units, domains, or any contextual indicators.
 
-1. **CSS Custom Properties**: Defined in `src/shared/variables.css`
-2. **Modifier Classes**: Add custom classes via the `className` prop
-3. **Style Overrides**: Target specific CSS classes for custom styling
+<Canvas of={InputStories.WithAdornments} />
+
+**Key Props:**
+- `prefix` - Text, icon, or React element displayed before the input
+- `suffix` - Text, icon, or React element displayed after the input
+- `onPrefixClick` - Click handler function for prefix element
+- `onSuffixClick` - Click handler function for suffix element
+- `iconClassName` - FontAwesome icon class (e.g., 'fas fa-search')
+- `iconSize={16}` - Icon size in pixels (10-24px range)
+- `iconPosition="prefix|suffix"` - Position of icon when using iconClassName
+- `backgroundColor` - Background color for icon elements
+
+**Icon Integration:**
+When `iconClassName` is provided, the component automatically creates an Icon element and positions it according to `iconPosition`. This works alongside manual prefix/suffix props for maximum flexibility.
+
+**Click Handlers:**
+Prefix and suffix elements become interactive buttons when click handlers are provided, with proper accessibility features including focus states and cursor styling.
+
+### Input with Filter and Select All
+
+A filterable, scrollable recipient list with checkboxes and a "select all" option. Useful for multi-select dropdowns, recipient pickers, and advanced filtering UIs.
+
+<Canvas of={InputStories.WithFilter} />
+
+**Key Features:**
+- Filter input for live searching
+- Checkbox next to input to select/deselect all filtered items
+- Scrollable list with avatars and checkboxes
+- BEM-style CSS classes for easy customization
 
 ## CSS Classes Reference
 
@@ -162,6 +188,7 @@ The component supports customization through:
 - `.input--expandable` - Auto-expanding contenteditable input styling
 - `.input--placeholder` - Placeholder state for expandable inputs
 - `.input--with-submit` - Text input with right padding for inline submit button
+- `.input--with-adornments` - Input styling with prefix/suffix adornments
 
 ### Message Classes
 - `.input-error` - Error message text styling (red)
@@ -176,6 +203,8 @@ The component supports customization through:
 - `.input-inline-outer` - Container for inline submit button layout
 - `.input-text-container` - Text input container for inline button structure
 - `.input-submit-button` - Inline submit button positioned inside input field
+- `.input-prefix` - Prefix element styling (e.g., currency symbol)
+- `.input-suffix` - Suffix element styling (e.g., unit, icon)
 
 ### Special Features
 - `.input-required` - Red asterisk indicator for required fields
