@@ -9,6 +9,13 @@ export default {
   parameters: {
     layout: 'centered',
   },
+  argTypes: {
+    size: {
+      control: { type: 'radio' },
+      options: ['small', 'large', 'extra-large'],
+      description: 'Button size: small, large, or extra-large',
+    },
+  },
 };
 
 export const Default = {
@@ -259,7 +266,7 @@ export const FilterButtonGroup = {
       source: {
         code: `<!-- Filter Buttons with Text and Icons -->
 <div style="display: flex; gap: 4px; flex-wrap: wrap;">
-  <button class="btn btn--filter">
+    <button class="btn btn--filter">
     <span class="btn-icon btn-icon--prefix">
       <i class="icon fas fa-circle" style="font-size: 12px; width: 12px; height: 12px;"></i>
     </span>

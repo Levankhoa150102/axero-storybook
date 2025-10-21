@@ -53,7 +53,6 @@ export const ProcessingButton = ({
 
   const buttonLabel = isProcessing ? processingLabel : label;
 
-  // Calculate processing color (slightly lighter)
   const processingColor = backgroundColor === '#459d3e' ? '#51A351' : backgroundColor;
 
   return (

@@ -15,6 +15,21 @@ export default {
   parameters: {
     layout: 'padded',
   },
+  decorators: [
+          (Story) => React.createElement(
+              'div',
+              {
+                  style: {
+                      minHeight: '200px',
+                      paddingTop: '20px',
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      justifyContent: 'center',
+                  }
+              },
+              React.createElement(Story)
+          ),
+      ],
 };
 
 export const Default = {

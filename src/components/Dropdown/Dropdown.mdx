@@ -65,27 +65,6 @@ A specialized dropdown for space navigation with built-in search functionality. 
 - **Custom Styling**: Diamond hover box design with modern UI
 - **Reuses Dropdown Logic**: Built on top of the base Dropdown component's click-outside and toggle functionality
 
-## Filter With Search
-
-A searchable dropdown specifically designed for space filtering. Features a label, select trigger that shows the current selection, and when clicked reveals a dropdown menu with a search bar for filtering options in real-time.
-
-<Canvas of={DropdownStories.FilterWithSearch} />
-
-**CSS Classes Used:** `.dropdown-with-search`, `.dropdown-with-search__trigger`, `.dropdown-with-search__menu`, `.dropdown-with-search__search-input`
-
-**Props:** `label="Filter by space"`, `options={[...]}`, `value="all"`
-
-### Features:
-- **Label Support**: Clear labeling with optional required indicator (*)
-- **Select Interface**: Button-style trigger showing current selection with CSS triangle caret
-- **Search Bar**: Integrated search input with magnifying glass icon
-- **Real-time Filtering**: Options filter as you type in the search box
-- **Persistent Selection**: Selected option remains highlighted when dropdown reopens
-- **Visual Selection State**: Selected options show with light gray background (`#f0f0f0`)
-- **Dynamic Border Radius**: Trigger button adjusts border radius when open (top corners only)
-- **Keyboard Support**: Focus management and navigation
-- **Click Outside**: Closes when clicking outside the dropdown
-- **Responsive Design**: Adapts to different screen sizes
 
 {/* HIDE
 

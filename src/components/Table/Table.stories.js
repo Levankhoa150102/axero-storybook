@@ -82,7 +82,7 @@ const basicColumns = [
   {
     key: 'posts',
     title: 'Posts',
-    align: 'right'
+    align: 'right',
   }
 ];
 
@@ -94,12 +94,12 @@ export const Default = {
     onRowSelect: fn(),
     onRowAction: fn(),
     onHeaderAction: fn(),
+    headerBgColor: 'var(--background-secondary, #f4f4f4)',
   },
   parameters: {
     docs: {
       source: {
         code: `<div class="table-container">
-  <!-- Header Toolbar -->
   <div class="table-toolbar">
     <div class="table-info">
       <span class="table-record-count">Total records: 5</span>
@@ -110,7 +110,6 @@ export const Default = {
     </div>
   </div>
   
-  <!-- Table -->
   <table class="table">
     <thead class="table-header">
       <tr>
@@ -131,7 +130,6 @@ export const Default = {
         </td>
         <td class="table-cell table-cell--right">42</td>
       </tr>
-      <!-- More rows... -->
     </tbody>
   </table>
 </div>`
@@ -149,7 +147,6 @@ export const WithSelection = {
     docs: {
       source: {
         code: `<div class="table-container">
-  <!-- Header Toolbar -->
   <div class="table-toolbar">
     <div class="table-info">
       <span class="table-record-count">Total records: 5</span>
@@ -160,7 +157,6 @@ export const WithSelection = {
     </div>
   </div>
   
-  <!-- Table with Selection -->
   <table class="table">
     <thead class="table-header">
       <tr>
@@ -187,7 +183,6 @@ export const WithSelection = {
         </td>
         <td class="table-cell table-cell--right">42</td>
       </tr>
-      <!-- More rows... -->
     </tbody>
   </table>
 </div>`
@@ -210,8 +205,8 @@ export const WithPagination = {
   parameters: {
     docs: {
       source: {
-        code: `<div class="table-container">
-  <!-- Header Toolbar -->
+        code: `
+<div class="table-container">
   <div class="table-toolbar">
     <div class="table-info">
       <span class="table-record-count">Total records: 25</span>
@@ -221,8 +216,7 @@ export const WithPagination = {
       <button class="btn btn--secondary">Bulk Edit</button>
     </div>
   </div>
-  
-  <!-- Table -->
+
   <table class="table">
     <thead class="table-header">
       <tr>
@@ -243,31 +237,32 @@ export const WithPagination = {
         </td>
         <td class="table-cell table-cell--right">42</td>
       </tr>
-      <!-- More rows... -->
     </tbody>
   </table>
-  
-  <!-- Pagination -->
+
   <div class="table-pagination">
     <div class="table-pagination-info">
       <span class="table-pagination-summary">Page 1 of 3 (25 items)</span>
     </div>
     <div class="table-pagination-controls">
       <div class="table-pagination-size">
-        <label class="table-pagination-label">per page</label>
-        <select class="table-pagination-select">
+        <label for="items-per-page" class="table-pagination-label">
+          per page
+        </label>
+        <select
+          id="items-per-page"
+          class="table-pagination-select"
+          value="10"
+        >
           <option value="10">10</option>
           <option value="25">25</option>
           <option value="50">50</option>
         </select>
       </div>
-      <div class="table-pagination-nav">
-        <button class="btn btn--secondary btn--small" disabled>Previous</button>
-        <button class="btn btn--secondary btn--small">Next</button>
-      </div>
     </div>
   </div>
-</div>`
+</div>
+`
       }
     }
   }

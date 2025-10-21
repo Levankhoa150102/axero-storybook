@@ -1,0 +1,63 @@
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/blocks';
+import { Select } from './Select.jsx';
+import * as SelectStories from './Select.stories';
+
+<Meta title="UI Components/Select" component={Select} />
+
+# Select
+
+A simple dropdown select component using the native HTML `<select>` and `<option>` elements, wrapped in a label container for accessibility and styling. Useful for forms and option pickers.
+
+
+### Basic Select
+
+The Select component includes a label and a styled container for accessibility:
+
+<Canvas of={SelectStories.Default} />
+
+
+
+## Option Object
+
+Each option should be an object:
+
+```js
+{ value: 'apple', label: 'Apple', disabled: false }
+```
+
+- `value`: string (required)
+- `label`: string (required)
+- `disabled`: boolean (optional)
+
+## Styling
+
+### CSS Classes
+
+- `.axero-select-container` — Container for label and select
+- `.axero-select-label` — Label for the select
+- `.axero-select` — The select element itself
+
+You can override or extend styles in `Select.css`.
+
+
+## Filter With Search
+
+A searchable dropdown specifically designed for space filtering. Features a label, select trigger that shows the current selection, and when clicked reveals a dropdown menu with a search bar for filtering options in real-time.
+
+<Canvas of={SelectStories.WithSearch} />
+
+**CSS Classes Used:** `.dropdown-with-search`, `.dropdown-with-search__trigger`, `.dropdown-with-search__menu`, `.dropdown-with-search__search-input`
+
+**Props:** `label="Filter by space"`, `options={[...]}`, `value="all"`
+
+### Features:
+- **Label Support**: Clear labeling with optional required indicator (*)
+- **Select Interface**: Button-style trigger showing current selection with CSS triangle caret
+- **Search Bar**: Integrated search input with magnifying glass icon
+- **Real-time Filtering**: Options filter as you type in the search box
+- **Persistent Selection**: Selected option remains highlighted when dropdown reopens
+- **Visual Selection State**: Selected options show with light gray background (`#f0f0f0`)
+- **Dynamic Border Radius**: Trigger button adjusts border radius when open (top corners only)
+- **Keyboard Support**: Focus management and navigation
+- **Click Outside**: Closes when clicking outside the dropdown
+- **Responsive Design**: Adapts to different screen sizes

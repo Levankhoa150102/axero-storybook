@@ -1,4 +1,6 @@
+import React from 'react';
 import { AlertBanner } from './AlertBanner';
+import { AlertBox } from './AlertBox/AlertBox.jsx';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -6,7 +8,7 @@ export default {
   component: AlertBanner,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-    layout: 'fullscreen',
+    layout: 'centered',
   },
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
@@ -156,4 +158,43 @@ export const NoCloseButton = {
       },
     },
   },
+};
+
+export const WithAlertBox = {
+  render: function (args) {
+    return (
+      React.createElement(AlertBox, {
+        errorMessage: "You are required to read and confirm that you read this document.",
+        successMessage: "You have confirmed that you read this document.",
+      })
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'AlertBox with warning icon, message, and confirm button.'
+      },
+      source: {
+        code: `<div class="alert-box alert-box-danger-container">
+  <div class="alert-box-icon">
+    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+    <span class="alert-box-message alert-box-message-danger">
+      {" "} You are required to read and confirm that you read this document.
+    </span>
+  </div>
+   <button class="btn alert-box-danger-btn">Confirm</button>
+</div>
+
+<div class="alert-box alert-box-confirm">
+  <div class="alert-box-icon">
+    <i class="fas fa-check-square" aria-hidden="true"></i>
+    <span class="alert-box-message alert-box-message-confirm">
+      {" "} You have confirmed that you read this document.
+    </span>
+  </div>
+  <button class="btn alert-box-confirm-btn">Undo</button>
+</div>`,
+      }
+    }
+  }
 };

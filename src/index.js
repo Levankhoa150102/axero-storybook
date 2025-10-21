@@ -15,6 +15,8 @@ export { Checkbox } from './components/Checkbox/Checkbox.jsx';
 export { Tags } from './components/Tags/Tags.jsx';
 export { Tab } from './components/Tab/Tab.jsx';
 export { Table } from './components/Table/Table.jsx';
+export { Drawer } from './components/Drawer/Drawer.jsx';
+
 // export { IconGallery } from './components/Icons/Icons.jsx';
 
 // ========================================
@@ -35,6 +37,9 @@ import './components/Toggle/Toggle.css';
 import './components/Checkbox/Checkbox.css';
 import './components/Tags/Tags.css';
 import './components/Tab/Tab.css';
+import './components/Table/Table.css';
+import './components/Drawer/Drawer.css';
+// import './components/Icons/IconGallery.css';
 // ========================================
 // WEB COMPONENTS FOR ALPINEJS SUPPORT
 // ========================================
@@ -63,7 +68,8 @@ import { Toggle } from './components/Toggle/Toggle.jsx';
 import { Checkbox } from './components/Checkbox/Checkbox.jsx';
 import { Tags } from './components/Tags/Tags.jsx';
 import { Tab } from './components/Tab/Tab.jsx';
-
+import { Table } from './components/Table/Table.jsx';
+import { Drawer } from './components/Drawer/Drawer.jsx';
 // Create a namespace object for easier access in React applications
 const SystemDesignToolkit = {
   Button,
@@ -77,6 +83,8 @@ const SystemDesignToolkit = {
   Checkbox,
   Tags,
   Tab,
+  Table,
+  Drawer,
   // IconGallery,
   // TODO: Add future components here when created
   // Example: CustomButton, Modal, etc.

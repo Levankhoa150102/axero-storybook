@@ -1,0 +1,75 @@
+
+.alert-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 4px;
+  margin: 30px 0 20px ;
+  padding: 10px;
+  gap: 16px;
+}
+
+.alert-box-danger-container{
+  color: var(--alert-error-text-color, #b94a48);
+  background: var(--alert-error-background-color, #f8d7da);
+  border: 1px solid var(--alert-error-border-color, #f5c6cb);
+}
+
+.alert-box-icon {
+  font-size: 14px;
+  margin-top: 4px;
+}
+.alert-box-message {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+}
+.alert-box-message-danger {
+  color: var(--alert-error-text-color, #b94a48);
+}
+.alert-box-message-confirm {
+  color: #468847;
+}
+
+.alert-box-danger-btn {
+  width: 23%;
+  background-color: #bd362f;
+  background-image: linear-gradient(to bottom, #bd362f, #bd362f);
+  color: var(--alert-error-confirm-text, #fff);
+  border-color: #bd362f;
+  padding: 4px 0;
+  border-radius: 4px;
+  background-repeat: repeat-x;
+  cursor: pointer;
+}
+.alert-box-confirm-btn{
+  width: 23%;
+  padding: 4px 0;
+
+}
+
+.alert-box-danger-btn:hover, .alert-box-danger-btn:active, .alert-box-danger-btn:focus {
+  background-color: #b22f2a;
+  color: #fff;
+}
+.alert-box-danger-btn:focus, .alert-box-confirm-btn:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+
+}
+.alert-box-confirm {
+    color: var(--alert-success-text-color);
+    background: var(--alert-success-background-color);
+    border: 1px solid var(--alert-success-border-color);
+}
+
+.alert-box-confirm .alert-box-icon {
+  color: #388e3c;
+}
+
+.alert-box-confirm-btn:active {
+    background-color: var(--background-tertiary) \9;
+    background-image: none;
+    outline: 0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}

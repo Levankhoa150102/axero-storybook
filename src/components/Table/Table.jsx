@@ -99,116 +99,116 @@ export const Table = ({
     const someSelected = selectedRows.size > 0 && selectedRows.size < data.length;
 
     return (
-        <div className="table-container" {...props}>
-            {showHeader && (
-                <div className="table-toolbar">
-                    <div className="table-info">
-                        <span className="table-record-count">
-                            {totalRecordsLabel} {data.length}
-                        </span>
-                    </div>
-                    <div class="table-actions-header">
-                        <button class="btn btn--danger">Delete Selected</button>
-                        <button class="btn btn--secondary">Bulk Edit</button>
-                    </div>
-                    {headerActions.length > 0 && (
-                        <div className="table-actions-header">
-                            {headerActions.map((action, index) => (
-                                <Button
-                                    key={index}
-                                    size={action.size}
-                                    variant={action.variant || 'secondary'}
-                                    label={action.label}
-                                    onClick={() => onHeaderAction(action.key, action)}
-                                    {...action.props}
-                                />
-                            ))}
+            <div className="table-container" {...props}>
+                {showHeader && (
+                    <div className="table-toolbar">
+                        <div className="table-info">
+                            <span className="table-record-count">
+                                {totalRecordsLabel} {data.length}
+                            </span>
                         </div>
-                    )}
-                </div>
-            )}
-            <table className={tableClasses}>
-                <thead className="table-header">
-                    <tr>
-                        {selectable && (
-                            <th className="table-cell table-cell--select">
-                                <Checkbox
-                                    checked={allSelected}
-                                    indeterminate={someSelected}
-                                    onChange={(e) => handleSelectAll(e.target.checked)}
-                                    aria-label="Select all rows"
-                                />
-                            </th>
-                        )}
-                        {columns.map((column) => (
-                            <th
-                                key={column.key}
-                                className={`table-cell table-cell--header ${column.align ? `table-cell--${column.align}` : ''}`}
-                                style={{ width: column.width }}
-                            >
-                                <span className="table-header-label">{column.title}</span>
-                            </th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody className="table-body">
-                    {data.map((row, rowIndex) => (
-                        <tr
-                            key={rowIndex}
-                            className={`table-row ${selectedRows.has(rowIndex) ? 'table-row--selected' : ''}`}
-                        >
-                            {selectable && (
-                                <td className="table-cell table-cell--select">
-                                    <Checkbox
-                                        checked={selectedRows.has(rowIndex)}
-                                        onChange={(e) => handleRowSelect(rowIndex, e.target.checked)}
-                                        aria-label={`Select row ${rowIndex + 1}`}
+                        <div class="table-actions-header">
+                            <button class="btn btn--danger">Delete Selected</button>
+                            <button class="btn btn--secondary">Bulk Edit</button>
+                        </div>
+                        {headerActions.length > 0 && (
+                            <div className="table-actions-header">
+                                {headerActions.map((action, index) => (
+                                    <Button
+                                        key={index}
+                                        size={action.size}
+                                        variant={action.variant || 'secondary'}
+                                        label={action.label}
+                                        onClick={() => onHeaderAction(action.key, action)}
+                                        {...action.props}
                                     />
-                                </td>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                )}
+                <table className={tableClasses}>
+                    <thead className="table-header">
+                        <tr>
+                            {selectable && (
+                                <th className="table-cell table-cell--select">
+                                    <Checkbox
+                                        checked={allSelected}
+                                        indeterminate={someSelected}
+                                        onChange={(e) => handleSelectAll(e.target.checked)}
+                                        aria-label="Select all rows"
+                                    />
+                                </th>
                             )}
                             {columns.map((column) => (
-                                <td
+                                <th
                                     key={column.key}
-                                    className={`table-cell ${column.align ? `table-cell--${column.align}` : ''}`}
+                                    className={`table-cell table-cell--header ${column.align ? `table-cell--${column.align}` : ''}`}
+                                    style={{ width: column.width }}
                                 >
-                                    {renderCellContent(column, row, rowIndex)}
-                                </td>
+                                    <span className="table-header-label">{column.title}</span>
+                                </th>
                             ))}
                         </tr>
-                    ))}
-                </tbody>
-            </table>
-
-            {showPagination && (
-                <div className="table-pagination">
-                    <div className="table-pagination-info">
-                        <span className="table-pagination-summary">
-                            Page {currentPage} of {totalPages} ({displayedItems} items)
-                        </span>
-                    </div>
-
-                    <div className="table-pagination-controls">
-                        <div className="table-pagination-size">
-                            <label htmlFor="items-per-page" className="table-pagination-label">
-                                per page
-                            </label>
-                            <select
-                                id="items-per-page"
-                                className="table-pagination-select"
-                                value={itemsPerPage}
-                                onChange={(e) => onItemsPerPageChange(Number(e.target.value))}
+                    </thead>
+                    <tbody className="table-body">
+                        {data.map((row, rowIndex) => (
+                            <tr
+                                key={rowIndex}
+                                className={`table-row ${selectedRows.has(rowIndex) ? 'table-row--selected' : ''}`}
                             >
-                                {pageSizeOptions.map(size => (
-                                    <option key={size} value={size}>
-                                        {size}
-                                    </option>
+                                {selectable && (
+                                    <td className="table-cell table-cell--select">
+                                        <Checkbox
+                                            checked={selectedRows.has(rowIndex)}
+                                            onChange={(e) => handleRowSelect(rowIndex, e.target.checked)}
+                                            aria-label={`Select row ${rowIndex + 1}`}
+                                        />
+                                    </td>
+                                )}
+                                {columns.map((column) => (
+                                    <td
+                                        key={column.key}
+                                        className={`table-cell ${column.align ? `table-cell--${column.align}` : ''}`}
+                                    >
+                                        {renderCellContent(column, row, rowIndex)}
+                                    </td>
                                 ))}
-                            </select>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+
+                {showPagination && (
+                    <div className="table-pagination">
+                        <div className="table-pagination-info">
+                            <span className="table-pagination-summary">
+                                Page {currentPage} of {totalPages} ({displayedItems} items)
+                            </span>
+                        </div>
+
+                        <div className="table-pagination-controls">
+                            <div className="table-pagination-size">
+                                <label htmlFor="items-per-page" className="table-pagination-label">
+                                    per page
+                                </label>
+                                <select
+                                    id="items-per-page"
+                                    className="table-pagination-select"
+                                    value={itemsPerPage}
+                                    onChange={(e) => onItemsPerPageChange(Number(e.target.value))}
+                                >
+                                    {pageSizeOptions.map(size => (
+                                        <option key={size} value={size}>
+                                            {size}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )}
+            </div>
     );
 };
 

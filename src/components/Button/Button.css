@@ -39,6 +39,13 @@
   color: var(--button-text-color)
 }
 
+.btn.disabled {
+  cursor: default;
+  background-image: none;
+  opacity: .65;
+  box-shadow: none;
+}
+
 .btn--small {
   font-size: 12px;
   padding: 3px 10px;
@@ -49,6 +56,12 @@
   font-size: 15px;
   padding: 6px 16px;
   height: 36px;
+}
+
+.btn--extra-large {
+  font-size: 16px;
+  padding: 11px 19px;
+  height: 44px;
 }
 
 /* Icon styles */

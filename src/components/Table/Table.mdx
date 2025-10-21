@@ -77,59 +77,33 @@ Table with pagination controls including page navigation and items per page sele
 ## Column Configuration
 
 ### Basic Column
+
 ```javascript
-{
-  key: 'name',           // Data property key
-  title: 'Name',         // Column header text
-  sortable: true,        // Enable sorting
-  align: 'left',         // Text alignment: 'left' | 'center' | 'right'
-  width: '200px'         // Column width
-}
-```
-
-### Alignment Examples
-```javascript
-// Left-aligned text (default)
-{ key: 'name', title: 'Name', align: 'left' }
-
-// Center-aligned content (great for badges, icons, numbers)
-{ key: 'status', title: 'Status', align: 'center' }
-
-// Right-aligned content (great for monetary values, dates)
-{ key: 'amount', title: 'Amount', align: 'right' }
-```
-
-### Action Column
-```javascript
-{
-  key: 'actions',
-  title: 'Actions',
-  type: 'action',
-  sortable: false,
-  actions: [
-    {
-      key: 'edit',
-      label: 'Edit',
-      variant: 'primary'
-    },
-    {
-      key: 'delete',
-      label: 'Delete',
-      variant: 'danger'
-    }
-  ]
-}
-```
-
-### Custom Render Column
-```javascript
-{
-  key: 'status',
-  title: 'Status',
-  render: (value, row, index) => (
-    <span className={`badge badge--${value.toLowerCase()}`}>
-      {value}
-    </span>
-  )
-}
+const basicColumns = [
+  {
+    key: 'name',
+    title: 'Name',
+    align: 'left'
+  },
+  {
+    key: 'email',
+    title: 'Email',
+    align: 'left'
+  },
+  {
+    key: 'role',
+    title: 'Role',
+    align: 'center'
+  },
+  {
+    key: 'status',
+    title: 'Status',
+    align: 'center'
+  },
+  {
+    key: 'posts',
+    title: 'Posts',
+    align: 'right'
+  }
+];
 ```

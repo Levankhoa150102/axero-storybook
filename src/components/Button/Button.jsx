@@ -84,8 +84,6 @@ export const Button = ({
   const { onClick, disabled, style, 'aria-label': ariaLabel, ...otherProps } = props;
 
   return (
-
-    <>
     <button
       className={classes}
       onClick={onClick}
@@ -96,7 +94,6 @@ export const Button = ({
       >
       {renderContent()}
     </button>
-        </>
   );
 };
 
