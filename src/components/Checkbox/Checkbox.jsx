@@ -43,7 +43,7 @@ export const Checkbox = ({
                     {...props}
                 />
                 {label && <span className="checkbox-text">{label}</span>}
-            </label>
+            </label>            
         </div>
     );
 };

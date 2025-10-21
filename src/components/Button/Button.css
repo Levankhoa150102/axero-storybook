@@ -122,18 +122,8 @@ background: var(--background-quaternary);
 
 }
 
-.btn--filter.btn--selected {
-  background: #459d3e;
-  border-color: #459d3e;
-  color: #fff;
-  cursor: default;
-}
-
 .btn--filter.btn--selected:focus {
-  background: #459d3e;
-  border-color: #459d3e;
-  color: #fff;
-  cursor: default;
+  outline: none;
 }
 
 /* Count styling */
@@ -146,4 +136,20 @@ background: var(--background-quaternary);
 .btn-label {
   display: inline-flex;
   align-items: center;
+}
+
+.btn-primary-styles {
+  background-color: #459d3e;
+  border-color: #459d3e;
+  color: #fff;
+}
+
+.btn-primary-styles:hover, .btn-primary-styles:focus,.btn-primary-styles:active  {
+  background-color: #51a351;
+  color: #fff;
+} 
+
+.btn-primary-styles:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
 }

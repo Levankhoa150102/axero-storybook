@@ -12,9 +12,11 @@ A flexible button component designed for AlpineJS projects. Renders as HTML `<bu
 
 ## Default Button
 
+If a button has the class `btn-primary-styles`, its background color will turn to the primary color defined in your theme or CSS. This is useful for highlighting primary actions.
+
 <Canvas of={ButtonStories.Default} />
 
-**CSS Classes Used:** `.btn`
+**CSS Classes Used:** `.btn`, `.btn-primary-styles`
 
 {/* HIDE
 ### Design Tokens Used
@@ -187,33 +189,6 @@ A specialized button component with animated processing state using `.btn.proces
 
 **CSS Classes Used:** `.btn`, `.processing`, `.processing-active`
 
-### Key Props:
-- **`label`**: String - Default button text
-- **`processingLabel`**: String - Text to show during processing (default: "Processing...")
-- **`processingDuration`**: Number - Animation duration in milliseconds (default: 3000)
-- **`onProcessingComplete`**: Function - Callback when processing finishes
-- **`onClick`**: Function - Click handler (called before processing starts)
+### Processing State Activation
+To activate the processing state, add the `.processing-active` class to your button. When `.processing-active` is present, the button displays animated diagonal stripes and shows the processing label.
 
-### Styling Architecture
-
-```css
-.btn.processing.processing-active::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.15) 0,
-    rgba(255, 255, 255, 0.15) 25%,
-    transparent 25%,
-    transparent 50%
-  );
-  background-size: 40px 40px;
-  animation: moveStripes 3s linear infinite;
-}
-
-@keyframes moveStripes {
-  from { background-position: 100% 0%; }
-  to { background-position: 0% 100%; }
-}
-```

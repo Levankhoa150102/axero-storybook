@@ -28,7 +28,7 @@ export const Button = ({
     size ? `btn--${size}`: '',
     iconOnly ? 'btn--icon-only' : '',
     variant ? `btn--${variant}` : '',
-    selected ? 'btn--selected' : '',
+    selected ? 'btn-primary-styles btn--selected' : '',
     className ? className : ''
   ].filter(Boolean).join(' ');
   
@@ -91,7 +91,7 @@ export const Button = ({
       aria-label={ariaLabel || (iconOnly ? label : undefined)}
       style={backgroundColor ? { backgroundColor, ...style } : style}
       {...otherProps}
-      >
+    >
       {renderContent()}
     </button>
   );

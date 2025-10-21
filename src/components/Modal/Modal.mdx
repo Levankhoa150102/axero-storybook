@@ -1,0 +1,96 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Modal } from './Modal.jsx';
+import * as ModalStories from './Modal.stories';
+
+<Meta title="UI Components/Modal" component={Modal} />
+
+
+# Modal
+
+The `Modal` component displays a dialog overlay for user interactions, confirmations, or custom content. It features a header, close button, content area, and an optional footer for actions.
+
+## Features
+- Overlay background to block interaction with the rest of the UI
+- Header with title and close button
+- Scrollable content area
+- Optional footer for actions (e.g., Cancel, Save)
+- Accessible keyboard and focus management
+
+
+## Basic Modal
+
+<Canvas of={ModalStories.Default} />
+
+
+## CSS Classes
+- `.axero-modal-root` — Main container
+- `.axero-modal-overlay` — Overlay background
+- `.axero-modal-panel` — Modal panel
+- `.axero-modal-header` — Header area
+- `.axero-modal-title` — Title text
+- `.axero-modal-close` — Close button
+- `.axero-modal-content` — Content area
+- `.axero-modal-footer` — Footer area
+
+## Accessibility
+- Focus is trapped within the modal when open
+- ESC key closes the modal (add this in your app logic if needed)
+- Overlay click closes the modal
+
+## Customization
+- Style the modal using the provided CSS classes or override them in your theme
+- Footer can contain any React node (buttons, links, etc.)
+
+# ModalWithFullScreen
+
+The `ModalWithFullScreen` component displays a fullscreen dialog overlay for immersive user interactions. It features a header with a close button and a content area, occupying the entire viewport.
+
+## Features
+- Fullscreen overlay and panel
+- Header with close button (no title)
+- Scrollable content area
+- Accessible keyboard and focus management
+
+## Example
+<Canvas of={ModalStories.WithFullScreen} />
+
+## CSS Classes
+- `.axero-modal-fullscreen` — Main fullscreen container
+- `.axero-modal-overlay-fullscreen` — Fullscreen overlay background
+- `.axero-modal-panel-fullscreen` — Fullscreen modal panel
+- `.axero-modal-header-fullscreen` — Header area
+- `.axero-modal-close-fullscreen` — Close button
+- `.axero-modal-content-fullscreen` — Content area
+
+## Accessibility
+- Focus is trapped within the modal when open
+- ESC key closes the modal (add this in your app logic if needed)
+- Overlay click closes the modal
+
+## Customization
+- Style the fullscreen modal using the provided CSS classes or override them in your theme
+
+# ModalConfirm
+
+The `ModalConfirm` component is a simple confirmation dialog for critical actions, such as deleting a record. It reuses the modal styles and provides a clear message with Yes/No actions.
+
+## Features
+- Prominent confirmation message
+- Yes/No action buttons
+- Overlay and focus trap for accessibility
+- Reuses modal CSS for consistent look
+
+## Example
+<Canvas of={ModalStories.WithConfirm} />
+
+## CSS Classes
+- `.axero-modal-confirm-header` — Confirmation message area (with warning background)
+- `.axero-modal-confirm-content` — Button area
+
+## Accessibility
+- Focus is trapped within the modal when open
+- ESC key closes the modal (add this in your app logic if needed)
+- Overlay click closes the modal
+
+## Customization
+- Style the confirm modal using the provided CSS classes or override them in your theme

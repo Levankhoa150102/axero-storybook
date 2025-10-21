@@ -22,12 +22,22 @@ export const Default = {
   args: {
     label: 'Button',
   },
+  render: (args) =>
+    React.createElement(
+      'div',
+      { style: { display: 'flex', gap: 8 } },
+      React.createElement(Button, { ...args }),
+      React.createElement(
+        'button',
+        { className: 'btn btn-primary-styles', type: 'button' },
+        'Primary'
+      )
+    ),
   parameters: {
     docs: {
       source: {
-        code: `<button class="btn">
-  Button
-</button>`
+        code: `<button class="btn">Button</button>
+<button class="btn btn-primary-styles">Primary</button>`
       }
     }
   }
@@ -203,9 +213,6 @@ export const FilterButtonGroup = {
     filterButtons: [
       { id: 'open', label: 'Open', icon: 'fas fa-circle', count: 0 },
       { id: 'due-today', label: 'Due today', icon: 'fas fa-calendar', count: 0 },
-      { id: 'late', label: 'Late', icon: 'fas fa-exclamation', count: 0 },
-      { id: 'all', label: 'All', icon: 'fas fa-list', count: 0 },
-      { id: 'assigned', label: 'Assigned to me', icon: 'fas fa-user', count: 0 }
     ],
     defaultSelected: 'due-today',
     iconOnly: false,
@@ -264,50 +271,29 @@ export const FilterButtonGroup = {
         story: 'Interactive filter buttons with customizable list via JSON controls. Click buttons to see selection state and check Actions panel for click events.',
       },
       source: {
-        code: `<!-- Filter Buttons with Text and Icons -->
-<div style="display: flex; gap: 4px; flex-wrap: wrap;">
-    <button class="btn btn--filter">
-    <span class="btn-icon btn-icon--prefix">
-      <i class="icon fas fa-circle" style="font-size: 12px; width: 12px; height: 12px;"></i>
+        code:`
+<div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+  <button className="btn btn--filter">
+    <span className="btn-icon btn-icon--prefix">
+      <i className="icon fas fa-circle" style={{ fontSize: 12, width: 12, height: 12 }}></i>
     </span>
-    <span class="btn-label">
+    <span className="btn-label">
       Open
-      <span class="btn-count">(0)</span>
+      <span className="btn-count">(0)</span>
     </span>
   </button>
 
-  <button class="btn btn--filter btn--selected">
-    <span class="btn-icon btn-icon--prefix">
-      <i class="icon fas fa-calendar" style="font-size: 12px; width: 12px; height: 12px;"></i>
+  <button className="btn btn--filter btn-primary-styles btn--selected">
+    <span className="btn-icon btn-icon--prefix">
+      <i className="icon fas fa-calendar" style={{ fontSize: 12, width: 12, height: 12 }}></i>
     </span>
-    <span class="btn-label">
+    <span className="btn-label">
       Due today
-      <span class="btn-count">(0)</span>
+      <span className="btn-count">(0)</span>
     </span>
   </button>
 </div>
-
-<!-- Icon-Only Filter Buttons -->
-<div style="display: flex; gap: 4px; flex-wrap: wrap; margin-top: 8px;">
-  <button class="btn btn--filter btn--icon-only" title="Open">
-    <span class="btn-icon">
-      <i class="icon fas fa-circle" style="font-size: 12px; width: 12px; height: 12px;"></i>
-    </span>
-  </button>
-
-  <button class="btn btn--filter btn--icon-only btn--selected" title="Due today">
-    <span class="btn-icon">
-      <i class="icon fas fa-calendar" style="font-size: 12px; width: 12px; height: 12px;"></i>
-    </span>
-  </button>
-
-  <button class="btn btn--filter btn--icon-only" title="Late">
-    <span class="btn-icon">
-      <i class="icon fas fa-exclamation" style="font-size: 12px; width: 12px; height: 12px;"></i>
-    </span>
-  </button>
-</div>
-`
+        `
       }
     }
   }

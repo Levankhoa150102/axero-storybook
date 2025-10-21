@@ -43,19 +43,20 @@ export const ProcessingButton = ({
       }
     }, processingDuration);
   };
-
+  
   const classes = [
     'btn',
     'processing',
     isProcessing ? 'processing-active' : '',
     className
   ].filter(Boolean).join(' ');
-
+  
   const buttonLabel = isProcessing ? processingLabel : label;
-
+  
   const processingColor = backgroundColor === '#459d3e' ? '#51A351' : backgroundColor;
 
   return (
+    <>
     <button
       className={classes}
       onClick={handleClick}
@@ -63,12 +64,16 @@ export const ProcessingButton = ({
       style={{
         backgroundColor: isProcessing ? processingColor : backgroundColor,
         color: textColor,
+        marginBottom: '10px',
         ...props.style
       }}
       {...props}
     >
       {buttonLabel}
     </button>
+      
+      <button className='btn processing processing-active'>Processing</button>
+      </>
   );
 };
 

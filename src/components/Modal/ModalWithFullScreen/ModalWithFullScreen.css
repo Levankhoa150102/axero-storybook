@@ -1,0 +1,68 @@
+.axero-modal-fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1400;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  padding: 15vh 32px 32px 32px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.axero-modal-panel-fullscreen {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: none;
+  max-height: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.axero-modal-title {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.axero-modal-close-fullscreen {
+  position: fixed;
+  top: 15px;
+  right: 30px;
+  border-radius: 100%;
+  border: none;
+  background: none;
+  color: #616061;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  height: 64px;
+  width: 64px;
+  text-align: center;
+  line-height: inherit;
+  z-index: 2000;
+}
+.axero-modal-close-fullscreen:hover {
+  background-color: #ddd;
+  color: #1d1c1d;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.axero-modal-content-fullscreen {
+  width: 80%;
+  margin: auto;
+  overflow-y: auto;
+  flex: 1 1 auto;
+}
