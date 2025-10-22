@@ -65,6 +65,24 @@ A specialized dropdown for space navigation with built-in search functionality. 
 - **Custom Styling**: Diamond hover box design with modern UI
 - **Reuses Dropdown Logic**: Built on top of the base Dropdown component's click-outside and toggle functionality
 
+# Dropdown Components
+
+## IconPicker
+
+A dropdown component for picking icons. Click the icon button to open a searchable grid of available icons. Selecting an icon will update the button and call the `onChange` callback.
+
+<Canvas of={DropdownStories.IconPickerDropdown} />
+
+**Props:**
+- `value`: The currently selected icon (FontAwesome class name)
+- `onChange`: Callback when an icon is selected
+
+**Features:**
+- Searchable icon grid
+- Click to select icon
+- FontAwesome icon support
+- Keyboard accessible
+
 
 {/* HIDE
 

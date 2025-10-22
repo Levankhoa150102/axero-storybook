@@ -1,8 +1,6 @@
 import React from 'react';
 import { Dropdown } from './Dropdown';
-import { DropdownSelect } from './DropdownSelect/DropdownSelect.jsx';
-import { SpaceNavbarWithSearch } from './SpaceNavbarWithSearch/SpaceNavbarWithSearch.jsx';
-import { DropdownWithSearch } from './DropdownWithSearch/DropdownWithSearch.jsx';
+import IconPicker from './IconPicker/IconPicker.jsx';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -347,6 +345,29 @@ export const IconOnly = {
       </a>
     </li>
   </ul>
+</div>`
+      }
+    },
+  },
+};
+
+export const IconPickerDropdown = {
+  render: function () {
+    return React.createElement(IconPicker, {});
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'A dropdown menu for selecting icons, utilizing the IconPicker component.',
+      },
+      source: {
+        code: `<div class="icon-picker">
+  <IconPicker value={icon} onChange={setIcon} />
+  <div class="selected-icon">
+    <span>Selected icon: </span>
+    <i class="fa {{icon}}" style="font-size: 24px; vertical-align: middle;"></i>
+    <span style="margin-left: 8px;">{{icon}}</span>
+  </div>
 </div>`
       }
     },

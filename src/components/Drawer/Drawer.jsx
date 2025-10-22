@@ -15,7 +15,7 @@ export function Drawer({ open, onClose, title, children, placement = 'right' }) 
                         <div className="drawer-content">{children}</div>
                         <div className="drawer-footer">
                             <button className="btn btn--extra-large" style={{ minWidth: '150px' }}  onClick={onClose}>Cancel</button>
-                            <button className="btn btn--extra-large" style={{ backgroundColor: '#51A351', color: '#ffffff', minWidth: '150px'}} >Save</button>
+                            <button className="btn btn--extra-large btn-primary-styles" style={{ minWidth: '150px'}} >Save</button>
                         </div>
                     </div>
                 </>

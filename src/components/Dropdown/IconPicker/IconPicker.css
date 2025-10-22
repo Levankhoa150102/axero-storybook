@@ -1,0 +1,64 @@
+.icon-picker {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-picker__button {
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 4px;
+  padding: 7px 8px;
+  cursor: pointer;
+}
+.icon-picker__button:active {
+  background-color: var(--background-tertiary) \9;
+  background-image: none;
+  outline: 0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.icon-picker__dropdown {
+  position: absolute;
+  top: 107%;
+  left: 0;
+  z-index: 1000;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.icon-picker-wrapper{
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color-primary, #e0e0e0);
+}
+
+.icon-picker__grid {
+  padding: 12px;
+  padding-bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  max-height: 180px;
+  overflow-y: auto;
+  width: max-content;
+  height: auto;
+  min-height: 61px;
+}
+
+.icon-picker__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color-primary, #e0e0e0);
+  padding: 10px 12px 12px 11px;
+  margin: 0 12px 12px 0;
+  font-size: 16px;
+  width: 39px;
+  height: 38px;
+}
+
+
+.icon-picker__icon-btn:focus{
+    outline: none;
+}

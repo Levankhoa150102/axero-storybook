@@ -14,39 +14,17 @@ The Alert Banner component displays temporary notification messages to users. It
 <ArgTypes of={AlertBannerStories} />
 */}
 
-## HTML Output
-
-The Alert Banner component can generate raw HTML for use in AlpineJS applications:
-
-<Source
-  language="html"
-  code={`<div id="message-box-wrapper">
-  <table class="message-box" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr>
-        <td>
-          <div class="message-content message-content--success">
-            <span class="message-content-inner">Thank you for rating.</span>
-            <span class="message-content-options">
-              <a class="close-link" href="#"><i class="icon-remove"></i></a>
-            </span>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>`}
-/>
-
+<Canvas of={AlertBannerStories.Success} />
+<Canvas of={AlertBannerStories.Warning} />
+<Canvas of={AlertBannerStories.Error} />
+<Canvas of={AlertBannerStories.Info} />
 
 ## AlertBanner Types
 
 The component supports four different AlertBanner types:
 
 - **Success** (`type="success"`) - Green background for positive feedback
-- **Warning** (`type="warning"`) - Yellow background for warnings
 - **Error** (`type="error"`) - Red background for errors
-- **Info** (`type="info"`) - Blue background for informational messages
 
 ## CSS Classes
 
@@ -75,3 +53,19 @@ A warning alert box with icon, message, and confirm button. Useful for required 
 - Reusable confirm button
 - Confirmation state with checkbox icon and Undo button
 - Red and green background states
+
+# Notification Component
+
+The Notification component displays persistent banners for alerts, info, success, warning, and error messages. It supports a main message, optional description, and action button.
+
+## Notification Types
+- **Info** (`type="info"`)
+- **Success** (`type="success"`)
+- **Warning** (`type="warning"`)
+
+## Example Usage
+<Canvas of={AlertBannerStories.NotificationInfo} />
+<Canvas of={AlertBannerStories.NotificationSuccess} />
+<Canvas of={AlertBannerStories.NotificationWarning} />
+
+**CSS Classes Used:** `.notification-banner`, `.notification--info`, `.notification--success`, `.notification--warning`, `.notification--error`, `.notification-content`, `.notification-message`

@@ -29,15 +29,27 @@ export const Default = {
       React.createElement(Button, { ...args }),
       React.createElement(
         'button',
+        { className: 'btn disabled', type: 'button' },
+        'Disabled Button'
+      ),
+      React.createElement(
+        'button',
         { className: 'btn btn-primary-styles', type: 'button' },
-        'Primary'
+        'Primary '
+      ),
+      React.createElement(
+        'button',
+        { className: 'btn btn-primary-styles disabled', type: 'button' },
+        'Disabled Primary button'
       )
     ),
   parameters: {
     docs: {
       source: {
         code: `<button class="btn">Button</button>
-<button class="btn btn-primary-styles">Primary</button>`
+<button class="btn disabled">Disabled Button</button>
+<button class="btn btn-primary-styles">Primary</button>
+<button class="btn btn-primary-styles disabled">Disabled Primary button</button>`,
       }
     }
   }

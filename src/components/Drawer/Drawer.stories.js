@@ -79,34 +79,42 @@ Default.parameters = {
     docs: {
         source: {
             code: `<!-- Right Drawer -->
-<button class="btn">Right Drawer</button>
-<div class="drawer-root drawer-open">
-    <div class="drawer-overlay"></div>
-    <div class="drawer-panel drawer-panel-right">
-        <div class="drawer-header">
-            <span class="drawer-title">Drawer Title</span>
-            <button class="drawer-close" aria-label="Close">×</button>
-        </div>
-        <div class="drawer-content">
-            <p>This is the right drawer content.</p>
+    <button class="btn">Right Drawer</button>
+    <div class="drawer-root drawer-open">
+        <div class="drawer-overlay"></div>
+        <div class="drawer-panel drawer-panel-right">
+            <div class="drawer-header">
+                <span class="drawer-title">Drawer Title</span>
+                <button class="drawer-close" aria-label="Close">×</button>
+            </div>
+            <div class="drawer-content">
+                <p>This is the right drawer content.</p>
+            </div>
+            <div className="drawer-footer">
+                <button className="btn btn--extra-large" style={{ minWidth: '150px' }}>Cancel</button>
+                <button className="btn btn--extra-large" style={{ backgroundColor: '#51A351', color: '#ffffff', minWidth: '150px'}} >Save</button>
+            </div>            
         </div>
     </div>
-</div>
 
-<!-- Left Drawer -->
-<button class="btn">Left Drawer</button>
-<div class="drawer-root drawer-open">
-    <div class="drawer-overlay"></div>
-    <div class="drawer-panel drawer-panel-left">
-        <div class="drawer-header">
-            <span class="drawer-title">Drawer Title</span>
-            <button class="drawer-close" aria-label="Close">×</button>
+    <!-- Left Drawer -->
+    <button class="btn">Left Drawer</button>
+    <div class="drawer-root drawer-open">
+        <div class="drawer-overlay"></div>
+        <div class="drawer-panel drawer-panel-left">
+            <div class="drawer-header">
+                <span class="drawer-title">Drawer Title</span>
+                <button class="drawer-close" aria-label="Close">×</button>
+            </div>
+            <div class="drawer-content">
+                <p>This is the left drawer content.</p>
+            </div>
+            <div className="drawer-footer">
+                <button className="btn btn--extra-large" style={{ minWidth: '150px' }}>Cancel</button>
+                <button className="btn btn--extra-large" style={{ backgroundColor: '#51A351', color: '#ffffff', minWidth: '150px'}} >Save</button>
+            </div> 
         </div>
-        <div class="drawer-content">
-            <p>This is the left drawer content.</p>
-        </div>
-    </div>
-</div>`,
+    </div>`,
         }
     }
 };

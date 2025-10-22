@@ -45,6 +45,9 @@
   opacity: .65;
   box-shadow: none;
 }
+.btn.disabled:focus {
+  outline: none;
+}
 
 .btn--small {
   font-size: 12px;
@@ -152,4 +155,16 @@ background: var(--background-quaternary);
 .btn-primary-styles:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
+}
+
+.btn-primary-styles.disabled {
+  cursor: default;
+  background-image: none;
+  background-color: #459d3e;
+  color: #fff;
+  opacity: .65;
+}
+
+.btn-primary-styles.disabled:focus {
+  outline: none;
 }

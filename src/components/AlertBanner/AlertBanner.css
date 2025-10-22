@@ -108,6 +108,8 @@
     font-size: 30px;
 }
 
-.icon-remove:before {
-    content: "\f00d";
+.icon-remove {
+    font-family: "FontAwesome";
+    font-style: normal;
+    font-weight: normal;
 }

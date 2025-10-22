@@ -185,6 +185,37 @@ export const Required = {
   },
 };
 
+export const WithHelpText = {
+  render: function (args) {
+    return React.createElement('div', null, [
+      React.createElement(Input, { ...args, key: 'input' }),
+    ]);
+  },
+  args: {
+    label: 'Input',
+    placeholder: 'Enter value',
+    helpText: 'This is some helpful text to guide the user.',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Input field with help text displayed below the input.',
+      },
+      source: {
+        code: `<div class="input-wrapper">
+  <label for="input" class="input-label">
+    Input
+  </label>
+  <input id="input" type="text" class="input" placeholder="Enter value..." />
+  <div class="input-help-text">
+    This is some helpful text to guide the user.
+  </div>
+</div>`
+      }
+    }
+  }
+};
+
 export const WithError = {
   args: {
     label: 'Email',
@@ -682,7 +713,7 @@ export const WithAdornments = {
   },
   args: {
     label: 'Search',
-    placeholder: 'search...',
+    placeholder: 'Search...',
     iconClassName: 'fas fa-search ',
     iconSize: 14,
     iconPosition: 'suffix',
@@ -873,3 +904,4 @@ export const WithFilter = {
     }
   },
 };
+

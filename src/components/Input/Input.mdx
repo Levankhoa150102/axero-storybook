@@ -27,6 +27,7 @@ An expandable input field without a label that automatically grows as you type, 
 - **Smart placeholder**: Shows/hides placeholder based on actual content
 - **Form compatibility**: Includes hidden input for form submission
 
+
 ### Required Field
 
 Input with required field validation and visual indicator (red asterisk).
@@ -34,6 +35,15 @@ Input with required field validation and visual indicator (red asterisk).
 <Canvas of={InputStories.Required} />
 
 **Key Props:** `required={true}` - Adds required field validation and visual indicator
+
+### Input with Help Text
+
+Input field with a help text displayed below the input. Useful for providing guidance or additional information to users.
+
+<Canvas of={InputStories.WithHelpText} />
+
+**Key Props:**
+- `helpText="This is some helpful text to guide the user."` - Displays help text below the input field
 
 ### Error State
 

@@ -196,6 +196,7 @@ export const Input = ({
     type = 'text',
     as = 'input',
     rows = 3,
+    helpText = '',
     showCharacterCount = false,
     withButton = false,
     buttonText = 'Submit',
@@ -300,6 +301,9 @@ export const Input = ({
                     <CharacterCount showCharacterCount={showCharacterCount} countCharacters={countCharacters} />
                 </div>
                 {renderInputField()}
+                {helpText && (
+                    <div className="input-help-text">{helpText}</div>
+                )}
             </div>
         );
     }
@@ -363,6 +367,9 @@ export const Input = ({
                     
                 </div>
                 {renderInputField()}
+                {helpText && (
+                    <div className="input-help-text">{helpText}</div>
+                )}
             </div>
 
         </>
@@ -499,8 +506,4 @@ Input.propTypes = {
     withTags: PropTypes.bool,
     
 };
-
-/**
- * Input component with integrated Tags functionality
- */
 

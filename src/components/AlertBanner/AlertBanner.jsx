@@ -70,7 +70,7 @@ export const AlertBanner = ({
                         handleClose();
                       }
                     }}>
-                      <i className="icon-remove"></i>
+                      <i className="fa fa-times"></i>
                     </a>
                   </span>
                 )}
@@ -109,7 +109,7 @@ AlertBanner.generateHTML = (options = {}) => {
   };
 
   const closeButtonHTML = showCloseButton 
-    ? `<span class="message-content-options"><a class="close-link" href="#"><i class="icon-remove"></i></a></span>`
+    ? `<span class="message-content-options"><a class="close-link" href="#"><i class="fa fa-times"></i></a></span>`
     : '';
 
   return `<div id="${id}">

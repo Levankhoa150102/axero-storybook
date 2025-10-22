@@ -1,6 +1,7 @@
 import React from 'react';
 import { AlertBanner } from './AlertBanner';
 import { AlertBox } from './AlertBox/AlertBox.jsx';
+import { Notification } from './Notification/Notification.jsx';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -8,8 +9,22 @@ export default {
   component: AlertBanner,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-    layout: 'centered',
+    layout: 'padded',
   },
+  decorators: [
+          (Story) => React.createElement(
+              'div',
+              {
+                  style: {
+                      minHeight: '70px',
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      justifyContent: 'center',
+                  }
+              },
+              React.createElement(Story)
+          ),
+      ],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     message: {
@@ -194,6 +209,132 @@ export const WithAlertBox = {
   </div>
   <button class="btn alert-box-confirm-btn">Undo</button>
 </div>`,
+      }
+    }
+  }
+};
+
+export const NotificationInfo = {
+  render: (args) =>
+    React.createElement(Notification, {
+      ...args
+    }),
+  args: {
+    type: "info",
+    message: "Your membership for this space is pending approval."
+  },
+  argTypes: {
+    type: {
+      control: {
+        type: 'select',
+        options: ['info', 'success', 'warning', 'error'],
+      },
+    },
+    message: {
+      control: 'text',
+    },
+    
+    autoHide: { control: false, table: { disable: true } },
+    autoHideDelay: { control: false, table: { disable: true } },
+    showCloseButton: { control: false, table: { disable: true } },
+    onClose: { control: false, table: { disable: true } },
+    closable: { control: false, table: { disable: true } },
+  },
+  parameters: {
+    docs: {
+      description: { story: 'Info notification banner.' },
+      source: {
+        code: `<div class="notification-banner notification--info">
+  <div class="notification-content">
+    <div class="notification-message">Your membership for this space is pending approval.</div>
+  </div>
+</div>`
+      }
+    }
+  }
+};
+
+export const NotificationSuccess = {
+  render: (args) =>
+    React.createElement(Notification, {
+      ...args
+    }),
+  args: {
+    type: "success",
+    message: "Idea added successfully!"
+  },
+  argTypes: {
+    type: {
+      control: {
+        type: 'select',
+        options: ['info', 'success', 'warning', 'error'],
+      },
+    },
+    message: {
+      control: 'text',
+    },
+
+    autoHide: { control: false, table: { disable: true } },
+    autoHideDelay: { control: false, table: { disable: true } },
+    showCloseButton: { control: false, table: { disable: true } },
+    onClose: { control: false, table: { disable: true } },
+    closable: { control: false, table: { disable: true } },
+
+
+  },
+  parameters: {
+    docs: {
+      description: { story: 'Success notification banner.' },
+      source: {
+        code: `<div class="notification-banner notification--success">
+  <div class="notification-content">
+    <div class="notification-message">Idea added successfully!</div>
+  </div>
+</div>`
+      }
+    }
+  }
+};
+
+export const NotificationWarning = {
+  render: (args) => (
+    React.createElement(Notification, {
+      ...args
+    })
+  ),
+  args: {
+    type: "warning",
+    message: "You haven't created any ideas yet.",
+    description: "Crowdsource thoughts, opinions, and ideas from everyone. Collect feedback through comments and likes. Then vote them up or down and let the best ideas rise to the top."
+  },
+  argTypes: {
+    type: {
+      control: {
+        type: 'select',
+        options: ['info', 'success', 'warning', 'error'],
+      },
+    },
+    message: {
+      control: 'text',
+    },  
+    autoHide: { control: false, table: { disable: true } },
+    autoHideDelay: { control: false, table: { disable: true } },
+    showCloseButton: { control: false, table: { disable: true } },
+    onClose: { control: false, table: { disable: true } },
+    closable: { control: false, table: { disable: true } },
+
+
+  },
+  parameters: {
+    docs: {
+      description: { story: 'Warning notification banner.' },
+      source: {
+        code: `<div class="notification-banner notification--warning">
+  <div class="notification-content">
+    <div class="notification-message">You haven't created any ideas yet.</div>
+    <div class="notification-description">Crowdsource thoughts, opinions, and ideas from everyone. Collect feedback through comments and likes. Then vote them up or down and let the best ideas rise to the top.</div>
+  </div>
+</div>`
       }
     }
   }
