@@ -1,0 +1,26 @@
+.checkbox-list-root {
+  max-height: 150px;
+  overflow-y: auto;
+  overflow-x: auto;
+  border: 1px solid var(--border-color-primary, #e0e0e0);
+  background: var(--background-primary, #fff);
+}
+
+.checkbox-list-row {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border-color-primary, #e0e0e0);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.checkbox-list-input{
+    margin: 8px 20px 5px 10px;
+}
+
+.checkbox-list-row:last-child { border-bottom: none; }
+
+.checkbox-list-row:hover {
+  background: var(--background-tertiary, #f0f0f0);
+}

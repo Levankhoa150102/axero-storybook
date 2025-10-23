@@ -11,7 +11,8 @@
     "build:clean": "rimraf dist && npm run build:toolkit",
     "preview": "vite preview",
     "serve:toolkit": "npx http-server dist -p 8080 -c-1",
-    "prepublishOnly": "npm run build:clean"
+    "prepublishOnly": "npm run build:clean",
+    "build:css": "postcss src/components.css -o dist/components.css"
   },
   "keywords": [
     "storybook",
@@ -31,6 +32,11 @@
     "@storybook/react-vite": "^7.6.7",
     "@storybook/test": "^7.6.7",
     "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.1.1",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "postcss-import": "^16.1.1",
     "rimraf": "^6.0.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",

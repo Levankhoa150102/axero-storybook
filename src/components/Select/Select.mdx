@@ -15,29 +15,27 @@ The Select component includes a label and a styled container for accessibility:
 
 <Canvas of={SelectStories.Default} />
 
-
-
-## Option Object
-
-Each option should be an object:
-
-```js
-{ value: 'apple', label: 'Apple', disabled: false }
-```
-
-- `value`: string (required)
-- `label`: string (required)
-- `disabled`: boolean (optional)
-
 ## Styling
 
 ### CSS Classes
 
 - `.axero-select-container` — Container for label and select
-- `.axero-select-label` — Label for the select
+- `.input-label` — Label element (shared utility class used by the project)
 - `.axero-select` — The select element itself
 
 You can override or extend styles in `Select.css`.
+
+
+## Selected Option
+
+Shows a Select variant where one option is selected by default. Useful for demonstrating persistent selections and how the control highlights the chosen item.
+
+<Canvas of={SelectStories.SelectedOption} />
+
+
+### Disabling the Selected Option variant
+
+If you want to disable `Selected Option`, add the class `dropdown-with-search--disabled` to the root element.
 
 
 ## Filter With Search
@@ -46,18 +44,12 @@ A searchable dropdown specifically designed for space filtering. Features a labe
 
 <Canvas of={SelectStories.WithSearch} />
 
-**CSS Classes Used:** `.dropdown-with-search`, `.dropdown-with-search__trigger`, `.dropdown-with-search__menu`, `.dropdown-with-search__search-input`
+**CSS Classes Used (Filter With Search):** `.dropdown-with-search`, `.dropdown-with-search--disabled`, `.dropdown-with-search--open`, `.dropdown-with-search__container`, `.dropdown-with-search__trigger`, `.dropdown-with-search__value`, `.dropdown-with-search__icon`, `.dropdown-with-search__icon--open`, `.dropdown-with-search__menu`, `.dropdown-with-search__search-container`, `.dropdown-with-search__search-input-wrapper`, `.dropdown-with-search__search-input`, `.dropdown-with-search__options`, `.dropdown-with-search__option`, `.dropdown-with-search__option--selected`, `.dropdown-with-search__empty`
 
 **Props:** `label="Filter by space"`, `options={[...]}`, `value="all"`
 
-### Features:
-- **Label Support**: Clear labeling with optional required indicator (*)
-- **Select Interface**: Button-style trigger showing current selection with CSS triangle caret
-- **Search Bar**: Integrated search input with magnifying glass icon
-- **Real-time Filtering**: Options filter as you type in the search box
-- **Persistent Selection**: Selected option remains highlighted when dropdown reopens
-- **Visual Selection State**: Selected options show with light gray background (`#f0f0f0`)
-- **Dynamic Border Radius**: Trigger button adjusts border radius when open (top corners only)
-- **Keyboard Support**: Focus management and navigation
-- **Click Outside**: Closes when clicking outside the dropdown
-- **Responsive Design**: Adapts to different screen sizes
+### Disabling the dropdown-with-search variant
+
+If you want to disable `SelectWithSearch` or the dropdown-with-search UI, add the class `dropdown-with-search--disabled` to the root element. This applies disabled styles and prevents the menu from opening.
+
+

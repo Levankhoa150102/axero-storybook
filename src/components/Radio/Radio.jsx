@@ -35,9 +35,9 @@ export const Radio = ({
   return (
     <fieldset className={`radio-wrapper ${className}`} {...props}>
       {label && (
-        <legend className="radio-label">
+        <legend className="input-label">
           {label}
-          {required && <span className="radio-required"> *</span>}
+          {required && <span className="input-required"> *</span>}
         </legend>
       )}
 

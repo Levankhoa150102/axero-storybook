@@ -24,7 +24,6 @@ export default function IconPicker({ value, onChange }) {
 
     return (
         <div className="icon-picker" ref={ref}>
-            <label htmlFor="input" className='input-label'>Icon</label>
             <button
                 type="button"
                 className="btn icon-picker__button"

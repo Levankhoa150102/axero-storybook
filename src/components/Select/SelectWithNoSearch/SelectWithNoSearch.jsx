@@ -1,16 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import './SelectWithSearch.css';
+import '../SelectWithSearch/SelectWithSearch.css';
 
-export const SelectWithSearch = ({
+export const SelectWithNoSearch = ({
   options = [],
   value = "",
-  onChange = () => {},
-  disabled = false,
-  className = "",
+  className,
+  disabled,
   label,
   required = false,
-  emptyMessage = "No results found"
+  onChange = () => {},
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -37,14 +36,6 @@ export const SelectWithSearch = ({
   }, []);
 
   // Focus search input when dropdown opens
-  useEffect(() => {
-    if (isOpen && searchInputRef.current) {
-      setTimeout(() => {
-        searchInputRef.current.focus();
-      }, 0);
-    }
-  }, [isOpen]);
-
   const toggleDropdown = () => {
     if (!disabled) {
       setIsOpen(!isOpen);
@@ -61,10 +52,6 @@ export const SelectWithSearch = ({
     setSearchTerm("");
   };
 
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
   const getSelectedLabel = () => {
     const currentValue = selectedValue || value;
     const selected = options.find(option => option.value === currentValue);
@@ -79,14 +66,13 @@ export const SelectWithSearch = ({
   ].filter(Boolean).join(' ');
 
   return (
-    <div className={dropdownClasses} ref={dropdownRef}>
+    <div className={dropdownClasses} ref={dropdownRef}>  
       {label && (
         <label className="input-label">
           {label}
           {required && <span className="input-required"> *</span>}
         </label>
       )}
-      
       <div className="dropdown-with-search__container">
         <button
           type="button"
@@ -104,18 +90,6 @@ export const SelectWithSearch = ({
 
         {isOpen && (
           <div className="dropdown-with-search__menu">
-            <div className="dropdown-with-search__search-container">
-              <div className="dropdown-with-search__search-input-wrapper">
-                <input
-                  ref={searchInputRef}
-                  type="text"
-                  className="dropdown-with-search__search-input"
-                  value={searchTerm}
-                  onChange={handleSearchChange}
-                />
-              </div>
-            </div>
-
             <div className="dropdown-with-search__options">
               {filteredOptions.length > 0 ? (
                 filteredOptions.map((option, index) => (
@@ -143,7 +117,7 @@ export const SelectWithSearch = ({
   );
 };
 
-SelectWithSearch.propTypes = {
+SelectWithNoSearch.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
@@ -154,5 +128,4 @@ SelectWithSearch.propTypes = {
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
   className: PropTypes.string,
-  emptyMessage: PropTypes.string,
 };

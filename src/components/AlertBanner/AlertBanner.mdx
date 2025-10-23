@@ -24,7 +24,10 @@ The Alert Banner component displays temporary notification messages to users. It
 The component supports four different AlertBanner types:
 
 - **Success** (`type="success"`) - Green background for positive feedback
+- **Warning** (`type="warning"`) - Yellow background for warnings
 - **Error** (`type="error"`) - Red background for errors
+- **Info** (`type="info"`) - Blue background for informational messages
+
 
 ## CSS Classes
 
@@ -47,12 +50,17 @@ A warning alert box with icon, message, and confirm button. Useful for required 
 
 <Canvas of={AlertBannerStories.WithAlertBox} />
 
-**Features:**
-- Warning icon (FontAwesome)
-- Custom message
-- Reusable confirm button
-- Confirmation state with checkbox icon and Undo button
-- Red and green background states
+**CSS Classes Used:**
+
+- `.alert-box` - Main alert box container (flex layout)
+- `.alert-box-danger-container` - Styles for the danger/error state container
+- `.alert-box-icon` - Wrapper for the icon and message text
+- `.alert-box-message` - Message text styling
+- `.alert-box-message-danger` - Danger message color
+- `.alert-box-message-confirm` - Confirm/success message color
+- `.alert-box-danger-btn` - Confirm button styling for danger state
+- `.alert-box-confirm-btn` - Confirm/undo button styling for confirmed state
+- `.alert-box-confirm` - Styles for confirmed/success state container
 
 # Notification Component
 

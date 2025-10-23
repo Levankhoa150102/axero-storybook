@@ -42,7 +42,7 @@
   justify-content: space-between;
   transition: all 0.2s ease;
   text-align: left;
-  min-height: 30px;
+  min-height: 36px;
 }
 
 .dropdown-with-search--open .dropdown-with-search__trigger {
@@ -53,6 +53,7 @@
 .dropdown-with-search--disabled .dropdown-with-search__trigger {
   cursor: default;
   pointer-events: none;
+  background-color: #EEEEEE;
 }
 
 /* Value Text */

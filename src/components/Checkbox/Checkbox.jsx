@@ -32,7 +32,7 @@ export const Checkbox = ({
     ].filter(Boolean).join(' ');
 
     return (
-        <div className="checkbox-wrapper">
+        <div className="">
             <label htmlFor={checkboxId} className="checkbox-label">
                 <input
                     id={checkboxId}

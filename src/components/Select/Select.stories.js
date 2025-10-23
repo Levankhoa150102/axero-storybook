@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Select } from './Select.jsx';
 import { SelectWithSearch } from './SelectWithSearch/SelectWithSearch.jsx';
+import { SelectWithNoSearch } from './SelectWithNoSearch/SelectWithNoSearch.jsx';
+
 export default {
     title: 'UI Components/Select',
     component: Select,
@@ -36,6 +38,7 @@ const defaultOptions = [
 
 export const Default = {
     args: {
+        label: 'Space',
         value: '',
         options: defaultOptions,
         disabled: false,
@@ -47,7 +50,6 @@ export const Default = {
             {
                 ...args,
                 value: value,
-                label: 'Space',
                 onChange: e => setValue(e.target.value)
             }
         );
@@ -57,7 +59,7 @@ export const Default = {
             source: {
                 code: ` 
                 <label className='axero-select-container'>
-  <span className="axero-select-label">Space</span>
+  <span className="input-label">Space</span>
   <select class="axero-select">
     <option value="">Select</option>
     <option value="1">Top level community</option>
@@ -68,10 +70,10 @@ export const Default = {
 </label>`
             }
         },
-        layout: 'centered'
+        layout: 'centered',
     }
 };
-// Sample space options matching the image
+
 const spaceOptions = [
   { value: 'all', label: 'View All' },
   { value: 'top-level', label: 'Top level community' },
@@ -80,6 +82,85 @@ const spaceOptions = [
   { value: 'axero-solutions', label: 'Axero Solutions' },
   { value: 'axero-space', label: 'Axero Space' },
 ];
+
+export const SelectedOption = {
+  component: SelectWithNoSearch,
+  render: function(args) {
+    return React.createElement(SelectWithNoSearch, {
+      ...args,
+      onChange: (value) => {
+        if (args.onChange) {
+          args.onChange(value);
+        }
+      }
+    });
+  },
+  args: {
+    label: 'Select',
+    required: false,
+    options: spaceOptions,
+    value: 'all',
+  },
+  argTypes: {
+    // Disable dropdown-specific controls that don't apply to DropdownWithSearch
+    buttonText: { control: false, table: { disable: true } },
+    buttonIcon: { control: false, table: { disable: true } },
+    iconOnly: { control: false, table: { disable: true } },
+    position: { control: false, table: { disable: true } },
+    openLeft: { control: false, table: { disable: true } },
+    navbar: { control: false, table: { disable: true } },
+    onItemClick: { control: false, table: { disable: true } },
+    label: { control: false, table: { disable: true } },
+    placeholder: { control: false, table: { disable: true } },
+    required: { control: false, table: { disable: true } },
+    error: { control: false, table: { disable: true } },
+    errorMessage: { control: false, table: { disable: true } },
+    emptyMessage:  { control: false, table: { disable: true } },
+    
+    // Enable DropdownWithSearch-specific controls
+    options: { control: 'object' },
+    value: { control: 'text' },
+    disabled: { control: 'boolean' },
+    
+    onChange: { action: 'changed' },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'A searchable dropdown for filtering by space. Features a label, select trigger, and a dropdown with search functionality. When clicked, it opens to reveal a list of options with a search bar at the top for filtering. Perfect for space selection interfaces.',
+      },
+      layout: 'padded',
+      source: {
+        code: `
+<div class="dropdown-with-search">
+  <label className="dropdown-with-search__label">
+        Select
+  </label>
+  <div class="dropdown-with-search__container">
+    <button type="button" class="dropdown-with-search__trigger" aria-haspopup="listbox" aria-expanded="false">
+      <span class="dropdown-with-search__value">View All</span>
+      <b class="dropdown-with-search__icon"></b>
+    </button>
+
+    <div class="dropdown-with-search__menu">
+      <div class="dropdown-with-search__options">
+        <button type="button" class="dropdown-with-search__option dropdown-with-search__option--selected">View All</button>
+        <button type="button" class="dropdown-with-search__option">Top level community</button>
+        <button type="button" class="dropdown-with-search__option">Anh Space</button>
+        <button type="button" class="dropdown-with-search__option">anhle-test</button>
+        <button type="button" class="dropdown-with-search__option">Axero Solutions</button>
+        <button type="button" class="dropdown-with-search__option">Axero Space</button>
+      </div>
+    </div>
+  </div>
+</div>`
+      }
+    },
+  },
+};
+
+// Sample space options matching the image
+
 
 export const WithSearch = {
   component: SelectWithSearch,
@@ -95,9 +176,9 @@ export const WithSearch = {
   },
   args: {
     label: 'Filter by space',
-    placeholder: 'Search spaces...',
     options: spaceOptions,
     value: 'all',
+    required: true,
   },
   argTypes: {
     // Disable dropdown-specific controls that don't apply to DropdownWithSearch
@@ -108,16 +189,16 @@ export const WithSearch = {
     openLeft: { control: false, table: { disable: true } },
     navbar: { control: false, table: { disable: true } },
     onItemClick: { control: false, table: { disable: true } },
+      label: { control: false, table: { disable: true } },
+    placeholder: { control: false, table: { disable: true } },
+    required: { control: false, table: { disable: true } },
+    error: { control: false, table: { disable: true } },
+    errorMessage: { control: false, table: { disable: true } },
     
     // Enable DropdownWithSearch-specific controls
-    label: { control: 'text' },
-    placeholder: { control: 'text' },
     options: { control: 'object' },
     value: { control: 'text' },
     disabled: { control: 'boolean' },
-    required: { control: 'boolean' },
-    error: { control: 'boolean' },
-    errorMessage: { control: 'text' },
     emptyMessage: { control: 'text' },
     onChange: { action: 'changed' },
   },
@@ -130,22 +211,23 @@ export const WithSearch = {
       source: {
         code: `
 <div class="dropdown-with-search">
-  <label class="dropdown-with-search__label">Filter by space</label>
-  
+  <label className="dropdown-with-search__label">
+        Filter by space
+        <span className="input-required"> *</span>
+  </label>
   <div class="dropdown-with-search__container">
-    <button type="button" class="dropdown-with-search__trigger">
+    <button type="button" class="dropdown-with-search__trigger" aria-haspopup="listbox" aria-expanded="false">
       <span class="dropdown-with-search__value">View All</span>
-      <i class="fas fa-chevron-down dropdown-with-search__icon"></i>
+      <b class="dropdown-with-search__icon"></b>
     </button>
-    
+
     <div class="dropdown-with-search__menu">
       <div class="dropdown-with-search__search-container">
         <div class="dropdown-with-search__search-input-wrapper">
-          <i class="fas fa-search dropdown-with-search__search-icon"></i>
-          <input type="text" class="dropdown-with-search__search-input" placeholder="Search spaces..." />
+          <input type="text" class="dropdown-with-search__search-input"/>
         </div>
       </div>
-      
+
       <div class="dropdown-with-search__options">
         <button type="button" class="dropdown-with-search__option dropdown-with-search__option--selected">View All</button>
         <button type="button" class="dropdown-with-search__option">Top level community</button>
@@ -156,21 +238,9 @@ export const WithSearch = {
       </div>
     </div>
   </div>
-</div>
-
-<!-- Disabled DropdownWithSearch -->
-<div class="dropdown-with-search dropdown-with-search--disabled">
-  <label class="dropdown-with-search__label">Filter by space (Disabled)</label>
-  
-  <div class="dropdown-with-search__container">
-    <button type="button" class="dropdown-with-search__trigger" disabled>
-      <span class="dropdown-with-search__value">View All</span>
-      <b class="dropdown-with-search__icon"></b>
-    </button>
-    <!-- No menu shown when disabled -->
-  </div>
 </div>`
       }
     },
   },
 };
+

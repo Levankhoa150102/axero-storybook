@@ -51,8 +51,9 @@
 
 /* Disabled State */
 .dropdown-with-search--disabled .dropdown-with-search__trigger {
-  cursor: default;
+  cursor: pointer;
   pointer-events: none;
+  background-color: #EEEEEE;
 }
 
 /* Value Text */

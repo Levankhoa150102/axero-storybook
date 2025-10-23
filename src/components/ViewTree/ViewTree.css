@@ -1,0 +1,57 @@
+/* ViewTree styles */
+.view-tree-root {
+	font-size: 0.95rem;
+	color: var(--body-text-primary, #161616);
+}
+
+.vt-node { margin: 2px 0; }
+
+.vt-row {
+	display: flex;
+	align-items: center;
+}
+
+.vt-toggle {
+	width: 16px;
+	height: 16px;
+	padding: 0;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.vt-toggle .vt-caret {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-top: 6px solid transparent;
+	border-bottom: 6px solid transparent;
+	border-left: 6px solid #333;
+}
+
+.vt-toggle.open .vt-caret {
+	transform: rotate(90deg);
+}
+
+.vt-spacer {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+
+.vt-checkbox-label {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	cursor: pointer;
+}
+.vt-checkbox-label input[type="checkbox"] {
+    cursor: pointer;
+}
+.vt-label-text:hover { text-decoration: underline; }
+
+.vt-children { margin-left: 4px; }
+

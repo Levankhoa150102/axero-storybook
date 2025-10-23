@@ -4,7 +4,7 @@ import './Select.css';
 export function Select({ options = [], value, onChange, disabled = false, className = '', ...props }) {
     return (
         <label className='axero-select-container'>
-            <span className="axero-select-label">{props.label}</span>
+            <span className="input-label">{props.label}</span>
               <select
                   className={`axero-select${className ? ' ' + className : ''}`}
                   value={value}

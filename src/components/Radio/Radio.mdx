@@ -23,7 +23,7 @@ Basic Radio component with label and description for each option, perfect for th
 
 <Canvas of={RadioStories.Default} />
 
-**CSS Classes Used:** `.radio-wrapper`, `.radio-label`, `.radio-list`, `.radio-item`, `.radio-option`, `.radio-text`
+**CSS Classes Used (Default Radio):** `.radio-wrapper`, `.input-label`, `.input-required`, `.radio-list`, `.radio-item`, `.radio-option`, `.radio-text`
 
 **Props:** `label="Type of space"`, `required={true}`, `options={spaceTypeOptions}`
 
@@ -33,23 +33,10 @@ Basic Radio component with label and description for each option, perfect for th
 - **Card-like Design**: Each option styled as a clickable card with rounded corners
 - **Accessibility**: Proper fieldset/legend structure with ARIA attributes
 
-**Use Cases:**
-- Contact method preferences
-- Simple category selections
-- Yes/No type questions
-- Basic configuration options
+## Basic Radio
 
-## Design Patterns
+Simple vertical radio list for binary choices (e.g., notification preferences).
 
-### Option Structure
-Each option in the `options` array should include:
-- **`value`** (required): Unique identifier for the option
-- **`label`** (required): Display text for the option
-- **`description`** (optional): Additional descriptive text
+<Canvas of={RadioStories.Basic} />
 
-### Form Integration
-The Radio component works seamlessly with HTML forms:
-- Uses proper `name` attributes for form submission
-- Supports `required` validation
-- Compatible with form libraries like Formik, React Hook Form
-- Provides controlled and uncontrolled component patterns
+**CSS Classes Used (Basic Radio):** `.radio-basic-root`, `.radio-basic-row`, `.radio-basic-label`, `.input-label`, `.input-required`
