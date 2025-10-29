@@ -1,0 +1,70 @@
+/* Styles for CDN-based date range picker */
+.udp-root {
+    padding: 8px;
+    position: relative;
+    display: inline-block;
+}
+
+.udp-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+
+.udp-row {
+    display: flex;
+    gap: 8px;
+    position: relative;
+}
+
+.udp-input {
+    padding: 7px 10px;
+    font-size: 14px;
+    width: 10vw;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: not-allowed;
+    min-height: 20.2px;
+    margin: 0 0 10px;
+    color: #333;
+}
+.udp-input:focus {
+    outline: none;
+}
+
+.udp-to {
+    color: #888;
+    font-size: .875rem;
+    margin: .4rem 0;
+}
+.udp-end-wrap {
+    position: relative;
+}
+
+.udp-icon {
+    position: absolute;
+    right: 10px;
+    top: 40%;
+    transform: translateY(-50%);
+    color: #7e848c;
+    cursor: pointer;
+}
+
+.udp-hidden {
+    display: none;
+}
+
+.udp-clear{
+    color: #0d6efd;
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+/* Override daterangepicker Apply button to match design */
+.daterangepicker .applyBtn {
+    background-color: #459d3e !important;
+    border-color: #3f8a35 !important;
+    color: #ffffff !important;
+}

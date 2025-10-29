@@ -125,9 +125,9 @@ export default function ViewTree({ nodes = [], allowIndeterminate = false }) {
 	}
 
 	return (
-		<div className="view-tree-root">
-			{renderNodes(nodes)}
-		</div>
+		 <div className="view-tree-root">
+		 	{renderNodes(nodes)}
+		 </div>
 	);
 }
 

@@ -1,0 +1,64 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import CDNDateRangePicker from './DatePicker';
+
+<Meta title="Components/UptodateDesign/DatePicker" component={CDNDateRangePicker} />
+
+# Date Range Picker
+
+A lightweight wrapper around the popular daterangepicker library. This component renders a start and end input and opens the calendar when the calendar icon is clicked.
+
+## Install / include the library
+
+There are two ways to use the component's date library:
+
+1) CDN (recommended for Storybook/demo)
+
+Include these in your HTML (or they will be injected automatically by the component in our demo):
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+```
+
+2) Local install (npm)
+
+```bash
+npm install jquery moment daterangepicker
+```
+
+Then import the CSS once in your app:
+
+```js
+import 'daterangepicker/daterangepicker.css';
+```
+
+And ensure `window.jQuery` is available (e.g. import `jquery` and attach to window in your setup):
+
+```js
+import $ from 'jquery';
+window.jQuery = window.$ = $;
+```
+
+### Props
+
+- `label` (string) — Label shown above the inputs.
+- `startPlaceholder` (string) — Placeholder text for the start input.
+- `endPlaceholder` (string) — Placeholder text for the end input.
+- `onChange` (function) — Callback fired when selection changes. Receives `{ start, end }` where the dates are formatted as `DD/MM/YYYY`.
+
+### Behavior notes
+
+- Only the calendar icon opens the daterangepicker — inputs are rendered readonly by default in this wrapper to avoid accidental opens. If you need editable inputs, modify the component to remove the readonly prop.
+- When a range is selected, a small `Clear` link appears in the label area; clicking it removes both values and resets the picker.
+- The component attempts to load/inject the CDN scripts/styles when used in a demo environment. For production, prefer installing and bundling the packages locally.
+
+### Accessibility & notes
+
+- The current wrapper focuses on visual parity and a controlled API. Keyboard and ARIA improvements can be added (focus trapping in the picker, keyboard navigation hints, and more descriptive labels).
+- Because this is a thin wrapper around a jQuery plugin, ensure the plugin is loaded before rendering if you rely on the native daterangepicker behavior.
+
+---
+
+If you want, I can also add a second MDX example showing programmatic control (open/close/clear) with code snippets for integration in apps.

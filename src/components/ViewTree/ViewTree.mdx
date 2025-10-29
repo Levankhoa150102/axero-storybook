@@ -1,0 +1,63 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks';
+import * as ViewTreeStories from './ViewTree.stories.js';
+
+<Meta of={ViewTreeStories} />
+
+# ViewTree
+
+A lightweight checkbox tree component for hierarchical selections. This component provides expand/collapse controls for parent nodes and checkbox selection with optional indeterminate visual state for partially-selected parents.
+
+<Canvas of={ViewTreeStories.Default} />
+
+## Props
+
+- `nodes` (required): array — tree nodes in the shape `{ id, label, children }`. Children should be an array of nodes or omitted/empty.
+- `allowIndeterminate` (optional): boolean — when true the component will set `input.indeterminate = true` for partially selected parents. Default: `false`.
+
+## CSS Classes Used
+
+- `.view-tree-root` — component root
+- `.vt-node` — wrapper for each node
+- `.vt-row` — row containing toggle and label
+- `.vt-toggle` — expand/collapse toggle button
+- `.vt-spacer` — invisible spacer used for leaf nodes so labels align
+- `.vt-checkbox-label` — label that contains input + text
+- `.vt-label-text` — node text
+- `.vt-children` — container for child nodes
+
+## Usage
+
+Pass a `nodes` array and optionally `allowIndeterminate`:
+
+```jsx
+const nodes = [
+    {
+        id: 'root',
+        label: 'Root',
+        children: [
+            {
+                id: 'parent1',
+                label: 'Parent Folder',
+                children: [
+                    { id: 'child1', label: 'Child Folder', children: [] },
+                ],
+            },
+            {
+                id: 'activity',
+                label: 'Activity Stream Files',
+                children: [
+                    { id: 'activity1', label: 'Activity File 1', children: [] },
+                ],
+            },
+            { id: 'parent3', label: 'Parent 3', children: [] },
+        ],
+    },
+];
+
+<ViewTree nodes={nodes} allowIndeterminate={false} />
+```
+
+## Notes
+
+- The component intentionally does not depend on jQuery — behavior mimics jQuery UI trees but uses React refs to set the `indeterminate` state when enabled.
+- For accessibility improvements you can add keyboard navigation and ARIA roles; happy to add this on request.
